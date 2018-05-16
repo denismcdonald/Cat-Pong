@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pong</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<canvas id="gameCanvas" width="800" height="600"></canvas>
+
+
+    <script type="text/javascript">
+
+        var canvas;
+        var canvasContext;
+
+        window.onload = function() {
+            canvas = document.getElementById("gameCanvas");
+            canvasContext = canvas.getContext("2d");
+            canvasContext.fillStyle = "purple";
+            canvasContext.fillRect(0,0,canvas.width,canvas.height);
+            canvasContext.fillStyle = "yellow";
+            canvasContext.fillRect(10,250,10,100);
+            canvasContext.fillStyle = "yellow";
+            canvasContext.fillRect(780,250,10,100);
+            canvasContext.fillStyle = "white";
+            canvasContext.fillRect(390,0,10,600);
+        }
+    
+    </script>
+
+</body>
+</html>
