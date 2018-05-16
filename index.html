@@ -16,10 +16,17 @@
 
         var canvas;
         var canvasContext;
+        var ballX = 50;
 
         window.onload = function() {
             canvas = document.getElementById("gameCanvas");
             canvasContext = canvas.getContext("2d");
+            setInterval(drawEverything, 1);
+        }
+
+        function drawEverything() {
+            ballX = ballX + 2;
+            console.log(ballX);
             canvasContext.fillStyle = "purple";
             canvasContext.fillRect(0,0,canvas.width,canvas.height);
             canvasContext.fillStyle = "yellow";
@@ -28,6 +35,8 @@
             canvasContext.fillRect(780,250,10,100);
             canvasContext.fillStyle = "white";
             canvasContext.fillRect(390,0,10,600);
+            canvasContext.fillStyle = "white";
+            canvasContext.fillRect(ballX,300,10,10);
         }
     
     </script>
