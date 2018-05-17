@@ -15,28 +15,40 @@
     <script type="text/javascript">
 
         var canvas;
-        var canvasContext;
+        var ctx;
         var ballX = 50;
 
         window.onload = function() {
             canvas = document.getElementById("gameCanvas");
-            canvasContext = canvas.getContext("2d");
+            ctx = canvas.getContext("2d");
             setInterval(drawEverything, 1);
         }
 
         function drawEverything() {
             ballX = ballX + 2;
             console.log(ballX);
-            canvasContext.fillStyle = "purple";
-            canvasContext.fillRect(0,0,canvas.width,canvas.height);
-            canvasContext.fillStyle = "yellow";
-            canvasContext.fillRect(10,250,10,100);
-            canvasContext.fillStyle = "yellow";
-            canvasContext.fillRect(780,250,10,100);
-            canvasContext.fillStyle = "white";
-            canvasContext.fillRect(390,0,10,600);
-            canvasContext.fillStyle = "white";
-            canvasContext.fillRect(ballX,300,10,10);
+            ctx.fillStyle = "purple";
+            ctx.fillRect(0,0,canvas.width,canvas.height);
+            //Paddle left
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(10,250,10,100);
+            //Paddle right
+            ctx.fillStyle = "yellow";
+            ctx.fillRect(780,250,10,100);
+            //Net
+            ctx.strokeStyle = "white";
+            ctx.beginPath();
+            ctx.setLineDash([10,15]);
+            ctx.moveTo(400,580);
+            ctx.lineTo(400,20);
+            ctx.stroke();
+            ctx.fill();
+            //Ball
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            ctx.arc(ballX,300,8,0,2 * Math.PI, false);
+            ctx.stroke();
+            ctx.fill();
         }
     
     </script>
