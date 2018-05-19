@@ -17,12 +17,14 @@
         var canvas;
         var ctx;
         var ballX = 50;
+        var ballSpeedX = 10;
 
         window.onload = function() {
             canvas = document.getElementById("gameCanvas");
             ctx = canvas.getContext("2d");
 
-            var framesPerSecond = 180;
+            var framesPerSecond = 60;
+
             setInterval(function() {
                 moveEverything();
                 drawEverything();
@@ -30,18 +32,26 @@
         }
 
         function moveEverything() {
-            ballX = ballX + 2;
+            ballX = ballX + ballSpeedX;
+            if (ballX > canvas.width) {
+                ballSpeedX = -ballSpeedX;
+            }
+            if (ballX < 0) {
+                ballSpeedX = -ballSpeedX;
+            }
         }
 
         function drawEverything() {
-            ctx.fillStyle = "purple";
-            ctx.fillRect(0,0,canvas.width,canvas.height);
+            
+            //Canvas play area
+            colorRect(0, 0, canvas.width, canvas.height, "purple");
+           
             //Paddle left
-            ctx.fillStyle = "yellow";
-            ctx.fillRect(10,250,10,100);
+            colorRect(0, 250, 10, 100, "yellow");
+           
             //Paddle right
-            ctx.fillStyle = "yellow";
-            ctx.fillRect(780,250,10,100);
+            colorRect(790, 250, 10, 100, "yellow");
+         
             //Net
             ctx.strokeStyle = "white";
             ctx.beginPath();
@@ -50,12 +60,19 @@
             ctx.lineTo(400,20);
             ctx.stroke();
             ctx.fill();
+           
             //Ball
             ctx.fillStyle = "white";
             ctx.beginPath();
             ctx.arc(ballX,300,8,0,2 * Math.PI, false);
             ctx.stroke();
             ctx.fill();
+        }
+
+        //Rectangle draw template
+        function colorRect(leftX, topY, width, height, drawColor) {
+            ctx.fillStyle = drawColor;
+            ctx.fillRect(leftX, topY, width, height);
         }
     
     </script>
