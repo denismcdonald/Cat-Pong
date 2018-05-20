@@ -34,13 +34,11 @@
         var ctx;
         var ballX = 50;
         var ballSpeedX = 10;        
-        var rand = Math.floor(Math.random() * (10000 - 1000 + 1) + 1000);
-
+        var rand = 5500;
        
         window.onload = function() {
             canvas = document.getElementById("gameCanvas");
             ctx = canvas.getContext("2d");
-
             var framesPerSecond = 59;
 
             //Smooth animation method, as per https://css-tricks.com/using-requestanimationframe/
@@ -59,24 +57,24 @@
 
 
             //Blink cat's eyes
-            setInterval(function() {
+            setInterval(function blink() {
 
-               console.log("blink");
-               document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
+            //    console.log("blink");
+               document.getElementById("eyeleft").style.transition = "all 80ms ease-out";
                document.getElementById("eyeleft").style.height = "2px";
                document.getElementById("eyebrowLeft").style.transform = "skew(0,0deg)";
-               document.getElementById("eyeright").style.transition = "all 50ms ease-out";
+               document.getElementById("eyeright").style.transition = "all 80ms ease-out";
                document.getElementById("eyeright").style.height = "2px";
                document.getElementById("eyebrowRight").style.transform = "skew(0,0deg)";
                
                setTimeout(function() {
-               document.getElementById("eyeleft").style.height = "15px";
                document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
+               document.getElementById("eyeleft").style.height = "15px";
                document.getElementById("eyebrowLeft").style.transform = "skew(0,-20deg)";
-               document.getElementById("eyeright").style.height = "15px";
                document.getElementById("eyeright").style.transition = "all 50ms ease-out";
+               document.getElementById("eyeright").style.height = "15px";              
                document.getElementById("eyebrowRight").style.transform = "skew(0,20deg)";
-               }, 100);
+               }, 150);
             }, rand);
         }   
 
