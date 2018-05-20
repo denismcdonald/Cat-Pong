@@ -86,7 +86,7 @@ canvas {
     border-width: 8px 10px 0 8px;
     border-color: black transparent transparent transparent;
     top: 135px;
-    transition: left 130ms ease-out;
+    transition: left 100ms ease-out;
 }
 
 #nose::after {

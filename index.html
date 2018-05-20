@@ -33,8 +33,10 @@
         var canvas;
         var ctx;
         var ballX = 50;
-        var ballSpeedX = 10;
+        var ballSpeedX = 10;        
+        var rand = Math.floor(Math.random() * (10000 - 1000 + 1) + 1000);
 
+       
         window.onload = function() {
             canvas = document.getElementById("gameCanvas");
             ctx = canvas.getContext("2d");
@@ -56,9 +58,9 @@
             // }, 1000/framesPerSecond);
 
 
-        //Blink cat's eyes
-        setInterval(function() {
-               
+            //Blink cat's eyes
+            setInterval(function() {
+
                console.log("blink");
                document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
                document.getElementById("eyeleft").style.height = "2px";
@@ -75,8 +77,11 @@
                document.getElementById("eyeright").style.transition = "all 50ms ease-out";
                document.getElementById("eyebrowRight").style.transform = "skew(0,20deg)";
                }, 100);
-            }, Math.floor(Math.random() * (8000 - 1000 + 1)) + 1000);
-        }
+            }, rand);
+        }   
+
+
+        //Perhaps try implementing setTimeout for random interval instead?  https://stackoverflow.com/questions/30725455/change-setinterval-value-dynamically
 
         function moveEverything() {
             ballX = ballX + ballSpeedX;
@@ -102,9 +107,6 @@
             if (ballX > 400) {
                 document.getElementById("eyeright").style.left = "51.5%";            
             }
-
-          
-
         }
 
         function drawEverything() {
@@ -140,7 +142,6 @@
             ctx.fillStyle = drawColor;
             ctx.fillRect(leftX, topY, width, height);
         }
-        
     
     </script>
 
