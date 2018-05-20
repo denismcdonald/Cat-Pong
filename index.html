@@ -9,8 +9,24 @@
 </head>
 <body>
 
-<canvas id="gameCanvas" width="800" height="600"></canvas>
+    <div id="umpire"></div>
 
+    <div id="eyeleft">
+        <div id="eyebrowLeft"></div>
+    </div>
+    <div id="eyeright">
+        <div id="eyebrowRight"></div>
+    </div>
+    <div id="nose">
+        <div id="whiskers1"></div>
+        <div id="whiskers2"></div>
+        <div id="whiskers3"></div>
+        <div id="whiskers4"></div>
+        <div id="whiskers5"></div>
+        <div id="whiskers6"></div>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
 
     <script type="text/javascript">
 
@@ -23,12 +39,43 @@
             canvas = document.getElementById("gameCanvas");
             ctx = canvas.getContext("2d");
 
-            var framesPerSecond = 60;
+            var framesPerSecond = 59;
 
-            setInterval(function() {
+            //Smooth animation method, as per https://css-tricks.com/using-requestanimationframe/
+            function repeatOften() {
                 moveEverything();
                 drawEverything();
-            }, 1000/framesPerSecond);
+                requestAnimationFrame(repeatOften);
+            }
+            repeatOften();            
+
+            //Previous animation method, as per Udemy tutorial
+            // setInterval(function() {
+            //     moveEverything();
+            //     drawEverything();
+            // }, 1000/framesPerSecond);
+
+
+        //Blink cat's eyes
+        setInterval(function() {
+               
+               console.log("blink");
+               document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
+               document.getElementById("eyeleft").style.height = "2px";
+               document.getElementById("eyebrowLeft").style.transform = "skew(0,0deg)";
+               document.getElementById("eyeright").style.transition = "all 50ms ease-out";
+               document.getElementById("eyeright").style.height = "2px";
+               document.getElementById("eyebrowRight").style.transform = "skew(0,0deg)";
+               
+               setTimeout(function() {
+               document.getElementById("eyeleft").style.height = "15px";
+               document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
+               document.getElementById("eyebrowLeft").style.transform = "skew(0,-20deg)";
+               document.getElementById("eyeright").style.height = "15px";
+               document.getElementById("eyeright").style.transition = "all 50ms ease-out";
+               document.getElementById("eyebrowRight").style.transform = "skew(0,20deg)";
+               }, 100);
+            }, Math.floor(Math.random() * (8000 - 1000 + 1)) + 1000);
         }
 
         function moveEverything() {
@@ -39,6 +86,25 @@
             if (ballX < 0) {
                 ballSpeedX = -ballSpeedX;
             }
+            
+            //Cateyes
+            if (ballX < 400) {
+                document.getElementById("eyeleft").style.left = "47.5%";
+                document.getElementById("nose").style.left = "49%";
+            }
+            if (ballX > 400) {
+                document.getElementById("eyeleft").style.left = "48.5%"; 
+                document.getElementById("nose").style.left = "50%";           
+            }
+            if (ballX < 400) {
+                document.getElementById("eyeright").style.left = "50.5%";
+            }
+            if (ballX > 400) {
+                document.getElementById("eyeright").style.left = "51.5%";            
+            }
+
+          
+
         }
 
         function drawEverything() {
@@ -74,6 +140,7 @@
             ctx.fillStyle = drawColor;
             ctx.fillRect(leftX, topY, width, height);
         }
+        
     
     </script>
 

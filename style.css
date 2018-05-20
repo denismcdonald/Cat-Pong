@@ -1,5 +1,5 @@
 body {
-    
+    /* -webkit-font-smoothing: antialiased; */
     background: #ff7b00;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -9,5 +9,197 @@ canvas {
     border-radius: 10px;
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     display: block;
-    margin: 10% auto;
+    margin: 0 auto;
+}
+
+#eyeleft {
+    -webkit-transform: translate3d(0,0,0); /*IMPORTANT. See: https://stackoverflow.com/questions/16255634/css3-transition-leaves-a-trail */
+    background-color: black;
+    border-radius: 45%;
+    height: 15px;
+    left: 48%;
+    top: 110px;
+    position: absolute;
+    width: 15px;
+    transition: all 100ms ease-out;
+}
+
+#eyebrowLeft {
+    background-color: black;
+    height: 1px;
+    top: -10px;
+    position: absolute;
+    transform: skew(0,-20deg);
+    width: 10px;
+}
+
+/* #eyeleft::before {
+    content: "";
+    background-color: black;
+    height: 1px;
+    margin-top: -10px;
+    width: 10px;
+    transform: skew(0,-20deg);
+    position: absolute;
+} */
+
+#eyeright {
+    -webkit-transform: translate3d(0,0,0);
+    background-color: black;
+    border-radius: 45%;
+    height: 15px;
+    left: 51%;
+    top: 110px;
+    position: absolute;
+    width: 15px;
+    transition: all 100ms ease-out;
+}
+
+#eyebrowRight {
+    background-color: black;
+    height: 1px;
+    left: 5px;
+    top: -10px;
+    position: absolute;
+    transform: skew(0,20deg);
+    width: 10px;
+}
+
+/* #eyeright::before {
+    content: "";
+    background-color: black;
+    height: 1px;
+    margin-left: 4px;
+    margin-top: -10px;
+    width: 10px;
+    transform: skew(0,20deg);
+    position: absolute;
+} */
+
+#nose {
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: 49.5%;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 8px 10px 0 8px;
+    border-color: black transparent transparent transparent;
+    top: 135px;
+    transition: left 130ms ease-out;
+}
+
+#nose::after {
+    content: "";
+    background-color: black;
+    height: 10px;
+    position: absolute;
+    width: 1px;
+}
+
+#whiskers1 {
+    background-color: black;
+    height: 1px;
+    margin-left: 12px;
+    margin-top: -6px;
+    transform: skew(0,-5deg);
+    width: 15px;
+}
+
+#whiskers2 {
+    background-color: black;
+    height: 2px;
+    margin-left: 12px;
+    margin-top: 3px;
+    width: 17px;
+}
+
+#whiskers3 {
+    background-color: black;
+    height: 1px;
+    margin-left: 12px;
+    margin-top: 3px;
+    transform: skew(0,5deg);
+    width: 15px;
+}
+
+#whiskers4 {
+    background-color: black;
+    height: 1px;
+    margin-left: -26px;
+    margin-top: -1px;
+    transform: skew(0,-5deg);
+    width: 15px;
+}
+
+#whiskers5 {
+    background-color: black;
+    height: 2px;
+    margin-left: -28px;
+    margin-top: -6px;
+    width: 17px;
+}
+
+#whiskers6 {
+    background-color: black;
+    height: 1px;
+    margin-left: -26px;
+    margin-top: -6px;
+    transform: skew(0,5deg);
+    width: 15px;
+}
+
+/* #nose::after {
+    content: "";
+    background-color: black;
+    height: 2px;
+    left: -30px;
+    position: absolute;
+    width: 20px;
+}
+
+#nose::before {
+    content: "";
+    background-color: black;
+    height: 2px;
+    left: 10px;
+    position: absolute;
+    width: 20px;
+} */
+
+#umpire {
+    background-color: #92c9e0;
+    border: 8px solid black;
+    border-radius: 25px;
+    height: 80px;
+    margin: 80px auto;
+    position: block;
+    width: 100px;
+    filter: drop-shadow(2px 2px 5px #555);
+}
+
+/*Ear left*/
+#umpire::after {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-top: -100px;
+    border-style: solid;
+    border-width: 0 25px 38px 25px;
+    border-color: transparent transparent #92c9e0 transparent;
+    transform: skew(0, 15deg);
+}
+
+/*Ear right*/
+#umpire::before {
+    content: "";
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-top: -100px;
+    border-style: solid;
+    border-width: 0 25px 42px 25px;
+    border-color: transparent transparent #92c9e0 transparent;
+    transform: skew(0, -25deg);
 }
