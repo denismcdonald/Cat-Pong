@@ -128,10 +128,14 @@
             ctx.fill();
            
             //Ball
-            ctx.fillStyle = "white";
+            colorCircle(ballX, 300, 8, "white");
+        }
+   
+        //Circle draw template
+        function colorCircle(centerX, centerY, radius, drawColor) {
+            ctx.fillStyle = drawColor;
             ctx.beginPath();
-            ctx.arc(ballX,300,8,0,2 * Math.PI, false);
-            ctx.stroke();
+            ctx.arc(centerX, centerY, radius, 0, Math.PI*2, true);
             ctx.fill();
         }
 
