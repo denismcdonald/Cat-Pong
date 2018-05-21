@@ -79,7 +79,7 @@
             canvas.addEventListener("mousemove", 
                 function(evt) {
                     var mousePos = calculateMousePosition(evt);
-                    paddle2Y = mousePos.y-(paddleHeight/2);
+                    paddle1Y = mousePos.y-(paddleHeight/2);
             });
 
             //Blink cat's eyes
@@ -109,8 +109,6 @@
             ballY = canvas.height/2;
 
             //Cat reaction
-            // document.getElementById("eyeleft").style.left = "48%";
-            // document.getElementById("eyeright").style.left = "51%";
             document.getElementById("nose").style.top = "125px";
             document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
             document.getElementById("eyeleft").style.height = "2px";
@@ -141,7 +139,6 @@
                     ballSpeedX = -ballSpeedX;
                 } else {                
                     ballReset();
-                // ballSpeedX = -ballSpeedX;
                 }
             }
 
@@ -150,7 +147,6 @@
                     ballSpeedX = -ballSpeedX;
                 } else {                
                     ballReset();
-                // ballSpeedX = -ballSpeedX;
                 }
             }
             
