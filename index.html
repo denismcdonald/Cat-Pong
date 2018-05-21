@@ -32,8 +32,10 @@
 
         var canvas;
         var ctx;
-        var ballX = 50;
+        var ballX = 400;
+        var ballY = 300;
         var ballSpeedX = 10;        
+        var ballSpeedY = 5;
         var rand = 5500;
        
         window.onload = function() {
@@ -83,11 +85,20 @@
 
         function moveEverything() {
             ballX = ballX + ballSpeedX;
+            ballY = ballY + ballSpeedY;
+            
+            if (ballX < 0) {
+                ballSpeedX = -ballSpeedX;
+            }
             if (ballX > canvas.width) {
                 ballSpeedX = -ballSpeedX;
             }
-            if (ballX < 0) {
-                ballSpeedX = -ballSpeedX;
+            
+            if (ballY < 0) {
+                ballSpeedY = -ballSpeedY;
+            }
+            if (ballY > canvas.height) {
+                ballSpeedY = -ballSpeedY;
             }
             
             //Cateyes
@@ -105,6 +116,8 @@
             if (ballX > 400) {
                 document.getElementById("eyeright").style.left = "51.5%";            
             }
+
+
         }
 
         function drawEverything() {
@@ -128,7 +141,7 @@
             ctx.fill();
            
             //Ball
-            colorCircle(ballX, 300, 8, "white");
+            colorCircle(ballX, ballY, 8, "white");
         }
    
         //Circle draw template
