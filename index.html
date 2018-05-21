@@ -14,9 +14,11 @@
     <div id="eyeleft">
         <div id="eyebrowLeft"></div>
     </div>
+    
     <div id="eyeright">
         <div id="eyebrowRight"></div>
     </div>
+
     <div id="nose">
         <div id="whiskers1"></div>
         <div id="whiskers2"></div>
@@ -37,7 +39,21 @@
         var ballSpeedX = 10;        
         var ballSpeedY = 5;
         var rand = 5500;
-       
+        
+        var paddle1Y = 250;
+        var paddleHeight = 100;
+
+        function calculateMousePosition(evt) {
+            var rect = canvas.getBoundingClientRect();
+            var root = document.documentElement;
+            var mouseX = evt.clientX - rect.left - root.scrollLeft;
+            var mouseY = evt.clientY - rect.top - root.scrollTop;
+            return {
+                x:mouseX,
+                y:mouseY
+            }            
+        };       
+
         window.onload = function() {
             canvas = document.getElementById("gameCanvas");
             ctx = canvas.getContext("2d");
@@ -57,11 +73,14 @@
             //     drawEverything();
             // }, 1000/framesPerSecond);
 
+            canvas.addEventListener("mousemove", 
+                function(evt) {
+                    var mousePos = calculateMousePosition(evt);
+                    paddle1Y = mousePos.y-(paddleHeight/2);
+            });
 
             //Blink cat's eyes
             setInterval(function blink() {
-
-            //    console.log("blink");
                document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
                document.getElementById("eyeleft").style.height = "2px";
                document.getElementById("eyebrowLeft").style.transform = "skew(0,0deg)";
@@ -78,8 +97,14 @@
                document.getElementById("eyebrowRight").style.transform = "skew(0,20deg)";
                }, 150);
             }, rand);
-        }   
+        }  //window.onload 
 
+
+        function ballReset() {
+            ballSpeedX = -ballSpeedX;
+            ballX = canvas.width/2;
+            ballY = canvas.height/2;
+        }
 
         //Perhaps try implementing setTimeout for random interval instead?  https://stackoverflow.com/questions/30725455/change-setinterval-value-dynamically
 
@@ -88,8 +113,14 @@
             ballY = ballY + ballSpeedY;
             
             if (ballX < 0) {
-                ballSpeedX = -ballSpeedX;
+                if (ballY > paddle1Y && ballY < paddle1Y+paddleHeight) {
+                    ballSpeedX = -ballSpeedX;
+                } else {                
+                    ballReset();
+                // ballSpeedX = -ballSpeedX;
             }
+            }
+
             if (ballX > canvas.width) {
                 ballSpeedX = -ballSpeedX;
             }
@@ -116,9 +147,8 @@
             if (ballX > 400) {
                 document.getElementById("eyeright").style.left = "51.5%";            
             }
+        } //function moveEverything
 
-
-        }
 
         function drawEverything() {
             
@@ -126,7 +156,7 @@
             colorRect(0, 0, canvas.width, canvas.height, "purple");
            
             //Paddle left
-            colorRect(0, 250, 10, 100, "yellow");
+            colorRect(0, paddle1Y, 10, paddleHeight, "yellow");
            
             //Paddle right
             colorRect(790, 250, 10, 100, "yellow");
@@ -142,7 +172,7 @@
            
             //Ball
             colorCircle(ballX, ballY, 8, "white");
-        }
+        } //function drawEverything
    
         //Circle draw template
         function colorCircle(centerX, centerY, radius, drawColor) {
