@@ -39,6 +39,8 @@
 
     <script type="text/javascript">
 
+        // document.body.style.background = "yellow";
+
         var canvas;
         var ctx;
         var ballX = 400;
@@ -120,7 +122,12 @@
             ballX = canvas.width/2;
             ballY = canvas.height/2;
 
-            //Cat reaction to score
+            //Canvas reaction to score
+            document.querySelector("canvas").classList.add("shake");
+            setTimeout(function() {
+            document.querySelector("canvas").classList.remove("shake");
+            }, 1000);
+
             document.getElementById("nose").style.top = "125px";
             document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
             document.getElementById("eyeleft").style.height = "2px";
@@ -163,31 +170,45 @@
             ballY += ballSpeedY;
             
             if (ballX < 0) {
-                if (ballY > paddle1Y && ballY < paddle1Y+paddleHeight) {
+                if (ballY > paddle1Y-10 && ballY < paddle1Y+paddleHeight+10) {
                     ballSpeedX = -ballSpeedX;
                     
-                    var deltaY = ballY
-                        -(paddle1Y+paddleHeight/2);
+                    //Calculates variable ball speed depending on collision point with paddle
+                    var deltaY = ballY-(paddle1Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
 
                 } else {       
                     ballReset();
                     player2Score++;
                     document.getElementById("p2Score").innerHTML = player2Score; 
+                    document.getElementById("p2Score").classList.add("grow");
+                    setTimeout(function() {
+                    document.getElementById("p2Score").classList.remove("grow");
+                    }, 2000);
                 }
             }
 
             if (ballX > canvas.width) {
                 if (ballY > paddle2Y && ballY < paddle2Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
-                    var deltaY = ballY
-                        -(paddle2Y+paddleHeight/2);
+                    
+                    var deltaY = ballY-(paddle2Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
 
                 } else {                
                     ballReset();
                     player1Score++;
                     document.getElementById("p1Score").innerHTML = player1Score;
+                    
+                    document.getElementById("p1Score").classList.add("grow");
+                    setTimeout(function() {
+                        document.getElementById("p1Score").classList.remove("grow");
+                    }, 2000);
+
+                    document.querySelector("canvas").classList.add("cheer");
+                    setTimeout(function() {
+                        document.querySelector("canvas").classList.remove("cheer");
+                    }, 1000);
                 }
             }
             
@@ -239,8 +260,6 @@
             //Ball
             colorCircle(ballX, ballY, 8, "white");
 
-            // ctx.fillText(player1Score, 100, 100);
-            // ctx.fillText(player2Score, canvas.width-100, 100);
 
         } //function drawEverything
    

@@ -10,36 +10,92 @@ canvas {
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     display: block;
     margin: 0 auto;
+    transition: all 200ms ease-in;
 }
+
+.shake {
+    animation: shake .25s;
+}
+
+.grow {
+    animation: grow 2s;
+}
+
+.cheer {
+    animation: cheer .6s;
+}
+
+
+@keyframes shake {
+    0% { 
+      transform: rotate(3deg);
+    } 
+    25% {
+    transform: rotate(0deg);
+    }
+    50% {
+    transform: rotate(-3deg);
+    }
+    75% { 
+      transform: rotate(3deg);;
+    } 
+    100% {
+    transform: rotate(0deg);
+    } 
+}
+
+@keyframes grow {
+    0% { 
+        transform: scale(1);
+    } 
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes cheer {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+
+
 
 #scores {
     font-family: Monoton;
     font-size: 50px;
-    /* margin-bottom: 0px; */
     text-align: center;
     filter: drop-shadow(5px 5px 20px yellow);
     transition: all 250ms ease-in;
+    margin-bottom: -40px;
 }
 
-#score {
-    display: inline;
-    font-size: 70px;
-    text-transform: uppercase;
-    /* vertical-align: 15px; */
-}
+
 
 #p1Score {
-    display: inline;
+    display: inline-block;
     font-size: 80px;
     margin-right: 180px;
-    /* filter: drop-shadow(3px 3px 40px yellow); */
 }
 
 #p2Score {
-    display: inline;
+    display: inline-block;
     font-size: 80px;
     margin-left: 180px;
-    /* filter: drop-shadow(3px 3px 40px yellow); */
 }
 
 
@@ -165,32 +221,32 @@ canvas {
     border: 8px solid black;
     border-radius: 25px;
     height: 80px;
-    margin: 80px auto -100px;
+    margin: 80px auto -140px;
     position: block;
     width: 100px;
     filter: drop-shadow(2px 2px 5px #555);
 }
 
-/*Ear left*/
+/*Ear right*/
 #umpire::after {
     content: "";
     display: inline-block;
     width: 0;
     height: 0;
-    margin-top: -20px;
+    margin-top: -30px;
     border-style: solid;
     border-width: 0 25px 38px 25px;
     border-color: transparent transparent #92c9e0 transparent;
-    transform: skew(0, 15deg);
+    transform: skew(0, 25deg);
 }
 
-/*Ear right*/
+/*Ear left*/
 #umpire::before {
     content: "";
     display: inline-block;
     width: 0;
     height: 0;
-    margin-top: -20px;
+    margin-top: -22px;
     border-style: solid;
     border-width: 0 25px 42px 25px;
     border-color: transparent transparent #92c9e0 transparent;
