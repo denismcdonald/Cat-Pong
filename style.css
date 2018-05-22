@@ -17,17 +17,26 @@ canvas {
     font-size: 50px;
     /* margin-bottom: 0px; */
     text-align: center;
-    filter: drop-shadow(2px 2px 55px yellow);
+    filter: drop-shadow(3px 3px 45px yellow);
+}
+
+#score {
+    display: inline;
+    font-size: 70px;
+    text-transform: uppercase;
+    /* vertical-align: 15px; */
 }
 
 #p1Score {
     display: inline;
-    margin-right: 125px;
+    font-size: 80px;
+    margin-right: 150px;
 }
 
 #p2Score {
     display: inline;
-    margin-left: 125px;
+    font-size: 80px;
+    margin-left: 150px;
 }
 
 
