@@ -5,7 +5,7 @@ body {
 }
 
 canvas {
-    border: 4px solid white;
+    border: 8px solid white;
     border-radius: 10px;
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     display: block;
@@ -17,7 +17,8 @@ canvas {
     font-size: 50px;
     /* margin-bottom: 0px; */
     text-align: center;
-    filter: drop-shadow(3px 3px 45px yellow);
+    filter: drop-shadow(5px 5px 20px yellow);
+    transition: all 250ms ease-in;
 }
 
 #score {
@@ -30,13 +31,15 @@ canvas {
 #p1Score {
     display: inline;
     font-size: 80px;
-    margin-right: 150px;
+    margin-right: 180px;
+    /* filter: drop-shadow(3px 3px 40px yellow); */
 }
 
 #p2Score {
     display: inline;
     font-size: 80px;
-    margin-left: 150px;
+    margin-left: 180px;
+    /* filter: drop-shadow(3px 3px 40px yellow); */
 }
 
 
@@ -162,7 +165,7 @@ canvas {
     border: 8px solid black;
     border-radius: 25px;
     height: 80px;
-    margin: 80px auto 0;
+    margin: 80px auto -100px;
     position: block;
     width: 100px;
     filter: drop-shadow(2px 2px 5px #555);
