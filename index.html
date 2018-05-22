@@ -40,6 +40,9 @@
         var ballSpeedY = 5;
         var rand = 5500;
         
+        var player1Score = 0;
+        var player2Score = 0;
+
         var paddle1Y = 250;
         var paddle2Y = 250;
         var paddleHeight = 100;
@@ -130,15 +133,32 @@
 
         //Perhaps try implementing setTimeout for random interval instead?  https://stackoverflow.com/questions/30725455/change-setinterval-value-dynamically
 
+
+        function computerMovement() {
+            
+            var paddle2YCenter = paddle2Y + (paddleHeight/2);
+            
+            if (paddle2YCenter < ballY-35) {
+                paddle2Y += 5;
+            } else if (paddle2YCenter > ballY+35) {
+                paddle2Y -= 5;
+            }
+        }
+
+
         function moveEverything() {
-            ballX = ballX + ballSpeedX;
-            ballY = ballY + ballSpeedY;
+
+            computerMovement();
+
+            ballX += ballSpeedX;
+            ballY += ballSpeedY;
             
             if (ballX < 0) {
                 if (ballY > paddle1Y && ballY < paddle1Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
                 } else {                
                     ballReset();
+                    player2Score++;
                 }
             }
 
@@ -147,6 +167,7 @@
                     ballSpeedX = -ballSpeedX;
                 } else {                
                     ballReset();
+                    player1Score++;
                 }
             }
             
@@ -197,6 +218,9 @@
            
             //Ball
             colorCircle(ballX, ballY, 8, "white");
+
+        ctx.fillText(player1Score, 100, 100);
+        ctx.fillText(player2Score, canvas.width-100, 100);
 
         } //function drawEverything
    
