@@ -29,7 +29,7 @@ canvas {
 }
 
 .grow {
-    animation: grow 2s;
+    animation: grow 1.5s;
 }
 
 .cheer {
@@ -64,7 +64,7 @@ canvas {
         transform: scale(1);
     } 
     50% {
-        transform: scale(1.05);
+        transform: scale(1.2);
     }
     100% {
         transform: scale(1);
