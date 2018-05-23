@@ -6,12 +6,23 @@ body {
 
 canvas {
     border: 8px solid white;
-    border-radius: 10px;
+    border-radius: 15px;
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     display: block;
     margin: 0 auto;
     transition: all 200ms ease-in;
 }
+
+/* #overlay {
+    background-color: white;
+    border-radius: 45%;
+    height: 50px;
+    position: absolute;
+    left: 48%;
+    width: 50px;
+    top: 52%;
+    visibility: hidden;
+} */
 
 .shake {
     animation: shake .25s;
@@ -24,6 +35,10 @@ canvas {
 .cheer {
     animation: cheer .6s;
 }
+
+/* .ballReset {
+    animation: ballReset .2s;
+} */
 
 
 @keyframes shake {
@@ -70,6 +85,24 @@ canvas {
         transform: scale(1);
     }
 }
+
+/* @keyframes ballReset {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(1);
+    }
+    75% {
+        visibility: visible;
+        opacity: 1;
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(1);
+        visibility: hidden;
+    }
+} */
 
 
 

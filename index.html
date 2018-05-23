@@ -35,6 +35,8 @@
         <h1 id="p2Score">0</h1>
     </div>
 
+    <!-- <div id="overlay"></div> -->
+
     <canvas id="gameCanvas" width="800" height="600"></canvas>
 
     <script type="text/javascript">
@@ -115,18 +117,18 @@
         }  //window.onload 
 
 
-        function ballReset() {
-            
+        function ballReset() {      
+
             ballSpeedX = -ballSpeedX;
             ballSpeedY = ballSpeedY/3;
             ballX = canvas.width/2;
             ballY = canvas.height/2;
 
-            //Canvas reaction to score
-            document.querySelector("canvas").classList.add("shake");
-            setTimeout(function() {
-            document.querySelector("canvas").classList.remove("shake");
-            }, 1000);
+            //Show where ball respawns
+            // document.getElementById("overlay").classList.add("ballReset");
+            // setTimeout(function() {
+            //     document.getElementById("overlay").classList.remove("ballReset");
+            // }, 1000);
 
             document.getElementById("nose").style.top = "125px";
             document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
@@ -183,8 +185,13 @@
                     document.getElementById("p2Score").innerHTML = player2Score; 
                     document.getElementById("p2Score").classList.add("grow");
                     setTimeout(function() {
-                    document.getElementById("p2Score").classList.remove("grow");
+                        document.getElementById("p2Score").classList.remove("grow");
                     }, 2000);
+                    //Canvas reaction to score
+                    document.querySelector("canvas").classList.add("shake");
+                    setTimeout(function() {
+                        document.querySelector("canvas").classList.remove("shake");
+                    }, 1000);
                 }
             }
 
@@ -240,13 +247,19 @@
         function drawEverything() {
             
             //Canvas play area
-            colorRect(0, 0, canvas.width, canvas.height, "purple");
+            colorRect(0, 0, canvas.width, canvas.height, "#7447d1");
            
             //Paddle left
             colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
+
+            //Paddle left border
+            // colorRect(0, paddle1Y+4, paddleWidth-4, paddleHeight-8, "black");
            
             //Paddle right
-            colorRect(canvas.width-10, paddle2Y, paddleWidth, paddleHeight, "yellow");
+            colorRect(canvas.width-11, paddle2Y, paddleWidth, paddleHeight, "yellow");
+
+            //Paddle right border
+            // colorRect(canvas.width-8, paddle2Y+4, paddleWidth, paddleHeight-8, "black");
          
             //Net
             ctx.strokeStyle = "white";
