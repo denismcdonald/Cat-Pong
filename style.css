@@ -4,13 +4,19 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+/* h1 {
+    margin: 0;
+    padding: none;
+    display: inline-block;
+} */
+
 canvas {
     border: 8px solid white;
     border-radius: 15px;
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     cursor: crosshair;
     display: block;
-    margin: 0 auto;
+    margin: 150px auto 80px;
     transition: all 200ms ease-in;
 }
 
@@ -44,7 +50,7 @@ canvas {
 
 @keyframes shake {
     0% { 
-      transform: rotate(2deg);
+    transform: rotate(2deg);
     } 
     25% {
     transform: rotate(0deg);
@@ -53,7 +59,7 @@ canvas {
     transform: rotate(-2deg);
     }
     75% { 
-      transform: rotate(2deg);;
+    transform: rotate(2deg);;
     } 
     100% {
     transform: rotate(0deg);
@@ -105,26 +111,36 @@ canvas {
 
 
 
-
-#scores {
-    font-family: Monoton;
-    font-size: 50px;
-    text-align: center;
-    filter: drop-shadow(5px 5px 20px yellow);
-    transition: all 250ms ease-in;
-    margin-bottom: -40px;
+#wrapper {
+    width: 800px;
+    max-width: 800px;
+    margin: 0 auto;
 }
-
 
 
 #p1Score {
-    display: inline-block;
+    font-family: Monoton;
+    font-size: 50px;
+    text-align: left;
+    filter: drop-shadow(6px 6px 20px yellow);
+    font-weight: bold;
+    left: 29%;
+    /* display: block; */
+    position: absolute;
     font-size: 80px;
-    margin-right: 180px;
+    /* margin-right: 180px; */
+    /* margin: 0 auto 80px; */
 }
 
 #p2Score {
-    display: inline-block;
+    font-family: Monoton;
+    font-size: 50px;
+    font-weight: bold;
+    /* text-align: center; */
+    filter: drop-shadow(6px 6px 20px yellow);
+    right: 29%;
+    /* display: inline-block; */
+    position: absolute;
     font-size: 80px;
     margin-left: 180px;
 }
@@ -140,6 +156,24 @@ canvas {
     position: absolute;
     width: 15px;
     transition: all 100ms ease-out;
+}
+
+#shiny1 {
+    background-color: #fff;
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    right: 5px;
+    top: 2px;
+}
+
+#shiny2 {
+    background-color: #fff;
+    height: 2px;
+    width: 2px;
+    position: absolute;
+    right: 5px;
+    top: 2px;
 }
 
 #eyebrowLeft {
@@ -183,7 +217,7 @@ canvas {
     border-width: 8px 10px 0 8px;
     border-color: black transparent transparent transparent;
     top: 135px;
-    transition: left 100ms ease-out;
+    transition: all 100ms ease-out;
 }
 
 #nose::after {
@@ -252,7 +286,7 @@ canvas {
     border: 8px solid black;
     border-radius: 25px;
     height: 80px;
-    margin: 80px auto -140px;
+    margin: 80px auto -120px;
     position: block;
     width: 100px;
     filter: drop-shadow(2px 2px 5px #555);
@@ -283,3 +317,62 @@ canvas {
     border-color: transparent transparent #92c9e0 transparent;
     transform: skew(0, -25deg);
 }
+
+@media (max-width: 1100px) {
+    #p1Score {
+        left: 22%;
+    }
+
+    #p2Score {
+        right: 22%;
+    }
+}
+
+
+@media (min-width: 1400px) {
+    #p1Score {
+        left: 32%;
+    }
+
+    #p2Score {
+        right: 32%;
+    }
+
+    /* #eyeleft {
+        left: 35%;
+    } */
+}
+
+@media (min-width: 1900px) {
+    #p1Score {
+        left: 35%;
+    }
+
+    #p2Score {
+        right: 35%;
+    }
+}
+
+
+
+/* #p1Score {
+    font-family: Monoton;
+    font-size: 50px;
+    text-align: left;
+    filter: drop-shadow(6px 6px 20px yellow);
+    font-weight: bold;
+    left: 29%;
+    position: absolute;
+    font-size: 80px;
+}
+
+#p2Score {
+    font-family: Monoton;
+    font-size: 50px;
+    font-weight: bold;
+    filter: drop-shadow(6px 6px 20px yellow);
+    right: 29%;
+    position: absolute;
+    font-size: 80px;
+    margin-left: 180px;
+} */

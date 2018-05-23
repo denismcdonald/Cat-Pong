@@ -10,13 +10,18 @@
 </head>
 <body>
 
+
+  
+
     <div id="umpire"></div>
 
     <div id="eyeleft">
+        <div id="shiny1"></div>
         <div id="eyebrowLeft"></div>
     </div>
     
     <div id="eyeright">
+        <div id="shiny2"></div>
         <div id="eyebrowRight"></div>
     </div>
 
@@ -29,19 +34,16 @@
         <div id="whiskers6"></div>
     </div>
 
-    <div id="scores">
-        <h1 id="p1Score">0</h1>
-        <!-- <h1 id="score">Score</h1> -->
-        <h1 id="p2Score">0</h1>
-    </div>
+    
+        <div id="p1Score">0</div>
+        <div id="p2Score">0</div>
+
 
     <!-- <div id="overlay"></div> -->
 
     <canvas id="gameCanvas" width="800" height="600"></canvas>
 
     <script type="text/javascript">
-
-        // document.body.style.background = "yellow";
 
         var canvas;
         var ctx;
@@ -69,7 +71,10 @@
                 x:mouseX,
                 y:mouseY
             }            
-        };       
+        }; 
+
+        
+
 
         window.onload = function() {
             canvas = document.getElementById("gameCanvas");
@@ -84,7 +89,7 @@
             }
             repeatOften();            
 
-            //Previous animation method, as per Udemy tutorial
+            //Previous animation method, as per tutorial
             // setInterval(function() {
             //     moveEverything();
             //     drawEverything();
@@ -98,6 +103,8 @@
 
             //Blink cat's eyes
             setInterval(function blink() {
+               document.getElementById("shiny1").style.visibility = "hidden";
+               document.getElementById("shiny2").style.visibility = "hidden";
                document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
                document.getElementById("eyeleft").style.height = "2px";
                document.getElementById("eyebrowLeft").style.transform = "skew(0,0deg)";
@@ -106,6 +113,8 @@
                document.getElementById("eyebrowRight").style.transform = "skew(0,0deg)";
                
                setTimeout(function() {
+               document.getElementById("shiny1").style.visibility = "visible";
+               document.getElementById("shiny2").style.visibility = "visible";
                document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
                document.getElementById("eyeleft").style.height = "15px";
                document.getElementById("eyebrowLeft").style.transform = "skew(0,-20deg)";
@@ -114,6 +123,23 @@
                document.getElementById("eyebrowRight").style.transform = "skew(0,20deg)";
                }, 150);
             }, rand);
+
+            // var ump = document.getElementById("umpire");
+            // ump.addEventListener("mouseover", function() {
+            // ump.style.backgroundColor = "yellow";
+            // ump.style.height = "150px";
+            // });
+
+//Umpire mouseover
+// document.getElementById("umpire").addEventListener("mouseenter", function() {
+//             document.getElementById("umpire").style.backgroundColor = "blue";
+//             document.getElementById("umpire").classList.add("shake");
+//             setTimeout(function() {
+//                 document.getElementById("umpire").classList.remove("shake");
+//             }, 500);
+//         });
+
+
         }  //window.onload 
 
 
@@ -130,6 +156,8 @@
             //     document.getElementById("overlay").classList.remove("ballReset");
             // }, 1000);
 
+            document.getElementById("shiny1").style.visibility = "hidden";
+            document.getElementById("shiny2").style.visibility = "hidden";
             document.getElementById("nose").style.top = "125px";
             document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
             document.getElementById("eyeleft").style.height = "2px";
@@ -139,6 +167,8 @@
             document.getElementById("eyebrowRight").style.transform = "skew(0,-15deg)";
 
             setTimeout (function() {
+                document.getElementById("shiny1").style.visibility = "visible";
+                document.getElementById("shiny2").style.visibility = "visible";
                 document.getElementById("nose").style.top = "135px";
                 document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
                 document.getElementById("eyeleft").style.height = "15px";
@@ -146,8 +176,10 @@
                 document.getElementById("eyeright").style.transition = "all 50ms ease-out";
                 document.getElementById("eyeright").style.height = "15px";
                 document.getElementById("eyebrowRight").style.transform = "skew(0,20deg)";
-            }, 800);               
-        }
+            }, 600);  
+
+        } //function ballReset
+
 
         //Perhaps try implementing setTimeout for random interval instead?  https://stackoverflow.com/questions/30725455/change-setinterval-value-dynamically
 
@@ -181,17 +213,19 @@
 
                 } else {       
                     ballReset();
+                    //BUG IS IN THIS CODE - DOWN TO END OF ,1000);
                     player2Score++;
                     document.getElementById("p2Score").innerHTML = player2Score; 
+                    
                     document.getElementById("p2Score").classList.add("grow");
                     setTimeout(function() {
                         document.getElementById("p2Score").classList.remove("grow");
                     }, 2000);
-                    //Canvas reaction to score
+                   
                     document.querySelector("canvas").classList.add("shake");
                     setTimeout(function() {
                         document.querySelector("canvas").classList.remove("shake");
-                    }, 500);
+                    }, 1000);
                 }
             }
 
@@ -215,7 +249,7 @@
                     document.querySelector("canvas").classList.add("cheer");
                     setTimeout(function() {
                         document.querySelector("canvas").classList.remove("cheer");
-                    }, 500);
+                    }, 1000);
                 }
             }
             
@@ -226,21 +260,42 @@
                 ballSpeedY = -ballSpeedY;
             }
             
-            //Cateyes
+            //Umpire's eyes follow ball
             if (ballX < 400) {
-                document.getElementById("eyeleft").style.left = "47.5%";
-                document.getElementById("nose").style.left = "49%";
-            }
-            if (ballX > 400) {
-                document.getElementById("eyeleft").style.left = "48.5%"; 
-                document.getElementById("nose").style.left = "50%";           
-            }
-            if (ballX < 400) {
+                document.getElementById("eyeleft").style.left = "47.4%";
+                document.getElementById("nose").style.left = "48.85%";
                 document.getElementById("eyeright").style.left = "50.5%";
             }
             if (ballX > 400) {
-                document.getElementById("eyeright").style.left = "51.5%";            
+                document.getElementById("eyeleft").style.left = "48.5%"; 
+                document.getElementById("nose").style.left = "50%";  
+                document.getElementById("eyeright").style.left = "51.5%";          
             }
+          
+            //Eyes follow ball on widescreen
+            if (window.matchMedia("(min-width: 1500px)").matches) {
+                if (ballX < 400) {
+                document.getElementById("eyeleft").style.left = "48.25%";
+                document.getElementById("nose").style.left = "49.15%";
+                }
+                if (ballX > 400) {
+                document.getElementById("eyeleft").style.left = "49%";
+                document.getElementById("eyeright").style.left = "51%";             
+                }               
+            }
+
+             //Eyes follow ball on smaller screens
+             if (window.matchMedia("(max-width: 1100px)").matches) {
+                if (ballX < 400) {
+                document.getElementById("eyeleft").style.left = "46.75%";
+                document.getElementById("nose").style.left = "48.5%";
+                }
+                if (ballX > 400) {
+                document.getElementById("eyeleft").style.left = "48.25%";  
+                document.getElementById("eyeright").style.left = "51.5%";           
+                }               
+            }
+
         } //function moveEverything
 
 
