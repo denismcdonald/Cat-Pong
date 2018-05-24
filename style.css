@@ -37,6 +37,10 @@ canvas {
     animation: cheer .4s;
 }
 
+.spin {
+    animation: spin .800s;
+}
+
 /* .ballReset {
     animation: ballReset .2s;
 } */
@@ -81,6 +85,15 @@ canvas {
     }
     100% {
         transform: scale(1);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
     }
 }
 
