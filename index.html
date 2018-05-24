@@ -301,8 +301,8 @@
             //Eyes follow ball on widescreen
             if (window.matchMedia("(min-width: 1500px)").matches) {
                 if (ballX < 400) {
-                document.getElementById("eyeleft").style.left = "48.25%";
-                document.getElementById("nose").style.left = "49.15%";
+                document.getElementById("eyeleft").style.left = "48.50%";
+                document.getElementById("nose").style.left = "49.40%";
                 }
                 if (ballX > 400) {
                 document.getElementById("eyeleft").style.left = "49%";
@@ -340,12 +340,19 @@
                     ctx.fillText("Right Equals Might!", 240, 250);
                 }               
                   
-                  ctx.fillText("Click to continue", 260, 320);
-                  document.getElementById("eyeleft").style.left = "48%";
-                  document.getElementById("nose").style.left = "49.5%";
-                  document.getElementById("eyeright").style.left = "51%";
+                ctx.fillText("Click to continue", 260, 320);
+                  
+                document.getElementById("eyeleft").style.left = "48%";
+                document.getElementById("nose").style.left = "49.5%";
+                document.getElementById("eyeright").style.left = "51%";
+
+                if (window.matchMedia("(min-width: 1700px)").matches) {
+                    document.getElementById("eyeleft").style.left = "48.5%";
+                    // document.getElementById("nose").style.left = "49.5%";
+                    document.getElementById("eyeright").style.left = "50.5%";
+                }
                 return;
-            }
+              }
            
             //Paddle left
             colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
