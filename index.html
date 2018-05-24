@@ -55,6 +55,9 @@
         
         var player1Score = 0;
         var player2Score = 0;
+        var winningScore = 3;
+
+        var showingWinScreen = false;
 
         var paddle1Y = 250;
         var paddle2Y = 250;
@@ -145,6 +148,14 @@
 
         function ballReset() {      
 
+            if (player1Score >= winningScore ||
+                player2Score >= winningScore) {
+                    player1Score = 0;
+                    document.getElementById("p1Score").innerHTML = player1Score;
+                    player2Score = 0;
+                    document.getElementById("p2Score").innerHTML = player2Score;
+            }
+
             ballSpeedX = -ballSpeedX;
             ballSpeedY = ballSpeedY/3;
             ballX = canvas.width/2;
@@ -156,6 +167,7 @@
             //     document.getElementById("overlay").classList.remove("ballReset");
             // }, 1000);
 
+            //Umpire reaction
             document.getElementById("shiny1").style.visibility = "hidden";
             document.getElementById("shiny2").style.visibility = "hidden";
             document.getElementById("nose").style.top = "125px";
@@ -211,11 +223,10 @@
                     var deltaY = ballY-(paddle1Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
 
-                } else {       
+                } else {     
+                    player2Score++;  
                     ballReset();
-                    //BUG IS IN THIS CODE - DOWN TO END OF ,1000);
-                    player2Score++;
-                    document.getElementById("p2Score").innerHTML = player2Score; 
+                    document.getElementById("p2Score").innerHTML = player2Score;
                     
                     document.getElementById("p2Score").classList.add("grow");
                     setTimeout(function() {
@@ -237,10 +248,10 @@
                     ballSpeedY = deltaY * 0.35;
 
                 } else {                
-                    ballReset();
                     player1Score++;
+                    ballReset();
                     document.getElementById("p1Score").innerHTML = player1Score;
-                    
+                                        
                     document.getElementById("p1Score").classList.add("grow");
                     setTimeout(function() {
                         document.getElementById("p1Score").classList.remove("grow");
