@@ -331,10 +331,19 @@
             colorRect(0, 0, canvas.width, canvas.height, "#7447d1");
 
               if (showingWinScreen) {
-                  ctx.fillStyle = "yellow";
-                  ctx.font = "30px Monoton";
-                  ctx.fillText("Game Over!", 300, 270);
+                ctx.fillStyle = "yellow";
+                ctx.font = "30px Monoton";
+
+                if (player1Score >= winningScore) {
+                    ctx.fillText("Leftist Triumph!", 260, 250);
+                } else if (player2Score >= winningScore) {
+                    ctx.fillText("Right Equals Might!", 240, 250);
+                }               
+                  
                   ctx.fillText("Click to continue", 260, 320);
+                  document.getElementById("eyeleft").style.left = "48%";
+                  document.getElementById("nose").style.left = "49.5%";
+                  document.getElementById("eyeright").style.left = "51%";
                 return;
             }
            
