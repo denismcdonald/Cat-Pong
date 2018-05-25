@@ -11,11 +11,11 @@
 <body>
 
         <div id="pong">
-                <div id="pp"></div>
-                <div id="oo"></div>
-                <div id="nn"></div>
-                <div id="gg"></div>
-                <div id="ex"></div>
+                <div id="pp">P</div>
+                <div id="oo">O</div>
+                <div id="nn">N</div>
+                <div id="gg">G</div>
+                <div id="ex">!</div>
             </div>
 
     <div id="umpire">
@@ -48,8 +48,9 @@
 
     <!-- <div id="overlay"></div> -->
 
-    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <canvas id="gameCanvas" width="800" height="550"></canvas>
 
+  
     
 
     <script type="text/javascript">
@@ -399,13 +400,13 @@
 
 
         //PONG lettering
-        var pong = ["P", "O", "N", "G", "!"];
+        // var pong = ["P", "O", "N", "G", "!"];
 
-        document.getElementById("pp").innerHTML = pong[0];
-        document.getElementById("oo").innerHTML = pong[1];
-        document.getElementById("nn").innerHTML = pong[2];
-        document.getElementById("gg").innerHTML = pong[3];
-        document.getElementById("ex").innerHTML = pong[4];
+        // document.getElementById("pp").innerHTML = pong[0];
+        // document.getElementById("oo").innerHTML = pong[1];
+        // document.getElementById("nn").innerHTML = pong[2];
+        // document.getElementById("gg").innerHTML = pong[3];
+        // document.getElementById("ex").innerHTML = pong[4];
 
         setTimeout(function() {
             document.getElementById("pp").classList.add("popin");
