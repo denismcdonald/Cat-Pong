@@ -229,7 +229,7 @@
                 document.getElementById("ricoX").style.visibility = "visible";
                 document.getElementById("ricoX").style.left = canvas.offsetLeft + "px";
                 document.getElementById("ricoX").style.top = canvas.offsetTop + ballY + "px";
-                document.querySelector("canvas").style.border = "8px solid white";
+                document.querySelector("canvas").style.border = "8px solid black";
                 //Ricochet hit detection keyframes animation test
                 // document.getElementById("ricoX").classList.add("shakeWith");
                 // setTimeout(function() {
@@ -267,6 +267,7 @@
                 document.getElementById("ricoX").style.visibility = "visible";
                 document.getElementById("ricoX").style.left = canvas.offsetLeft + canvas.width+7 + "px";
                 document.getElementById("ricoX").style.top = canvas.offsetTop + ballY + "px";
+                document.querySelector("canvas").style.border = "8px solid #2cc715";
                 
                 if (ballY > paddle2Y && ballY < paddle2Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
@@ -307,7 +308,8 @@
                 //Vertical ricochet hit detection
                 document.getElementById("ricoY").style.top = canvas.offsetTop + canvas.height+6 + "px";
                 document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px"; 
-                document.getElementById("ricoY").style.visibility = "visible";  
+                document.getElementById("ricoY").style.visibility = "visible"; 
+                document.querySelector("canvas").style.border = "8px solid #ff0080"; 
             }
             
             //Umpire's eyes follow ball
