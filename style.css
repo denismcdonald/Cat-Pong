@@ -45,6 +45,11 @@ canvas {
     animation: teardrop 2s;
 }
 
+.popin {
+    animation: popin 1.5s infinite;
+    animation-fill-mode: forwards;
+}
+
 /* .ballReset {
     animation: ballReset .2s;
 } */
@@ -117,6 +122,24 @@ canvas {
     }
 }
 
+@keyframes popin {
+    0% {
+      font-size: 160px;
+      opacity: .8;
+      filter: drop-shadow(2px 2px 2px black);
+    }
+    20% {
+      font-size: 180px;
+      opacity: 1;
+      filter: drop-shadow(10px 5px 10px black);
+    }
+    100% {
+      font-size: 160px;
+      opacity: .8;
+      filter: drop-shadow(2px 2px 2px black);
+    }
+  }
+
 #tear {
     background-color: #fff;
     border-radius: 1px;
@@ -146,6 +169,57 @@ canvas {
     }
 } */
 
+#pong {
+    text-align: center;
+    /* color: lightskyblue; */
+    font-family: "Modak";
+    font-size: 100px;
+    margin-top: -50px;
+    margin-bottom: -150px;
+    height: 300px;
+    /* letter-spacing: 1px; */
+    /* visibility: hidden; */
+  }
+
+#pp {
+    color: yellow;
+    display: inline-block;
+    opacity: 0;
+    transform: rotate(-20deg);
+    filter: drop-shadow(2px 2px 2px black);
+  }
+  
+  #oo {
+    color: salmon;
+    display: inline-block;
+    opacity: 0;
+    vertical-align: 25px;
+    transform: rotate(-5deg);
+  }
+  
+  #nn {
+    color: lightskyblue;
+    display: inline-block;
+    opacity: 0;
+    vertical-align: 30px;
+    transform: rotate(1deg);
+  }
+  
+  #gg {
+    color: limegreen;
+    display: inline-block;
+    opacity: 0;
+    transform: rotate(15deg);
+    vertical-align: 15px;
+  }
+  
+  #ex {
+    color: white;
+    display: inline-block;
+    opacity: 0;
+    transform: rotate(25deg);
+    vertical-align: -20px;
+  }
 
 #wrapper {
     width: 800px;
@@ -160,9 +234,12 @@ canvas {
     text-align: left;
     filter: drop-shadow(6px 6px 20px yellow);
     font-weight: bold;
-    left: 29%;
+    /* left: 29%; */
+    left: 35%;
+    margin-top: 10px;
     position: absolute;
     font-size: 80px;
+    /* top: 10px; */
 }
 
 #p2Score {
@@ -170,10 +247,12 @@ canvas {
     font-size: 50px;
     font-weight: bold;
     filter: drop-shadow(6px 6px 20px yellow);
-    right: 29%;
+    /* right: 29%; */
+    right: 36%;
     position: absolute;
     font-size: 80px;
-    margin-left: 180px;
+    margin-top: 10px;
+    /* margin-left: 180px; */
 }
 
 
@@ -183,7 +262,8 @@ canvas {
     border-radius: 45%;
     height: 15px;
     left: 48%;
-    top: 110px;
+    /* top: 110px; */
+    top: 220px;
     position: absolute;
     width: 15px;
     transition: all 100ms ease-out;
@@ -207,8 +287,6 @@ canvas {
     top: 2px;
 }
 
-
-
 #eyebrowLeft {
     background-color: black;
     height: 1px;
@@ -224,7 +302,8 @@ canvas {
     border-radius: 45%;
     height: 15px;
     left: 51%;
-    top: 110px;
+    /* top: 110px; */
+    top: 220px;
     position: absolute;
     width: 15px;
     transition: all 100ms ease-out;
@@ -241,7 +320,6 @@ canvas {
 }
 
 #nose {
-    position: absolute;
     width: 0;
     height: 0;
     left: 49.5%;
@@ -249,7 +327,10 @@ canvas {
     border-style: solid;
     border-width: 8px 10px 0 8px;
     border-color: black transparent transparent transparent;
-    top: 135px;
+    /* top: 135px; */
+    margin-top: 80px;
+    position: absolute;
+    /* margin: 0 auto; */
     transition: all 100ms ease-out;
 }
 
@@ -320,13 +401,13 @@ canvas {
     border-radius: 25px;
     height: 80px;
     margin: 80px auto -120px;
-    position: block;
+    /* position: block; */
     width: 100px;
     filter: drop-shadow(2px 2px 5px #555);
 }
 
 /*Ear right*/
-#umpire::after {
+/* #umpire::after {
     content: "";
     display: inline-block;
     width: 0;
@@ -336,10 +417,36 @@ canvas {
     border-width: 0 25px 38px 25px;
     border-color: transparent transparent #92c9e0 transparent;
     transform: skew(0, 25deg);
+} */
+
+#rightear {
+    height: 0;
+    width: 0;
+    position: relative;
+    top: -60px;
+    left: 50px;
+    border-style: solid;
+    border-width: 0 25px 38px 25px;
+    border-color: transparent transparent #92c9e0 transparent;
+    transform: skew(0, 25deg);
+    z-index: 5;
+}
+
+#leftear {
+    height: 0;
+    width: 0;
+    position: relative;
+    top: -25px;
+    left: 1px;
+    border-style: solid;
+    border-width: 0 25px 38px 25px;
+    border-color: transparent transparent #92c9e0 transparent;
+    transform: skew(0, -25deg);
+    z-index: 5;
 }
 
 /*Ear left*/
-#umpire::before {
+/* #umpire::before {
     content: "";
     display: inline-block;
     width: 0;
@@ -349,35 +456,44 @@ canvas {
     border-width: 0 25px 42px 25px;
     border-color: transparent transparent #92c9e0 transparent;
     transform: skew(0, -25deg);
-}
+} */
 
 @media (max-width: 1100px) {
     #p1Score {
-        left: 22%;
+        left: 30%;
     }
 
     #p2Score {
-        right: 22%;
+        right: 30%;
     }
 }
 
 
-@media (min-width: 1400px) {
+@media (min-width: 1300px) {
     #p1Score {
-        left: 32%;
+        left: 36%;
     }
 
     #p2Score {
-        right: 32%;
+        right: 36%;
     }
 }
 
-@media (min-width: 1900px) {
+@media (min-width: 1600px) {
     #p1Score {
-        left: 35%;
+        left: 39%;
     }
 
     #p2Score {
-        right: 35%;
+        right: 39%;
+    }
+
+@media (min-width: 2000px) {
+    #p1Score {
+        left: 41%;
+    }
+
+    #p2Score {
+        right: 41%;
     }
 }
