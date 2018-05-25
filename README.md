@@ -1,4 +1,4 @@
-# Pong
+# Cat Pong
 A pong clone experiment (in development!) using plain JavaScript and CSS.
 
 View on Codepen [here](https://codepen.io/denismcdonald/full/JvaBNM/).
