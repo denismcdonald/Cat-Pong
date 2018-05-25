@@ -48,8 +48,8 @@
 
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
-  
-    
+    <div id="ricoX"></div>
+    <div id="ricoY"></div>
 
     <script type="text/javascript">
 
@@ -224,9 +224,22 @@
             ballY += ballSpeedY;
             
             if (ballX < 0) {
+
+                //Horizontal ricochet hit detection
+                document.getElementById("ricoX").style.visibility = "visible";
+                document.getElementById("ricoX").style.left = canvas.offsetLeft + "px";
+                document.getElementById("ricoX").style.top = canvas.offsetTop + ballY + "px";
+                document.querySelector("canvas").style.border = "8px solid white";
+                //Ricochet hit detection keyframes animation test
+                // document.getElementById("ricoX").classList.add("shakeWith");
+                // setTimeout(function() {
+                //     document.getElementById("ricoX").classList.remove("shakeWith");
+                // }, 500);
+                
+                
                 if (ballY > paddle1Y-10 && ballY < paddle1Y+paddleHeight+10) {
                     ballSpeedX = -ballSpeedX;
-                    
+               
                     //Calculates variable ball speed depending on collision point with paddle
                     var deltaY = ballY-(paddle1Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
@@ -249,6 +262,12 @@
             }
 
             if (ballX > canvas.width) {
+
+                //Horizontal ricochet hit detection
+                document.getElementById("ricoX").style.visibility = "visible";
+                document.getElementById("ricoX").style.left = canvas.offsetLeft + canvas.width+7 + "px";
+                document.getElementById("ricoX").style.top = canvas.offsetTop + ballY + "px";
+                
                 if (ballY > paddle2Y && ballY < paddle2Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
                     
@@ -272,11 +291,23 @@
                 }
             }
             
-            if (ballY < 0) {
+            if (ballY <= 0) {
                 ballSpeedY = -ballSpeedY;
+                
+                //Vertical ricochet hit detection
+                document.getElementById("ricoY").style.visibility = "visible";
+                document.getElementById("ricoY").style.top = canvas.offsetTop + "px";
+                document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px";                
+                document.querySelector("canvas").style.border = "8px solid yellow";
             }
             if (ballY > canvas.height) {
                 ballSpeedY = -ballSpeedY;
+                
+                console.log(canvas.width);
+                //Vertical ricochet hit detection
+                document.getElementById("ricoY").style.top = canvas.offsetTop + canvas.height+6 + "px";
+                document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px"; 
+                document.getElementById("ricoY").style.visibility = "visible";  
             }
             
             //Umpire's eyes follow ball
