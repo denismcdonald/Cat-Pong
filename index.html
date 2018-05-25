@@ -46,8 +46,6 @@
         <div id="p1Score">0</div>
         <div id="p2Score">0</div>
 
-    <!-- <div id="overlay"></div> -->
-
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
   
@@ -149,19 +147,13 @@
                }, 150);
             }, rand);
 
-            // var ump = document.getElementById("umpire");
-            // ump.addEventListener("mouseover", function() {
-            // ump.style.backgroundColor = "yellow";
-            // ump.style.height = "150px";
-            // });
-
-//Umpire mouseover
-// document.getElementById("umpire").addEventListener("mouseenter", function() {
-//             document.getElementById("umpire").style.backgroundColor = "blue";
-//             document.getElementById("umpire").classList.add("shake");
-//             setTimeout(function() {
-//                 document.getElementById("umpire").classList.remove("shake");
-//             }, 500);
+        //Umpire mouseover
+        // document.getElementById("umpire").addEventListener("mouseenter", function() {
+//         document.getElementById("umpire").style.backgroundColor = "blue";
+//         document.getElementById("umpire").classList.add("shake");
+//         setTimeout(function() {
+//            document.getElementById("umpire").classList.remove("shake");
+//            }, 500);
 //         });
 
 
@@ -336,14 +328,14 @@
                 ctx.font = "30px Monoton";
 
                 if (player1Score >= winningScore) {
-                    ctx.fillText("Leftist Triumph!", 260, 250);
+                    ctx.fillText("Lefty Wins!", 300, 250);
                     document.getElementById("p1Score").classList.add("spin");
                 } else if (player2Score >= winningScore) {
-                    ctx.fillText("Right Equals Might!", 240, 250);
+                    ctx.fillText("Right Wins!", 300, 250);
                     document.getElementById("p2Score").classList.add("spin");
                 }               
                   
-                ctx.fillText("Click to continue", 260, 320);
+                ctx.fillText("Click to play again...", 230, 350);
                   
                 document.getElementById("eyeleft").style.left = "48%";
                 document.getElementById("nose").style.left = "49.5%";
@@ -400,14 +392,6 @@
 
 
         //PONG lettering
-        // var pong = ["P", "O", "N", "G", "!"];
-
-        // document.getElementById("pp").innerHTML = pong[0];
-        // document.getElementById("oo").innerHTML = pong[1];
-        // document.getElementById("nn").innerHTML = pong[2];
-        // document.getElementById("gg").innerHTML = pong[3];
-        // document.getElementById("ex").innerHTML = pong[4];
-
         setTimeout(function() {
             document.getElementById("pp").classList.add("popin");
         },500);
@@ -427,119 +411,7 @@
         setTimeout(function() {
             document.getElementById("ex").classList.add("popin");
         },500);
-
-    //Colors
-    
-        // setInterval(function() {
-        //     document.getElementById("pp").style.color = "yellow";
-        // },300);
-
-        // setInterval(function() {
-        //     document.getElementById("oo").style.color = "magenta";
-        // },300);
-
-        // setInterval(function() {
-        //     document.getElementById("nn").style.color = "green";
-        // },300);
-
-        // setInterval(function() {
-        //     document.getElementById("gg").style.color = "blue";
-        // },300);
-
-        // setInterval(function() {
-        //     document.getElementById("ex").style.color = "red";
-        // },300);
-
-    //Colors swap
-
-        // setInterval(function() {
-        //     document.getElementById("pp").style.color = "red";
-        // },600);
-
-        // setInterval(function() {
-        //     document.getElementById("oo").style.color = "yellow";
-        // },600);
-
-        // setInterval(function() {
-        //     document.getElementById("nn").style.color = "magenta";
-        // },600);
-
-        // setInterval(function() {
-        //     document.getElementById("gg").style.color = "green";
-        // },600);
-
-        // setInterval(function() {
-        //     document.getElementById("ex").style.color = "blue";
-        // },600);
-
-    //Colors swap
-        
-        // setInterval(function() {
-        //     document.getElementById("pp").style.color = "blue";
-        // },900);
-
-        // setInterval(function() {
-        //     document.getElementById("oo").style.color = "red";
-        // },900);
-
-        // setInterval(function() {
-        //     document.getElementById("nn").style.color = "yellow";
-        // },900);
-
-        // setInterval(function() {
-        //     document.getElementById("gg").style.color = "magenta";
-        // },900);
-
-        // setInterval(function() {
-        //     document.getElementById("ex").style.color = "green";
-        // },900);
-
-    //Colors swap
-
-        // setInterval(function() {
-        //     document.getElementById("pp").style.color = "green";
-        // },1200);
-
-        // setInterval(function() {
-        //     document.getElementById("oo").style.color = "blue";
-        // },1200);
-
-        // setInterval(function() {
-        //     document.getElementById("nn").style.color = "red";
-        // },1200);
-
-        // setInterval(function() {
-        //     document.getElementById("gg").style.color = "yellow";
-        // },1200);
-
-        // setInterval(function() {
-        //     document.getElementById("ex").style.color = "magenta";
-        // },1200);
-
- //Colors swap
-    
-        // setInterval(function() {
-        //     document.getElementById("pp").style.color = "magenta";
-        // },1500);
-
-        // setInterval(function() {
-        //     document.getElementById("oo").style.color = "green";
-        // },1500);
-
-        // setInterval(function() {
-        //     document.getElementById("nn").style.color = "blue";
-        // },1500);
-
-        // setInterval(function() {
-        //     document.getElementById("gg").style.color = "red";
-        // },1500);
-
-        // setInterval(function() {
-        //     document.getElementById("ex").style.color = "yellow";
-        // },1500);
-        
-
-
+      
     
     </script>
 

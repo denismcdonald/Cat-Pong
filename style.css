@@ -11,19 +11,7 @@ canvas {
     cursor: crosshair;
     display: block;
     margin: 150px auto 80px;
-    /* transition: all 200ms ease-in; */
 }
-
-/* #overlay {
-    background-color: white;
-    border-radius: 45%;
-    height: 50px;
-    position: absolute;
-    left: 48%;
-    width: 50px;
-    top: 52%;
-    visibility: hidden;
-} */
 
 .shake {
     animation: shake .30s;
@@ -41,19 +29,9 @@ canvas {
     animation: spin .800s;
 }
 
-.teardrop {
-    animation: teardrop 2s;
-}
-
 .popin {
-    animation: popin 1.5s infinite;
-    /* animation-fill-mode: forwards; */
+    animation: popin 1.25s infinite;
 }
-
-/* .ballReset {
-    animation: ballReset .2s;
-} */
-
 
 @keyframes shake {
     0% { 
@@ -106,36 +84,18 @@ canvas {
     }
 }
 
-@keyframes teardrop {
-    0% {
-        visibility: visible;
-        right: 6px;
-        width: 2px;
-    }
-    20% {
-        right: 2px;
-        width: 11px;
-    }
-    30% {
-        right: 3px;
-        height: 3px;
-    }
-}
-
 @keyframes popin {
     0% {
       font-size: 160px;
       opacity: .7;
       text-shadow: 1px 1px 1px black;
       filter: drop-shadow(2px 2px 2px black);
-      /* transform: rotate(0deg); */
     }
-    35% {
+    15% {
       font-size: 165px;
       opacity: 1;
-      text-shadow: 10px 5px 10px black;
+      text-shadow: 5px 5px 10px black;
       filter: drop-shadow(10px 5px 10px black);
-      /* transform: rotate(-15deg); */
 
     }
     100% {
@@ -143,51 +103,16 @@ canvas {
       opacity: .7;
       text-shadow: 1px 1px 1px black;
       filter: drop-shadow(2px 2px 2px black);
-      /* transform: rotate(15deg); */
 
     }
   }
 
-#tear {
-    background-color: #fff;
-    border-radius: 1px;
-    height: 3px;
-    width: 9px;
-    position: absolute;
-    right: 3px;
-    top: 13px;
-    visibility: hidden;
-}
-
-/* @keyframes ballReset {
-    0% {
-        opacity: 0;
-        visibility: hidden;
-        transform: scale(1);
-    }
-    75% {
-        visibility: visible;
-        opacity: 1;
-        transform: scale(1.2);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(1);
-        visibility: hidden;
-    }
-} */
-
 #pong {
     text-align: center;
-    /* color: lightskyblue; */
     font-family: "Modak";
-    font-size: 120px;
-    /* margin-top: -30px; */
+    font-size: 160px;
     margin-bottom: -150px;
     height: 300px;
-    /* line-height: 180px; */
-    /* letter-spacing: 1px; */
-    /* visibility: hidden; */
   }
 
 #pp {
@@ -195,7 +120,7 @@ canvas {
     display: inline-block;
     opacity: 1;
     transform: rotate(-20deg);
-    /* filter: drop-shadow(2px 2px 2px black); */
+    text-shadow: 2px 2px 2px black;
   }
   
   #oo {
@@ -230,20 +155,16 @@ canvas {
     vertical-align: -20px;
   }
 
-
-
 #p1Score {
     font-family: Monoton;
     font-size: 50px;
     text-align: left;
     filter: drop-shadow(6px 6px 20px yellow);
     font-weight: bold;
-    /* left: 29%; */
     left: 35%;
     margin-top: 10px;
     position: absolute;
     font-size: 80px;
-    /* top: 10px; */
 }
 
 #p2Score {
@@ -251,14 +172,11 @@ canvas {
     font-size: 50px;
     font-weight: bold;
     filter: drop-shadow(6px 6px 20px yellow);
-    /* right: 29%; */
     right: 36%;
     position: absolute;
     font-size: 80px;
     margin-top: 10px;
-    /* margin-left: 180px; */
 }
-
 
 #eyeleft {
     -webkit-transform: translate3d(0,0,0); /*IMPORTANT. See: https://stackoverflow.com/questions/16255634/css3-transition-leaves-a-trail */
@@ -266,7 +184,6 @@ canvas {
     border-radius: 45%;
     height: 15px;
     left: 48%;
-    /* top: 110px; */
     top: 270px;
     position: absolute;
     width: 15px;
@@ -306,7 +223,6 @@ canvas {
     border-radius: 45%;
     height: 15px;
     left: 51%;
-    /* top: 110px; */
     top: 270px;
     position: absolute;
     width: 15px;
@@ -331,10 +247,8 @@ canvas {
     border-style: solid;
     border-width: 8px 10px 0 8px;
     border-color: black transparent transparent transparent;
-    /* top: 135px; */
     margin-top: 80px;
     position: absolute;
-    /* margin: 0 auto; */
     transition: all 100ms ease-out;
 }
 
@@ -405,35 +319,20 @@ canvas {
     border-radius: 25px;
     height: 80px;
     margin: 80px auto -120px;
-    /* position: block; */
     width: 100px;
     filter: drop-shadow(2px 2px 5px #555);
 }
-
-/*Ear right*/
-/* #umpire::after {
-    content: "";
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-top: -30px;
-    border-style: solid;
-    border-width: 0 25px 38px 25px;
-    border-color: transparent transparent #92c9e0 transparent;
-    transform: skew(0, 25deg);
-} */
 
 #rightear {
     height: 0;
     width: 0;
     position: relative;
-    top: -60px;
-    left: 50px;
+    top: -58px;
+    left: 51px;
     border-style: solid;
     border-width: 0 25px 38px 25px;
     border-color: transparent transparent #92c9e0 transparent;
     transform: skew(0, 25deg);
-    z-index: 5;
 }
 
 #leftear {
@@ -441,26 +340,12 @@ canvas {
     width: 0;
     position: relative;
     top: -25px;
-    left: 1px;
+    left: -1px;
     border-style: solid;
     border-width: 0 25px 38px 25px;
     border-color: transparent transparent #92c9e0 transparent;
     transform: skew(0, -25deg);
-    z-index: 5;
 }
-
-/*Ear left*/
-/* #umpire::before {
-    content: "";
-    display: inline-block;
-    width: 0;
-    height: 0;
-    margin-top: -22px;
-    border-style: solid;
-    border-width: 0 25px 42px 25px;
-    border-color: transparent transparent #92c9e0 transparent;
-    transform: skew(0, -25deg);
-} */
 
 @media (max-width: 1100px) {
     #p1Score {
@@ -500,4 +385,5 @@ canvas {
     #p2Score {
         right: 41%;
     }
+}
 }
