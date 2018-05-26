@@ -398,16 +398,16 @@ canvas {
 
 #umpShirt {
     position: absolute;
-    background-image: repeating-linear-gradient(90deg, white, white 15px, black 15px, black 30px);
+    background-image: repeating-linear-gradient(90deg, white, white 14px, black 14px, black 28px);
     border: 8px solid black;
     border-radius: 25px;
     height: 80px;
     /* margin: 70px auto -120px; */
     /* left: 44.15%; */
     left: 50%;
-    margin-left: -75px;
+    margin-left: -72px;
     top: 225px;
-    width: 130px;
+    width: 125px;
     filter: drop-shadow(2px 2px 5px #555);
     z-index: 1;
 }
