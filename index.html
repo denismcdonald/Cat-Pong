@@ -24,6 +24,7 @@
     </div>
 
     <div id="umpShirt"></div>
+    <div id="tail"></div>
 
     <div id="eyeleft">
         <div id="shiny1"></div>
@@ -94,6 +95,7 @@
                 document.getElementById("p2Score").innerHTML = player2Score;
                 document.getElementById("p1Score").classList.remove("spin");
                 document.getElementById("p2Score").classList.remove("spin");
+                document.getElementById("tail").style.transform = "rotate(0deg)";
                 showingWinScreen = false;
             }
         }
@@ -250,6 +252,9 @@
                     player2Score++;  
                     ballReset();
                     document.getElementById("p2Score").innerHTML = player2Score;
+
+                    //Tail TEST
+                    document.getElementById("tail").style.transform = "rotate(15deg)";
                     
                     document.getElementById("p2Score").classList.add("grow");
                     setTimeout(function() {
@@ -281,6 +286,9 @@
                     player1Score++;
                     ballReset();
                     document.getElementById("p1Score").innerHTML = player1Score;
+
+                    //Tail TEST
+                    document.getElementById("tail").style.transform = "rotate(-15deg)";
                                         
                     document.getElementById("p1Score").classList.add("grow");
                     setTimeout(function() {
