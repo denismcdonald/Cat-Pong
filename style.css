@@ -177,6 +177,7 @@ canvas {
     opacity: 1;
     vertical-align: 25px;
     transform: rotate(-5deg);
+    text-shadow: 2px 2px 2px black;
   }
   
   #nn {
@@ -185,6 +186,7 @@ canvas {
     opacity: 1;
     vertical-align: 30px;
     transform: rotate(1deg);
+    text-shadow: 2px 2px 2px black;
   }
   
   #gg {
@@ -193,6 +195,7 @@ canvas {
     opacity: 1;
     transform: rotate(15deg);
     vertical-align: 15px;
+    text-shadow: 2px 2px 2px black;
   }
   
   #ex {
@@ -201,6 +204,7 @@ canvas {
     opacity: 1;
     transform: rotate(25deg);
     vertical-align: -20px;
+    text-shadow: 2px 2px 2px black;
   }
 
 #p1Score {
@@ -227,12 +231,29 @@ canvas {
 }
 
 #eyeleft {
+    -webkit-transform: translate3d(0,0,0);
+    background-color: black;
+    border-radius: 45%;
+    height: 15px;
+    /* left: 51%; */
+    left: 50%;
+    margin-left: -30px;
+    top: 240px;
+    position: absolute;
+    width: 15px;
+    transition: all 100ms ease-out;
+    z-index: 12;
+}
+
+#eyeright {
     -webkit-transform: translate3d(0,0,0); /*IMPORTANT. See: https://stackoverflow.com/questions/16255634/css3-transition-leaves-a-trail */
     background-color: black;
     border-radius: 45%;
     height: 15px;
-    left: 48%;
-    top: 220px;
+    /* left: 48%; */
+    left: 50%;
+    margin-left: 10px;
+    top: 240px;
     position: absolute;
     width: 15px;
     transition: all 100ms ease-out;
@@ -266,19 +287,6 @@ canvas {
     width: 10px;
 }
 
-#eyeright {
-    -webkit-transform: translate3d(0,0,0);
-    background-color: black;
-    border-radius: 45%;
-    height: 15px;
-    left: 51%;
-    top: 220px;
-    position: absolute;
-    width: 15px;
-    transition: all 100ms ease-out;
-    z-index: 12;
-}
-
 #eyebrowRight {
     background-color: black;
     height: 1px;
@@ -294,29 +302,33 @@ canvas {
     position: absolute;
     width: 0;
     height: 0;
-    left: 49.5%;
+    /* left: 49.5%; */
+    left: 50%;
+    margin-left: -10px;
     border-radius: 10px;
     border-style: solid;
     border-width: 8px 10px 0 8px;
     border-color: black transparent transparent transparent;
     /* margin-top: 225px; */
-    top: 245px;
+    top: 265px;
     transition: all 100ms ease-out;
     z-index: 9;
 }
 
 #nose::after {
     content: "";
-    background-color: black;
-    height: 10px;
+    background-color: #999;
+    height: 5px;
     position: absolute;
+    margin-right: 2px;
+    margin-top: 5px;
     width: 1px;
     z-index: 10;
 }
 
 
 #whiskers1 {
-    background-color: black;
+    background-color: #555;
     height: 1px;
     margin-left: 12px;
     margin-top: -6px;
@@ -325,15 +337,15 @@ canvas {
 }
 
 #whiskers2 {
-    background-color: black;
-    height: 2px;
+    background-color: #555;
+    height: 1px;
     margin-left: 12px;
     margin-top: 3px;
     width: 17px;
 }
 
 #whiskers3 {
-    background-color: black;
+    background-color: #555;
     height: 1px;
     margin-left: 12px;
     margin-top: 3px;
@@ -342,7 +354,7 @@ canvas {
 }
 
 #whiskers4 {
-    background-color: black;
+    background-color: #555;
     height: 1px;
     margin-left: -26px;
     margin-top: -1px;
@@ -351,18 +363,18 @@ canvas {
 }
 
 #whiskers5 {
-    background-color: black;
-    height: 2px;
+    background-color: #555;
+    height: 1px;
     margin-left: -28px;
-    margin-top: -6px;
+    margin-top: -5px;
     width: 17px;
 }
 
 #whiskers6 {
-    background-color: black;
+    background-color: #555;
     height: 1px;
     margin-left: -26px;
-    margin-top: -6px;
+    margin-top: -5px;
     transform: skew(0,5deg);
     width: 15px;
 }
@@ -373,11 +385,13 @@ canvas {
     border: 8px solid black;
     border-radius: 25px;
     height: 80px;
-    /* margin: 60px 0px 0px 0px; */
-    margin-top: 40px;
-    left: 45.25%;
+    margin: 60px 0px 0px 0px;
+    /* margin-top: 40px; */
+    /* left: 47.5%; */
+    left: 50%;
+    margin-left: -60px;
     width: 100px;
-    text-align: center;
+    /* text-align: center; */
     filter: drop-shadow(2px 2px 5px black);
     z-index: 2;
 }
@@ -388,8 +402,11 @@ canvas {
     border: 8px solid black;
     border-radius: 25px;
     height: 80px;
-    margin: 70px auto -120px;
-    left: 44.15%;
+    /* margin: 70px auto -120px; */
+    /* left: 44.15%; */
+    left: 50%;
+    margin-left: -75px;
+    top: 230px;
     width: 130px;
     filter: drop-shadow(2px 2px 5px #555);
     z-index: 1;

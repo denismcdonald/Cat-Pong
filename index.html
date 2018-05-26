@@ -179,7 +179,7 @@
             //Umpire reaction
             document.getElementById("shiny1").style.visibility = "hidden";
             document.getElementById("shiny2").style.visibility = "hidden";
-            document.getElementById("nose").style.top = "238px";
+            document.getElementById("nose").style.top = "256px";
             document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
             document.getElementById("eyeleft").style.height = "2px";
             document.getElementById("eyebrowLeft").style.transform = "skew(0,15deg)";
@@ -190,7 +190,7 @@
             setTimeout (function() {
                 document.getElementById("shiny1").style.visibility = "visible";
                 document.getElementById("shiny2").style.visibility = "visible";
-                document.getElementById("nose").style.top = "245px";
+                document.getElementById("nose").style.top = "265px";
                 document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
                 document.getElementById("eyeleft").style.height = "15px";
                 document.getElementById("eyebrowLeft").style.transform = "skew(0,-20deg)";
@@ -314,41 +314,47 @@
                 document.querySelector("canvas").style.border = "8px solid #ff0080"; 
             }
             
-            //Umpire's eyes follow ball
+            //Umpire eyes track ball
             if (ballX < 400) {
-                document.getElementById("eyeleft").style.left = "47.4%";
-                document.getElementById("nose").style.left = "48.85%";
-                document.getElementById("eyeright").style.left = "50.5%";
+                // document.getElementById("eyeleft").style.left = "49%";
+                // document.getElementById("nose").style.left = "48.85%";
+                // document.getElementById("eyeright").style.left = "49%";
+                document.getElementById("eyeleft").style.marginLeft = "-35px"; 
+                document.getElementById("nose").style.marginLeft = "-17px";  
+                document.getElementById("eyeright").style.marginLeft = "3px";
             }
             if (ballX > 400) {
-                document.getElementById("eyeleft").style.left = "48.5%"; 
-                document.getElementById("nose").style.left = "50%";  
-                document.getElementById("eyeright").style.left = "51.5%";          
+                // document.getElementById("eyeleft").style.left = "51%"; 
+                // document.getElementById("nose").style.left = "50%";  
+                // document.getElementById("eyeright").style.left = "50.75%";          
+                document.getElementById("eyeleft").style.marginLeft = "-20px"; 
+                document.getElementById("nose").style.marginLeft = "0px";  
+                document.getElementById("eyeright").style.marginLeft = "18px";   
             }
           
-            //Eyes follow ball on widescreen
-            if (window.matchMedia("(min-width: 1500px)").matches) {
-                if (ballX < 400) {
-                document.getElementById("eyeleft").style.left = "48.50%";
-                document.getElementById("nose").style.left = "49.40%";
-                }
-                if (ballX > 400) {
-                document.getElementById("eyeleft").style.left = "49%";
-                document.getElementById("eyeright").style.left = "51%";             
-                }               
-            }
+            //Eyes track ball on widescreen
+            // if (window.matchMedia("(min-width: 1500px)").matches) {
+            //     if (ballX < 400) {
+            //     document.getElementById("eyeleft").style.left = "48.50%";
+            //     document.getElementById("nose").style.left = "49.40%";
+            //     }
+            //     if (ballX > 400) {
+            //     document.getElementById("eyeleft").style.left = "49%";
+            //     document.getElementById("eyeright").style.left = "51%";             
+            //     }               
+            // }
 
-             //Eyes follow ball on smaller screens
-             if (window.matchMedia("(max-width: 1100px)").matches) {
-                if (ballX < 400) {
-                document.getElementById("eyeleft").style.left = "46.75%";
-                document.getElementById("nose").style.left = "48.5%";
-                }
-                if (ballX > 400) {
-                document.getElementById("eyeleft").style.left = "48.25%";  
-                document.getElementById("eyeright").style.left = "51.5%";           
-                }               
-            }
+             //Eyes track ball on smaller screens
+            //  if (window.matchMedia("(max-width: 1100px)").matches) {
+            //     if (ballX < 400) {
+            //     document.getElementById("eyeleft").style.left = "46.75%";
+            //     document.getElementById("nose").style.left = "48.5%";
+            //     }
+            //     if (ballX > 400) {
+            //     document.getElementById("eyeleft").style.left = "48.25%";  
+            //     document.getElementById("eyeright").style.left = "51.5%";           
+            //     }               
+            // }
 
         } //function moveEverything
 
@@ -372,14 +378,35 @@
                   
                 ctx.fillText("Click to play again...", 230, 350);
                   
-                document.getElementById("eyeleft").style.left = "48%";
-                document.getElementById("nose").style.left = "49.5%";
-                document.getElementById("eyeright").style.left = "51%";
+                //PONG lettering TEST
+                setTimeout(function() {
+                    document.getElementById("pp").classList.add("popin");
+                },500);
 
-                if (window.matchMedia("(min-width: 1700px)").matches) {
-                    document.getElementById("eyeleft").style.left = "48.5%";
-                    document.getElementById("eyeright").style.left = "50.5%";
-                }
+                setTimeout(function() {
+                    document.getElementById("oo").classList.add("popin");
+                },1000);
+
+                setTimeout(function() {
+                    document.getElementById("nn").classList.add("popin");
+                },500);
+
+                setTimeout(function() {
+                    document.getElementById("gg").classList.add("popin");
+                },1000);
+
+                setTimeout(function() {
+                    document.getElementById("ex").classList.add("popin");
+                },500);
+
+                document.getElementById("eyeleft").style.marginLeft = "-30px";
+                document.getElementById("nose").style.marginLeft = "-10px";
+                document.getElementById("eyeright").style.marginLeft = "10px";
+
+                // if (window.matchMedia("(min-width: 1700px)").matches) {
+                //     document.getElementById("eyeleft").style.left = "48.5%";
+                //     document.getElementById("eyeright").style.left = "50.5%";
+                // }
                 return;
               }
 
@@ -427,25 +454,25 @@
 
 
         //PONG lettering
-        setTimeout(function() {
-            document.getElementById("pp").classList.add("popin");
-        },500);
+        // setTimeout(function() {
+        //     document.getElementById("pp").classList.add("popin");
+        // },500);
 
-        setTimeout(function() {
-            document.getElementById("oo").classList.add("popin");
-        },1000);
+        // setTimeout(function() {
+        //     document.getElementById("oo").classList.add("popin");
+        // },1000);
 
-        setTimeout(function() {
-            document.getElementById("nn").classList.add("popin");
-        },500);
+        // setTimeout(function() {
+        //     document.getElementById("nn").classList.add("popin");
+        // },500);
 
-        setTimeout(function() {
-            document.getElementById("gg").classList.add("popin");
-        },1000);
+        // setTimeout(function() {
+        //     document.getElementById("gg").classList.add("popin");
+        // },1000);
 
-        setTimeout(function() {
-            document.getElementById("ex").classList.add("popin");
-        },500);
+        // setTimeout(function() {
+        //     document.getElementById("ex").classList.add("popin");
+        // },500);
       
     
     </script>
