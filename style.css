@@ -10,7 +10,7 @@ canvas {
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     cursor: crosshair;
     display: block;
-    margin: 184px auto 80px;
+    margin: 190px auto 80px;
 }
 
 #ricoY {
@@ -406,7 +406,7 @@ canvas {
     /* left: 44.15%; */
     left: 50%;
     margin-left: -72px;
-    top: 223px;
+    top: 230px;
     width: 125px;
     filter: drop-shadow(2px 2px 5px #555);
     z-index: 1;
@@ -427,7 +427,7 @@ canvas {
     z-index: 0;
 }
 
-#leftFoot {
+/* #leftFoot {
     position: absolute;
     background-color: #92c9e0; 
     border: 8px solid black;
@@ -451,6 +451,32 @@ canvas {
     height: 20px;
     width: 20px;
     z-index: -1;
+} */
+
+#leftFoot {
+    position: absolute;
+    background-color: #92c9e0; 
+    border: 8px solid black;
+    border-radius: 45% 45% 25% 25%;
+    left: 50%;
+    margin-left: -50px;
+    top: 306px;
+    height: 15px;
+    width: 20px;
+    z-index: 1;
+}
+
+#rightFoot {
+    position: absolute;
+    background-color: #92c9e0; 
+    border: 8px solid black;
+    border-radius: 45% 45% 25% 25%;
+    left: 50%;
+    margin-left: 10px;
+    top: 306px;
+    height: 15px;
+    width: 20px;
+    z-index: 1;
 }
 
 
