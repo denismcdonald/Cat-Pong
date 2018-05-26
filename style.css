@@ -10,7 +10,7 @@ canvas {
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     cursor: crosshair;
     display: block;
-    margin: 180px auto 80px;
+    margin: 184px auto 80px;
 }
 
 #ricoY {
@@ -406,7 +406,7 @@ canvas {
     /* left: 44.15%; */
     left: 50%;
     margin-left: -72px;
-    top: 225px;
+    top: 223px;
     width: 125px;
     filter: drop-shadow(2px 2px 5px #555);
     z-index: 1;
@@ -433,7 +433,7 @@ canvas {
     border: 8px solid black;
     border-radius: 45% 45% 25% 25%;
     left: 50%;
-    margin-left: -45px;
+    margin-left: -40px;
     top: 295px;
     height: 20px;
     width: 20px;
@@ -446,7 +446,7 @@ canvas {
     border: 8px solid black;
     border-radius: 45% 45% 25% 25%;
     left: 50%;
-    margin-left: 5px;
+    margin-left: -5px;
     top: 295px;
     height: 20px;
     width: 20px;
