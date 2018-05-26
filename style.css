@@ -57,6 +57,14 @@ canvas {
     animation: popin 1.25s infinite;
 }
 
+.wag1 {
+    animation: wag1 2.5s infinite;
+}
+
+.wag2 {
+    animation: wag2 2.5s infinite;
+}
+
 @keyframes shake {
     0% { 
     transform: rotate(2deg);
@@ -153,6 +161,43 @@ canvas {
 
     }
   }
+
+  @keyframes wag1 {
+      0% {
+        transform: rotate(-15deg);
+        top: 163px;
+        opacity: 1;
+      }
+      70% {
+        transform: rotate(15deg);
+        top: 166px;
+        opacity: .8;
+
+      }
+      100% {
+        transform: rotate(-15deg);
+        top: 163px;
+        opacity: 1;
+      }
+  }
+
+  @keyframes wag2 {
+    0% {
+      transform: rotate(15deg);
+      top: 163px;
+      opacity: 1;
+    }
+    70% {
+      transform: rotate(-15deg);
+      top: 166px;
+      opacity: .8;
+    }
+    100% {
+      transform: rotate(15deg);
+      top: 163px;
+      opacity: 1;
+    }
+}
 
 #pong {
     text-align: center;
@@ -422,8 +467,9 @@ canvas {
     left: 50%;
     margin-left: -12px;
     opacity: .9;
-    top: 160px;
+    top: 165px;
     transition: transform .20s ease-out;
+    filter: drop-shadow(1px 1px 2px #555);
     z-index: 0;
 }
 
