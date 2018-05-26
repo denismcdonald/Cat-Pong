@@ -23,6 +23,8 @@
         <div id="rightear"></div>
     </div>
 
+    <div id="umpShirt"></div>
+
     <div id="eyeleft">
         <div id="shiny1"></div>
         <div id="eyebrowLeft"></div>
@@ -177,7 +179,7 @@
             //Umpire reaction
             document.getElementById("shiny1").style.visibility = "hidden";
             document.getElementById("shiny2").style.visibility = "hidden";
-            document.getElementById("nose").style.marginTop = "70px";
+            document.getElementById("nose").style.top = "238px";
             document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
             document.getElementById("eyeleft").style.height = "2px";
             document.getElementById("eyebrowLeft").style.transform = "skew(0,15deg)";
@@ -188,7 +190,7 @@
             setTimeout (function() {
                 document.getElementById("shiny1").style.visibility = "visible";
                 document.getElementById("shiny2").style.visibility = "visible";
-                document.getElementById("nose").style.marginTop = "80px";
+                document.getElementById("nose").style.top = "245px";
                 document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
                 document.getElementById("eyeleft").style.height = "15px";
                 document.getElementById("eyebrowLeft").style.transform = "skew(0,-20deg)";
