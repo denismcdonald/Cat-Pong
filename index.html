@@ -153,12 +153,23 @@
             document.getElementById("clickPlay").addEventListener("mousedown", handleMouseClick);
             document.getElementById("setWins").addEventListener("mousedown", handleMouseClick);
             document.getElementById("mWins").addEventListener("mousedown", function() {
+               
+                
                 if (winningScore == 20) {
                     winningScore = 20;
                     document.getElementById("showScore").style.marginLeft = "0";
                 }
                 if (winningScore >= 1 && winningScore < 20) {
                     winningScore++;
+                    
+                    //Animate arrow
+                    document.getElementById("mWins").style.filter = "drop-shadow(1px -1px 1px black)";
+                    document.getElementById("mWins").style.top = "473px";
+                    setTimeout(function() {
+                        document.getElementById("mWins").style.filter = "drop-shadow(3px -1px 2px black)";
+                        document.getElementById("mWins").style.top = "470px";
+                    }, 50)
+
                     document.getElementById("lWins").style.color = "white";
                     document.getElementById("mWins").style.color = "white"; 
                     if (winningScore >= 10) {
@@ -181,6 +192,15 @@
                     }
                     if (winningScore > 1) {
                         winningScore--;
+
+                        //Animate arrow
+                        document.getElementById("lWins").style.filter = "drop-shadow(1px -1px 1px black)";
+                        document.getElementById("lWins").style.top = "573px";
+                        setTimeout(function() {
+                            document.getElementById("lWins").style.filter = "drop-shadow(-2px -2px 2px black)";
+                            document.getElementById("lWins").style.top = "570px";
+                        }, 50)
+
                         document.getElementById("mWins").style.color = "white";
                         if (winningScore >= 10) {
                     } else if (winningScore < 10) {
