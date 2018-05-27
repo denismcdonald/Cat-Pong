@@ -1,4 +1,7 @@
 body {
+    -webkit-user-select: none; /* Chrome/Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+ */
     background: #ff7b00;
     font-family: Arial, Helvetica, sans-serif;
     /* height: 2000px; */
@@ -544,10 +547,6 @@ canvas {
     /* margin-left: 15px; */
     /* margin-right: 15px; */
     font-weight: 900;
-}
-
-#showScore {
-    /* margin-left: 25px; */
 }
 
 #moreWins {
