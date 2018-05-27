@@ -51,8 +51,23 @@
         <div id="p1Score">0</div>
         <div id="p2Score">0</div>
 
-        <div id="setWins">First to reach <span>3</span> wins!</div>
+        <div id="setWins">Score <span id="showScore">3</span> to win!</div>
         <div id="clickPlay">Click to play!</div>
+        
+        
+        <!-- <div id="moreWins"></div> -->
+        <svg class="triangle" id="mWins">
+            <polygon points="0,0 50,0 0,50" fill="currentColor" />
+          </svg>
+          <svg class="triangle" id="lWins">
+            <polygon points="0,0 50,0 0,50" fill="currentColor" />
+          </svg>
+        
+        
+        <!-- <div id="lessWins"></div> -->
+
+
+
 
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
@@ -67,7 +82,7 @@
         var ballY = 300;
         var ballSpeedX = 10;        
         var ballSpeedY = 5;
-        var rand = 5500;
+        var rand = 5000;
         
         var player1Score = 0;
         var player2Score = 0;
@@ -108,6 +123,8 @@
                 showingStartScreen = false;
                 document.getElementById("setWins").style.visibility = "hidden";
                 document.getElementById("clickPlay").style.visibility = "hidden";
+                document.getElementById("mWins").style.visibility = "hidden";
+                document.getElementById("lWins").style.visibility = "hidden";
             }
         }
 
@@ -135,6 +152,46 @@
 
             document.getElementById("clickPlay").addEventListener("mousedown", handleMouseClick);
             document.getElementById("setWins").addEventListener("mousedown", handleMouseClick);
+            document.getElementById("mWins").addEventListener("mousedown", function() {
+                if (winningScore == 20) {
+                    winningScore = 20;
+                    document.getElementById("showScore").style.marginLeft = "0";
+                }
+                if (winningScore >= 1 && winningScore < 20) {
+                    winningScore++;
+                    document.getElementById("lWins").style.color = "white";
+                    document.getElementById("mWins").style.color = "white"; 
+                    if (winningScore >= 10) {
+                        document.getElementById("setWins").style.marginLeft = "-215px";
+                        document.getElementById("showScore").style.marginLeft = "0";
+                        document.getElementById("showScore").style.marginRight = "0";
+                    } else if (winningScore < 10) {
+                    }
+                    
+                    if (winningScore == 20) {
+                    document.getElementById("mWins").style.color = "lightgrey"; 
+                    }
+                }
+                document.getElementById("showScore").innerHTML = winningScore;
+            });
+
+                document.getElementById("lWins").addEventListener("mousedown", function() {
+                    if (winningScore == 1) {
+                        winningScore = 1;
+                    }
+                    if (winningScore > 1) {
+                        winningScore--;
+                        document.getElementById("mWins").style.color = "white";
+                        if (winningScore >= 10) {
+                    } else if (winningScore < 10) {
+                        document.getElementById("setWins").style.marginLeft = "-195px";
+                    }
+                        if (winningScore == 1) {
+                            document.getElementById("lWins").style.color = "lightgrey"; 
+                        }
+                    }
+                    document.getElementById("showScore").innerHTML = winningScore;
+                });
 
             canvas.addEventListener("mousemove", 
                 function(evt) {
@@ -252,7 +309,7 @@
                 document.getElementById("ricoX").style.visibility = "visible";
                 document.getElementById("ricoX").style.left = canvas.offsetLeft + "px";
                 document.getElementById("ricoX").style.top = canvas.offsetTop + ballY + "px";
-                document.querySelector("canvas").style.border = "8px solid black";
+                document.querySelector("canvas").style.border = "8px solid white";
                 //Ricochet hit detection keyframes animation test
                 // document.getElementById("ricoX").classList.add("shakeWith");
                 // setTimeout(function() {
@@ -293,7 +350,7 @@
                 document.getElementById("ricoX").style.visibility = "visible";
                 document.getElementById("ricoX").style.left = canvas.offsetLeft + canvas.width+7 + "px";
                 document.getElementById("ricoX").style.top = canvas.offsetTop + ballY + "px";
-                document.querySelector("canvas").style.border = "8px solid #2cc715";
+                document.querySelector("canvas").style.border = "8px solid black";
                 
                 if (ballY > paddle2Y && ballY < paddle2Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
@@ -338,7 +395,7 @@
                 document.getElementById("ricoY").style.top = canvas.offsetTop + canvas.height+6 + "px";
                 document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px"; 
                 document.getElementById("ricoY").style.visibility = "visible"; 
-                document.querySelector("canvas").style.border = "8px solid #ff0080"; 
+                document.querySelector("canvas").style.border = "8px solid yellow"; 
             }
             
             //Umpire eyes track ball
@@ -364,6 +421,9 @@
               if (showingWinScreen) {
                 ctx.fillStyle = "yellow";
                 ctx.font = "60px Modak";
+                ctx.shadowColor = "black";
+                ctx.shadowBlur = 7;
+                ctx.lineWidth = 5;
 
                 if (player1Score >= winningScore) {
                     ctx.fillText("Victory!", 290, 250);
@@ -378,7 +438,7 @@
                   
                 ctx.fillStyle = "salmon";
                 ctx.font = "40px Modak";
-                ctx.fillText("Click to play again...", 230, 350);
+                ctx.fillText("Click to play again!", 230, 350);
                   
                 //PONG lettering TEST
                 setTimeout(function() {
@@ -421,31 +481,32 @@
                 //Paddle right
                 colorRect(canvas.width-11, paddle2Y, paddleWidth, paddleHeight, "yellow");
 
-                //Ball
-                colorCircle(ballX, ballY, 10, "black");
-                colorCircle(ballX, ballY, 8, "white");
+               
 
                 //Net
-                ctx.strokeStyle = "white";
+                ctx.strokeStyle = "#999";
                 ctx.beginPath();
+                ctx.lineWidth = 2;
                 ctx.setLineDash([10,15]);
-                ctx.moveTo(400,580);
+                ctx.moveTo(400,520);
                 ctx.lineTo(400,20);
                 ctx.stroke();
-                ctx.fill(); 
+                ctx.fill();            
 
                 ctx.fillStyle = "salmon";
                 ctx.font = "50px Modak";
                 // ctx.fillText("Click to play!", 245, 395);
+
+                //Ball
+                // colorCircle(ballX, ballY, 10, "black");
+                // colorCircle(ballX, ballY, 8, "white");
 
                 return;
             }
 
 
 
-            //Ball
-            colorCircle(ballX, ballY, 10, "black");
-            colorCircle(ballX, ballY, 8, "white");
+            
            
             //Paddle left
             colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
@@ -460,14 +521,20 @@
             // colorRect(canvas.width-8, paddle2Y+4, paddleWidth, paddleHeight-8, "black");
          
             //Net
+             ctx.shadowColor = "black";
+            ctx.shadowBlur = 0;
+            ctx.lineWidth = 2; 
             ctx.strokeStyle = "white";
             ctx.beginPath();
             ctx.setLineDash([10,15]);
-            ctx.moveTo(400,580);
+            ctx.moveTo(400,520);
             ctx.lineTo(400,20);
             ctx.stroke();
-            ctx.fill();           
-
+            ctx.fill();  
+                   
+            //Ball
+            colorCircle(ballX, ballY, 10, "black");
+            colorCircle(ballX, ballY, 8, "white");
 
         } //function drawEverything
    
