@@ -531,9 +531,28 @@ canvas {
     top: 500px;
     left: 50%;
     margin-left: -299px;
-    text-align: center;
     visibility: hidden;
     z-index: 15;
+    text-shadow: 2px 2px 5px black;
+}
+
+#setWins span {
+    color: white;
+    font-family: "Monoton";
+    font-weight: 900;
+}
+
+#clickPlay {
+    color: salmon;
+    font-family: "Modak";
+    font-size: 60px;
+    position: absolute;
+    top: 700px;
+    left: 50%;
+    margin-left: -170px;
+    z-index: 15;
+    visibility: hidden;
+    text-shadow: 2px 2px 5px black;
 }
 
 

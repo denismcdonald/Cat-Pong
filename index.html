@@ -51,7 +51,8 @@
         <div id="p1Score">0</div>
         <div id="p2Score">0</div>
 
-        <div id="setWins">First to reach 3 wins!</div>
+        <div id="setWins">First to reach <span>3</span> wins!</div>
+        <div id="clickPlay">Click to play!</div>
 
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
@@ -106,6 +107,7 @@
                 showingWinScreen = false;
                 showingStartScreen = false;
                 document.getElementById("setWins").style.visibility = "hidden";
+                document.getElementById("clickPlay").style.visibility = "hidden";
             }
         }
 
@@ -130,6 +132,9 @@
             // }, 1000/framesPerSecond);
 
             canvas.addEventListener("mousedown", handleMouseClick);
+
+            document.getElementById("clickPlay").addEventListener("mousedown", handleMouseClick);
+            document.getElementById("setWins").addEventListener("mousedown", handleMouseClick);
 
             canvas.addEventListener("mousemove", 
                 function(evt) {
@@ -408,6 +413,7 @@
             if (showingStartScreen) {
 
                 document.getElementById("setWins").style.visibility = "visible";
+                document.getElementById("clickPlay").style.visibility = "visible";
 
                 //Paddle left
                 colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
@@ -430,7 +436,7 @@
 
                 ctx.fillStyle = "salmon";
                 ctx.font = "50px Modak";
-                ctx.fillText("Click to play!", 245, 395);
+                // ctx.fillText("Click to play!", 245, 395);
 
                 return;
             }
