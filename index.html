@@ -72,9 +72,20 @@
             <polygon points="0,0 50,0 0,50" fill="currentColor" />
           </svg>
 
+         <div id="particlesY">
+             <div id="part1Y"></div>
+             <div id="part2Y"></div>
+             <div id="part3Y"></div>
+         </div>
+        
+         <div id="particlesYb">
+            <div id="part1Yb"></div>
+            <div id="part2Yb"></div>
+            <div id="part3Yb"></div>
+        </div>
+
          
-        
-        
+
         <!-- <div id="lessWins"></div> -->
 
 
@@ -93,7 +104,7 @@
         var ballY = 300;
         var ballSpeedX = 10;        
         var ballSpeedY = 5;
-        var rand = 5000;
+        var rand = 4500;
         
         var player1Score = 0;
         var player2Score = 0;
@@ -366,6 +377,8 @@
                 //     document.getElementById("ricoX").classList.remove("shakeWith");
                 // }, 500);
                 
+
+                
                 
                 if (ballY > paddle1Y-10 && ballY < paddle1Y+paddleHeight+10) {
                     ballSpeedX = -ballSpeedX;
@@ -432,19 +445,41 @@
                 ballSpeedY = -ballSpeedY;
                 
                 //Vertical ricochet hit detection
-                document.getElementById("ricoY").style.visibility = "visible";
-                document.getElementById("ricoY").style.top = canvas.offsetTop + "px";
-                document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px";                
-                document.querySelector("canvas").style.border = "8px solid yellow";
+                // document.getElementById("ricoY").style.visibility = "visible";
+                // document.getElementById("ricoY").style.top = canvas.offsetTop + "px";
+                // document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px";                
+                // document.querySelector("canvas").style.border = "8px solid yellow";
+
+                //TESTING
+            document.getElementById("particlesY").style.top = canvas.offsetTop-20 + "px";
+                document.getElementById("particlesY").style.left = canvas.offsetLeft + ballX + "px";
+                document.getElementById("particlesY").style.visibility = "visible";
+            document.getElementById("particlesY").classList.add("ricoTop");
+            setTimeout(function() {
+                document.getElementById("particlesY").classList.remove("ricoTop");
+                document.getElementById("particlesY").style.visibility = "hidden";
+            }, 500);
+
+
             }
             if (ballY > canvas.height) {
                 ballSpeedY = -ballSpeedY;
                 
                 //Vertical ricochet hit detection
-                document.getElementById("ricoY").style.top = canvas.offsetTop + canvas.height+6 + "px";
-                document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px"; 
-                document.getElementById("ricoY").style.visibility = "visible"; 
-                document.querySelector("canvas").style.border = "8px solid yellow"; 
+                // document.getElementById("ricoY").style.top = canvas.offsetTop + canvas.height+6 + "px";
+                // document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px"; 
+                // document.getElementById("ricoY").style.visibility = "visible"; 
+                // document.querySelector("canvas").style.border = "8px solid yellow";
+
+                //TESTING
+                document.getElementById("particlesYb").style.top = canvas.offsetTop + canvas.height+20 + "px";
+                document.getElementById("particlesYb").style.left = canvas.offsetLeft + ballX + "px";
+                document.getElementById("particlesYb").style.visibility = "visible";
+            document.getElementById("particlesYb").classList.add("ricoBottom");
+            setTimeout(function() {
+                document.getElementById("particlesYb").classList.remove("ricoBottom");
+                document.getElementById("particlesYb").style.visibility = "hidden";
+            }, 500); 
             }
             
             //Umpire eyes track ball
