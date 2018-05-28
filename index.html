@@ -30,12 +30,13 @@
 
     <div id="eyeleft">
         <div id="shiny1"></div>
+        <div id="tearLeft"></div>
         <div id="eyebrowLeft"></div>
     </div>
     
     <div id="eyeright">
         <div id="shiny2"></div>
-        <div id="tear"></div>
+        <div id="tearRight"></div>
         <div id="eyebrowRight"></div>
     </div>
 
@@ -51,6 +52,8 @@
         <div id="p1Score">0</div>
         <div id="p2Score">0</div>
 
+        <div id="circle"></div>
+
         <div id="setWins">Score <span id="showScore">3</span> to win!</div>
         <div id="clickPlay">Click to play!</div>
         
@@ -62,6 +65,14 @@
           <svg class="triangle" id="lWins">
             <polygon points="0,0 50,0 0,50" fill="currentColor" />
           </svg>
+          <svg class="triangle" id="mWins1">
+            <polygon points="0,0 50,0 0,50" fill="currentColor" />
+          </svg>
+          <svg class="triangle" id="lWins1">
+            <polygon points="0,0 50,0 0,50" fill="currentColor" />
+          </svg>
+
+         
         
         
         <!-- <div id="lessWins"></div> -->
@@ -96,7 +107,8 @@
         var paddleHeight = 100;
         var paddleWidth = 12;
 
-        
+
+       
         function calculateMousePosition(evt) {
             var rect = canvas.getBoundingClientRect();
             var root = document.documentElement;
@@ -109,7 +121,7 @@
         }; 
 
         function handleMouseClick() {
-            if (showingWinScreen || showingStartScreen) {
+            if (showingStartScreen) {
                 player1Score = 0;
                 document.getElementById("p1Score").innerHTML = player1Score;
                 player2Score = 0;
@@ -125,6 +137,24 @@
                 document.getElementById("clickPlay").style.visibility = "hidden";
                 document.getElementById("mWins").style.visibility = "hidden";
                 document.getElementById("lWins").style.visibility = "hidden";
+
+            }
+            if (showingWinScreen) {
+                player1Score = 0;
+                document.getElementById("p1Score").innerHTML = player1Score;
+                player2Score = 0;
+                document.getElementById("p2Score").innerHTML = player2Score;
+                document.getElementById("p1Score").classList.remove("spin");
+                document.getElementById("p2Score").classList.remove("spin");
+                document.getElementById("tail").classList.remove("wag1");
+                document.getElementById("tail").classList.remove("wag2");
+                document.getElementById("tail").style.transform = "rotate(0deg)";
+                showingWinScreen = false;
+                showingStartScreen = true;
+                document.getElementById("setWins").style.visibility = "hidden";
+                document.getElementById("clickPlay").style.visibility = "hidden";
+                document.getElementById("mWins").style.visibility = "visible";
+                document.getElementById("lWins").style.visibility = "visible";
             }
         }
 
@@ -153,7 +183,6 @@
             document.getElementById("clickPlay").addEventListener("mousedown", handleMouseClick);
             document.getElementById("setWins").addEventListener("mousedown", handleMouseClick);
             document.getElementById("mWins").addEventListener("mousedown", function() {
-               
                 
                 if (winningScore == 20) {
                     winningScore = 20;
@@ -162,7 +191,8 @@
                 if (winningScore >= 1 && winningScore < 20) {
                     winningScore++;
                     
-                    //Animate arrow
+                    //Animate arrow up
+                    // arrowUp();
                     document.getElementById("mWins").style.filter = "drop-shadow(1px -1px 1px black)";
                     document.getElementById("mWins").style.top = "473px";
                     setTimeout(function() {
@@ -194,6 +224,7 @@
                         winningScore--;
 
                         //Animate arrow
+                        // arrowDown();
                         document.getElementById("lWins").style.filter = "drop-shadow(1px -1px 1px black)";
                         document.getElementById("lWins").style.top = "573px";
                         setTimeout(function() {
@@ -203,9 +234,9 @@
 
                         document.getElementById("mWins").style.color = "white";
                         if (winningScore >= 10) {
-                    } else if (winningScore < 10) {
-                        document.getElementById("setWins").style.marginLeft = "-195px";
-                    }
+                        } else if (winningScore < 10) {
+                            document.getElementById("setWins").style.marginLeft = "-195px";
+                        }
                         if (winningScore == 1) {
                             document.getElementById("lWins").style.color = "lightgrey"; 
                         }
@@ -310,7 +341,6 @@
         function moveEverything() {
 
             if (showingStartScreen) {
-                // document.querySelector("canvas").style.cursor = "auto";
                 return;
             }
 
@@ -410,7 +440,6 @@
             if (ballY > canvas.height) {
                 ballSpeedY = -ballSpeedY;
                 
-                console.log(canvas.width);
                 //Vertical ricochet hit detection
                 document.getElementById("ricoY").style.top = canvas.offsetTop + canvas.height+6 + "px";
                 document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px"; 
@@ -448,14 +477,15 @@
                 if (player1Score >= winningScore) {
                     ctx.fillText("Victory!", 290, 250);
                     document.getElementById("p1Score").classList.add("spin");
-                    document.getElementById("tail").classList.add("wag1");
+                    document.getElementById("tail").classList.add("wag1");               
             
-                } else if (player2Score >= winningScore) {
+                } if (player2Score >= winningScore) {
                     ctx.fillText("Aw, shucks!", 240, 250);
                     document.getElementById("p2Score").classList.add("spin");
                     document.getElementById("tail").classList.add("wag2");
-                }               
-                  
+                }                  
+                
+
                 ctx.fillStyle = "salmon";
                 ctx.font = "40px Modak";
                 ctx.fillText("Click to play again!", 230, 350);
@@ -499,11 +529,10 @@
                 colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
 
                 //Paddle right
-                colorRect(canvas.width-11, paddle2Y, paddleWidth, paddleHeight, "yellow");
-
-               
+                colorRect(canvas.width-11, paddle2Y, paddleWidth, paddleHeight, "yellow");              
 
                 //Net
+                ctx.shadowBlur = 0;
                 ctx.strokeStyle = "#999";
                 ctx.beginPath();
                 ctx.lineWidth = 2;
@@ -515,18 +544,9 @@
 
                 ctx.fillStyle = "salmon";
                 ctx.font = "50px Modak";
-                // ctx.fillText("Click to play!", 245, 395);
-
-                //Ball
-                // colorCircle(ballX, ballY, 10, "black");
-                // colorCircle(ballX, ballY, 8, "white");
 
                 return;
             }
-
-
-
-            
            
             //Paddle left
             colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");

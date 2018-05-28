@@ -64,6 +64,10 @@ canvas {
     animation: wag2 2.5s infinite;
 }
 
+.wellUp {
+    animation: wellUp 1s;
+}
+
 @keyframes shake {
     0% { 
       transform: rotate(2deg);
@@ -198,6 +202,42 @@ canvas {
     }
 }
 
+@keyframes wellUp {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes leftWins {
+    0% {
+        height: 5px;
+        width: 5px;
+    }
+    100% {
+        height: 800px;
+        width: 800px;
+        margin-left: -250px;
+        margin-top: -250px;
+    }
+}
+
+/* #circle {
+    position: absolute;
+    background-color: yellow;
+    height: 5px;
+    width: 5px;
+    left: 50%;
+    top: 600px;
+    border-radius: 50%;
+    z-index: 10;
+    animation: leftWins 2s;
+    animation-fill-mode: forwards;
+} */
+
+
 #pong {
     text-align: center;
     font-family: "Modak";
@@ -311,6 +351,28 @@ canvas {
     right: 5px;
     top: 2px;
 }
+
+#tearLeft {
+    position: absolute;
+    background-color: white;
+    height: 2px;
+    width: 11px;
+    right: 2px;
+    top: 13px;
+    visibility: hidden;
+}
+
+#tearRight {
+    position: absolute;
+    background-color: white;
+    border-radius: 4px;
+    height: 2px;
+    width: 11px;
+    right: 2px;
+    top: 13px;
+    visibility: hidden;
+}
+
 
 #shiny2 {
     background-color: #fff;
@@ -540,6 +602,7 @@ canvas {
 
 #mWins {
     color: white;
+    border-radius: 5px;
     position: absolute;
     cursor: pointer;
     left: 50%;
@@ -552,6 +615,7 @@ canvas {
 
 #lWins {
     color: white;
+    border-radius: 5px;
     position: absolute;
     cursor: pointer;
     left: 50%;
@@ -560,6 +624,34 @@ canvas {
     transform: rotate(-135deg);
     z-index: 15;
     filter: drop-shadow(-2px -2px 2px black);
+}
+
+#mWins1 {
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    cursor: pointer;
+    left: 50%;
+    top: 670px;
+    margin-left: -25px;
+    transform: rotate(45deg);
+    z-index: 10;
+    filter: drop-shadow(3px -1px 2px black);
+    visibility: hidden;
+}
+
+#lWins1 {
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    cursor: pointer;
+    left: 50%;
+    margin-left: -25px;
+    top: 770px;
+    transform: rotate(-135deg);
+    z-index: 15;
+    filter: drop-shadow(-2px -2px 2px black);
+    visibility: hidden;
 }
 
 #clickPlay {
