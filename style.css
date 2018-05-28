@@ -145,22 +145,19 @@ canvas {
 @keyframes popin {
     0% {
       font-size: 160px;
-      /* font-size: 140px; */
       opacity: .7;
       text-shadow: 1px 1px 1px black;
       filter: drop-shadow(2px 2px 2px black);
     }
     15% {
       font-size: 165px;
-      /* font-size: 145px; */
       opacity: 1;
-      text-shadow: 5px 5px 8px black;
+      text-shadow: 5px 5px 10px black;
       filter: drop-shadow(10px 5px 10px black);
 
     }
     100% {
       font-size: 160px;
-      /* font-size: 140px; */
       opacity: .7;
       text-shadow: 1px 1px 1px black;
       filter: drop-shadow(2px 2px 2px black);
@@ -244,7 +241,7 @@ canvas {
 #pong {
     text-align: center;
     font-family: "Modak";
-    font-size: 140px;
+    font-size: 160px;
     margin-bottom: -120px;
     margin-top: -40px;
     height: 300px;

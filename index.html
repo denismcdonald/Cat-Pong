@@ -477,12 +477,12 @@
                 if (player1Score >= winningScore) {
                     ctx.fillText("Victory!", 290, 250);
                     document.getElementById("p1Score").classList.add("spin");
-                    document.getElementById("tail").classList.add("wag1");               
+                    // document.getElementById("tail").classList.add("wag1");               
             
                 } if (player2Score >= winningScore) {
                     ctx.fillText("Aw, shucks!", 240, 250);
                     document.getElementById("p2Score").classList.add("spin");
-                    document.getElementById("tail").classList.add("wag2");
+                    // document.getElementById("tail").classList.add("wag2");
                 }                  
                 
 
@@ -521,6 +521,8 @@
 
             // Startscreen TEST
             if (showingStartScreen) {
+
+                document.getElementById("tail").classList.add("wag1");
 
                 document.getElementById("setWins").style.visibility = "visible";
                 document.getElementById("clickPlay").style.visibility = "visible";
@@ -596,23 +598,23 @@
         // PONG lettering
         setTimeout(function() {
             document.getElementById("pp").classList.add("popin");
-        },200);
+        },500);
 
         setTimeout(function() {
             document.getElementById("oo").classList.add("popin");
-        },400);
+        },1000);
 
         setTimeout(function() {
             document.getElementById("nn").classList.add("popin");
-        },600);
+        },500);
 
         setTimeout(function() {
             document.getElementById("gg").classList.add("popin");
-        },800);
+        },1000);
 
         setTimeout(function() {
             document.getElementById("ex").classList.add("popin");
-        },1000);
+        },500);
       
     
     </script>
