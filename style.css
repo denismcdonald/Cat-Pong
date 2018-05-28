@@ -12,7 +12,7 @@ canvas {
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     cursor: crosshair;
     display: block;
-    margin: 190px auto 80px;
+    margin: 200px auto 80px;
 }
 
 #particlesY {
@@ -31,7 +31,7 @@ canvas {
     border-radius: 5px;
     height: 5px;
     width: 2px;
-    transform: rotate(-25deg);
+    transform: rotate(-30deg);
 }
 
 #part2Y {
@@ -51,7 +51,7 @@ canvas {
     border-radius: 5px;
     height: 5px;
     width: 2px;
-    transform: rotate(25deg);
+    transform: rotate(30deg);
 }
 
 
@@ -138,8 +138,8 @@ canvas {
     animation: popin 1.25s infinite;
 }
 
-.wag1 {
-    animation: wag1 2.5s infinite;
+.wag {
+    animation: wag 2.5s infinite;
 }
 
 .wag2 {
@@ -239,6 +239,29 @@ canvas {
       text-shadow: 1px 1px 1px black;
       filter: drop-shadow(2px 2px 2px black);
     }
+    50% {
+      font-size: 165px;
+      opacity: 1;
+      text-shadow: 3px 3px 3px black;
+      filter: drop-shadow(5px 1px 5px black);
+    }
+    100% {
+      font-size: 160px;
+      opacity: .7;
+      text-shadow: 1px 1px 1px black;
+      filter: drop-shadow(2px 2px 2px black);
+    }
+  }
+
+
+
+  /* @keyframes popin {
+    0% {
+      font-size: 160px;
+      opacity: .7;
+      text-shadow: 1px 1px 1px black;
+      filter: drop-shadow(2px 2px 2px black);
+    }
     15% {
       font-size: 165px;
       opacity: 1;
@@ -253,9 +276,11 @@ canvas {
       filter: drop-shadow(2px 2px 2px black);
 
     }
-  }
+  } */
 
-  @keyframes wag1 {
+
+
+  @keyframes wag {
     0% {
       transform: rotate(-15deg);
       top: 163px;
@@ -342,7 +367,7 @@ canvas {
     100% {
         /* margin-bottom: 20px; */
         opacity: 0;
-        top: 95%;
+        top: 96%;
     }
 }
 
