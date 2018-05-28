@@ -10,13 +10,13 @@
 </head>
 <body>
 
-        <div id="pong">
-                <div id="pp">P</div>
-                <div id="oo">O</div>
-                <div id="nn">N</div>
-                <div id="gg">G</div>
-                <div id="ex">!</div>
-            </div>
+    <div id="pong">
+        <div id="pp">P</div>
+        <div id="oo">O</div>
+        <div id="nn">N</div>
+        <div id="gg">G</div>
+        <div id="ex">!</div>
+    </div>
 
     <div id="umpire">
         <div id="leftear"></div>
@@ -25,8 +25,6 @@
 
     <div id="umpShirt"></div>
     <div id="tail"></div>
-    <!-- <div id="leftFoot"></div>
-    <div id="rightFoot"></div> -->
 
     <div id="eyeleft">
         <div id="shiny1"></div>
@@ -57,8 +55,7 @@
         <div id="setWins">Score <span id="showScore">3</span> to win!</div>
         <div id="clickPlay">Click to play!</div>
         
-        
-        <!-- <div id="moreWins"></div> -->
+        <!--Arrows for adjusting win score-->
         <svg class="triangle" id="mWins">
             <polygon points="0,0 50,0 0,50" fill="currentColor" />
           </svg>
@@ -72,29 +69,21 @@
             <polygon points="0,0 50,0 0,50" fill="currentColor" />
           </svg>
 
+        <!--Top border ricochet shapes for hit detection -->
          <div id="particlesY">
              <div id="part1Y"></div>
              <div id="part2Y"></div>
              <div id="part3Y"></div>
          </div>
         
+         <!--Bottom border ricochet shapes for hit detection -->
          <div id="particlesYb">
             <div id="part1Yb"></div>
             <div id="part2Yb"></div>
             <div id="part3Yb"></div>
         </div>
 
-         
-
-        <!-- <div id="lessWins"></div> -->
-
-
-
-
     <canvas id="gameCanvas" width="800" height="550"></canvas>
-
-    <div id="ricoX"></div>
-    <div id="ricoY"></div>
 
     <script type="text/javascript">
 
@@ -371,9 +360,7 @@
                 // document.getElementById("ricoX").classList.add("shakeWith");
                 // setTimeout(function() {
                 //     document.getElementById("ricoX").classList.remove("shakeWith");
-                // }, 500);
-                
-                
+                // }, 500);                
                 
                 if (ballY > paddle1Y-10 && ballY < paddle1Y+paddleHeight+10) {
                     ballSpeedX = -ballSpeedX;
@@ -388,14 +375,16 @@
                     ballReset();
                     document.getElementById("p2Score").innerHTML = player2Score;
 
-                    //Tail TEST
+                    //Point tail to player 2 score
                     document.getElementById("tail").style.transform = "rotate(15deg)";
                     
+                    //Animate score of player 2
                     document.getElementById("p2Score").classList.add("grow");
                     setTimeout(function() {
                         document.getElementById("p2Score").classList.remove("grow");
                     }, 2000);
                    
+                    //Shake canvas upon player 2 scoring
                     document.querySelector("canvas").classList.add("shake");
                     setTimeout(function() {
                         document.querySelector("canvas").classList.remove("shake");
@@ -404,12 +393,6 @@
             }
 
             if (ballX > canvas.width) {
-
-                //Horizontal ricochet hit detection
-                // document.getElementById("ricoX").style.visibility = "visible";
-                // document.getElementById("ricoX").style.left = canvas.offsetLeft + canvas.width+7 + "px";
-                // document.getElementById("ricoX").style.top = canvas.offsetTop + ballY + "px";
-                // document.querySelector("canvas").style.border = "8px solid black";
                 
                 if (ballY > paddle2Y && ballY < paddle2Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
@@ -423,14 +406,16 @@
                     ballReset();
                     document.getElementById("p1Score").innerHTML = player1Score;
 
-                    //Tail TEST
+                    //Point tail to player 1 score
                     document.getElementById("tail").style.transform = "rotate(-15deg)";
-                                        
+
+                    //Animate score of player 2
                     document.getElementById("p1Score").classList.add("grow");
                     setTimeout(function() {
                         document.getElementById("p1Score").classList.remove("grow");
                     }, 2000);
 
+                    //Animate canvas upon player 1 scoring
                     document.querySelector("canvas").classList.add("cheer");
                     setTimeout(function() {
                         document.querySelector("canvas").classList.remove("cheer");
@@ -440,44 +425,30 @@
             
             if (ballY <= 0) {
                 ballSpeedY = -ballSpeedY;
-                
-                //Vertical ricochet hit detection
-                // document.getElementById("ricoY").style.visibility = "visible";
-                // document.getElementById("ricoY").style.top = canvas.offsetTop + "px";
-                // document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px";                
-                // document.querySelector("canvas").style.border = "8px solid yellow";
 
-                //TESTING
-                // document.getElementById("particlesY").style.transform = "rotate(20deg)";
-            document.getElementById("particlesY").style.top = canvas.offsetTop-20 + "px";
+                //Animate top border hit detection
+                document.getElementById("particlesY").style.top = canvas.offsetTop-20 + "px";
                 document.getElementById("particlesY").style.left = canvas.offsetLeft + ballX + "px";
                 document.getElementById("particlesY").style.visibility = "visible";
-            document.getElementById("particlesY").classList.add("ricoTop");
-            setTimeout(function() {
-                document.getElementById("particlesY").classList.remove("ricoTop");
-                document.getElementById("particlesY").style.visibility = "hidden";
-            }, 250);
-
-
+                document.getElementById("particlesY").classList.add("ricoTop");
+                setTimeout(function() {
+                    document.getElementById("particlesY").classList.remove("ricoTop");
+                    document.getElementById("particlesY").style.visibility = "hidden";
+                }, 250);
             }
+
             if (ballY > canvas.height) {
                 ballSpeedY = -ballSpeedY;
                 
-                //Vertical ricochet hit detection
-                // document.getElementById("ricoY").style.top = canvas.offsetTop + canvas.height+6 + "px";
-                // document.getElementById("ricoY").style.left = canvas.offsetLeft + ballX + "px"; 
-                // document.getElementById("ricoY").style.visibility = "visible"; 
-                // document.querySelector("canvas").style.border = "8px solid yellow";
-
-                //TESTING
+                //Animate bottom border hit detection
                 document.getElementById("particlesYb").style.top = canvas.offsetTop + canvas.height+20 + "px";
                 document.getElementById("particlesYb").style.left = canvas.offsetLeft + ballX + "px";
                 document.getElementById("particlesYb").style.visibility = "visible";
-            document.getElementById("particlesYb").classList.add("ricoBottom");
-            setTimeout(function() {
-                document.getElementById("particlesYb").classList.remove("ricoBottom");
-                document.getElementById("particlesYb").style.visibility = "hidden";
-            }, 500); 
+                document.getElementById("particlesYb").classList.add("ricoBottom");
+                setTimeout(function() {
+                    document.getElementById("particlesYb").classList.remove("ricoBottom");
+                    document.getElementById("particlesYb").style.visibility = "hidden";
+                }, 500); 
             }
             
             //Umpire eyes track ball
@@ -559,8 +530,8 @@
                 return;
             }
            
-//Ball
-colorCircle(ballX, ballY, 10, "black");
+            //Ball
+            colorCircle(ballX, ballY, 10, "black");
             colorCircle(ballX, ballY, 8, "white");
 
             //Paddle left
@@ -585,12 +556,11 @@ colorCircle(ballX, ballY, 10, "black");
             ctx.moveTo(400,520);
             ctx.lineTo(400,20);
             ctx.stroke();
-            ctx.fill();  
-                   
-            
+            ctx.fill();              
 
         } //function drawEverything
    
+
         //Circle draw template
         function colorCircle(centerX, centerY, radius, drawColor) {
             ctx.fillStyle = drawColor;

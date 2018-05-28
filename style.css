@@ -253,8 +253,6 @@ canvas {
     }
   }
 
-
-
   /* @keyframes popin {
     0% {
       font-size: 160px;
@@ -279,7 +277,6 @@ canvas {
   } */
 
 
-
   @keyframes wag {
     0% {
       transform: rotate(-15deg);
@@ -298,24 +295,6 @@ canvas {
       opacity: 1;
     }
   }
-
-  @keyframes wag2 {
-    0% {
-      transform: rotate(15deg);
-      top: 163px;
-      opacity: 1;
-    }
-    70% {
-      transform: rotate(-15deg);
-      top: 166px;
-      opacity: .8;
-    }
-    100% {
-      transform: rotate(15deg);
-      top: 163px;
-      opacity: 1;
-    }
-}
 
 @keyframes wellUp {
     0% {
@@ -357,15 +336,12 @@ canvas {
 
 @keyframes ricoBottom {
     0% {
-        /* margin-bottom: 0px; */
         opacity: 0;
     }
     15% {
         opacity: 1;
-        /* margin-bottom: 15px; */
     }
     100% {
-        /* margin-bottom: 20px; */
         opacity: 0;
         top: 96%;
     }
