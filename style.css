@@ -1,9 +1,14 @@
+html {
+    width: 100%;
+}
+
 body {
     -webkit-user-select: none; /* Chrome/Safari */        
     -moz-user-select: none; /* Firefox */
     -ms-user-select: none; /* IE10+ */
     background: #ff7b00;
     font-family: Arial, Helvetica, sans-serif;
+    width: 100%;
 }
 
 canvas {
@@ -417,10 +422,9 @@ canvas {
 #p1Score {
     font-family: Monoton;
     font-size: 50px;
-    text-align: left;
+    /* text-align: left; */
     filter: drop-shadow(6px 6px 20px yellow);
     font-weight: bold;
-    /* left: 35%; */
     left: 33%;
     margin-top: 30px;
     position: absolute;
@@ -789,6 +793,22 @@ canvas {
     text-shadow: 2px 2px 5px black;
 }
 
+#windowAlert {
+    visibility: hidden;
+    color: lightskyblue;
+    font-family: "Modak";
+    font-size: 40px;
+    position: absolute;
+    margin: 60px;
+    top: 300px;
+    text-align: center;
+    text-shadow: 1px 1px 1px black;
+}
+
+#windowAlert span {
+    color: yellow;
+}
+
 
 @media (max-width: 1100px) {
     #p1Score {
@@ -828,4 +848,130 @@ canvas {
         right: 41%;
     }
 }
+}
+
+@media (max-width: 850px) {
+    canvas {
+        visibility: hidden;
+    }
+
+    #pong {
+        font-size: 40px;
+    }
+
+    #p1Score {
+        /* left: 23%; */
+        visibility: hidden;
+    }
+
+    #p2Score {
+        /* right: 23%; */
+        visibility: hidden;
+    }
+
+    #windowAlert {
+        visibility: visible;
+    }
+
+    @keyframes popin {
+        0% {
+          font-size: 140px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+        50% {
+          font-size: 145px;
+          opacity: 1;
+          text-shadow: 3px 3px 3px black;
+          filter: drop-shadow(5px 1px 5px black);
+        }
+        100% {
+          font-size: 140px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+      }
+
+
+}
+
+@media (max-width: 600px) {
+    canvas {
+        content: "No!";
+        visibility: hidden;
+    }
+
+    #pong {
+        font-size: 20px;
+        /* margin-bottom: -50px; */
+        /* visibility: hidden; */
+    }
+
+    #p1Score {
+        /* left: 18%; */
+        visibility: hidden;
+    }
+
+    #p2Score {
+        /* right: 18%; */
+        visibility: hidden;
+    }
+
+}
+
+@media (max-width: 320px) {
+    canvas {
+        visibility: hidden;
+    }
+
+    #pong {
+        /* font-size: 20px; */
+        /* visibility: hidden; */
+        margin-top: 20px;
+        margin-right: 20px;
+    }
+
+    #p1Score {
+        left: 18%;
+        visibility: hidden;
+    }
+
+    #p2Score {
+        right: 18%;
+        visibility: hidden;
+    }
+
+    #windowAlert {
+        font-size: 20px;
+    }
+
+    #umpire {
+        margin-top: 5px;
+    }
+
+
+    @keyframes popin {
+        0% {
+          font-size: 90px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+        50% {
+          font-size: 95px;
+          opacity: 1;
+          text-shadow: 3px 3px 3px black;
+          filter: drop-shadow(5px 1px 5px black);
+        }
+        100% {
+          font-size: 90px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+      }
+
+
 }

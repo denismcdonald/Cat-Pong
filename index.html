@@ -54,6 +54,7 @@
 
         <div id="setWins">Score <span id="showScore">3</span> to win!</div>
         <div id="clickPlay">Click to play!</div>
+        <div id="windowAlert"><span>Aw, shucks!</span><br>Enlarge your browser, or view on desktop to play!</div>
         
         <!--Arrows for adjusting win score-->
         <svg class="triangle" id="mWins">
@@ -161,6 +162,11 @@
             canvas = document.getElementById("gameCanvas");
             ctx = canvas.getContext("2d");
             var framesPerSecond = 59;
+
+            //Force-refresh fix for iOS problems on device orientation change
+            window.onorientationchange = function() {
+                window.location.reload();
+            };
 
             //Smooth animation method, as per https://css-tricks.com/using-requestanimationframe/
             function repeatOften() {
@@ -468,6 +474,13 @@
 
         function drawEverything() {
             
+            if (window.matchMedia("(max-width: 850px)").matches) {
+                document.getElementById("setWins").style.visibility = "hidden";
+                document.getElementById("clickPlay").style.visibility = "hidden";
+                document.getElementById("mWins").style.visibility = "hidden";
+                document.getElementById("lWins").style.visibility = "hidden";
+            }
+
             //Canvas play area
             colorRect(0, 0, canvas.width, canvas.height, "#7447d1");
 
@@ -504,8 +517,12 @@
 
                 document.getElementById("tail").classList.add("wag");
 
+                if (window.matchMedia("(min-width: 850px)").matches) {
+
                 document.getElementById("setWins").style.visibility = "visible";
                 document.getElementById("clickPlay").style.visibility = "visible";
+                document.getElementById("mWins").style.visibility = "visible";
+                document.getElementById("lWins").style.visibility = "visible";
 
                 //Paddle left
                 colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
@@ -528,6 +545,7 @@
                 ctx.font = "50px Modak";
 
                 return;
+                }
             }
            
             //Ball
