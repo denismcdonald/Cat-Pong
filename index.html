@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Pong</title>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Monoton|Modak" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Monoton|Modak|Bangers" rel="stylesheet">
 </head>
 <body>
 
@@ -54,7 +54,7 @@
 
         <div id="setWins">Score <span id="showScore">3</span> to win!</div>
         <div id="clickPlay">Click to play!</div>
-        <div id="windowAlert"><span>Aw, shucks!</span><br>Enlarge your browser, or view on desktop to play!</div>
+        <div id="windowAlert"><span>Uh oh!</span><br>Enlarge your browser, or view on desktop to play!</div>
         
         <!--Arrows for adjusting win score-->
         <svg class="triangle" id="mWins">
@@ -84,6 +84,9 @@
             <div id="part3Yb"></div>
         </div>
 
+        <div id="pingLeft">Ping!</div>
+        <div id="pongRight">Pong!</div>
+
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
     <script type="text/javascript">
@@ -108,13 +111,16 @@
         var paddleHeight = 100;
         var paddleWidth = 12;
 
-
+        // var mY = 0;
+        // var mX = 0;
        
         function calculateMousePosition(evt) {
             var rect = canvas.getBoundingClientRect();
             var root = document.documentElement;
             var mouseX = evt.clientX - rect.left - root.scrollLeft;
             var mouseY = evt.clientY - rect.top - root.scrollTop;
+            // var mY = mouseY;
+            // var mX = mouseX;
             return {
                 x:mouseX,
                 y:mouseY
@@ -167,7 +173,7 @@
             window.onorientationchange = function() {
                 window.location.reload();
             };
-
+           
             //Smooth animation method, as per https://css-tricks.com/using-requestanimationframe/
             function repeatOften() {
                 moveEverything();
@@ -375,6 +381,17 @@
                     var deltaY = ballY-(paddle1Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
 
+                    //PING! hit detection left
+                    document.getElementById("pingLeft").style.top = canvas.offsetTop + ballY + "px";
+                    document.getElementById("pingLeft").style.left = canvas.offsetLeft + ballX-80 + "px";
+                    document.getElementById("pingLeft").style.visibility = "visible";
+                    document.getElementById("pingLeft").classList.add("ping");
+                    setTimeout(function() {
+                        document.getElementById("pingLeft").classList.remove("ping");
+                        document.getElementById("pingLeft").style.visibility = "hidden";
+                    }, 800);
+
+
                 } else {     
                     document.querySelector("canvas").style.border = "8px solid black";
                     player2Score++;  
@@ -405,6 +422,16 @@
                     
                     var deltaY = ballY-(paddle2Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
+
+                     //PONG! hit detection right
+                     document.getElementById("pongRight").style.top = canvas.offsetTop + ballY + "px";
+                    document.getElementById("pongRight").style.left = canvas.offsetLeft + ballX+20 + "px";
+                    document.getElementById("pongRight").style.visibility = "visible";
+                    document.getElementById("pongRight").classList.add("ping");
+                    setTimeout(function() {
+                        document.getElementById("pongRight").classList.remove("ping");
+                        document.getElementById("pongRight").style.visibility = "hidden";
+                    }, 800);
 
                 } else {        
                     document.querySelector("canvas").style.border = "8px solid yellow";        
@@ -474,12 +501,17 @@
 
         function drawEverything() {
             
+       
             if (window.matchMedia("(max-width: 850px)").matches) {
                 document.getElementById("setWins").style.visibility = "hidden";
                 document.getElementById("clickPlay").style.visibility = "hidden";
                 document.getElementById("mWins").style.visibility = "hidden";
                 document.getElementById("lWins").style.visibility = "hidden";
             }
+
+           
+
+            
 
             //Canvas play area
             colorRect(0, 0, canvas.width, canvas.height, "#7447d1");
@@ -518,7 +550,6 @@
                 document.getElementById("tail").classList.add("wag");
 
                 if (window.matchMedia("(min-width: 850px)").matches) {
-
                 document.getElementById("setWins").style.visibility = "visible";
                 document.getElementById("clickPlay").style.visibility = "visible";
                 document.getElementById("mWins").style.visibility = "visible";
