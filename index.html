@@ -374,6 +374,8 @@
                 //     document.getElementById("ricoX").classList.remove("shakeWith");
                 // }, 500);                
                 
+
+                //Ball hits left paddle
                 if (ballY > paddle1Y-10 && ballY < paddle1Y+paddleHeight+10) {
                     ballSpeedX = -ballSpeedX;
                
@@ -417,6 +419,7 @@
 
             if (ballX > canvas.width) {
                 
+                //Ball hits right paddle
                 if (ballY > paddle2Y && ballY < paddle2Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
                     
@@ -507,11 +510,7 @@
                 document.getElementById("clickPlay").style.visibility = "hidden";
                 document.getElementById("mWins").style.visibility = "hidden";
                 document.getElementById("lWins").style.visibility = "hidden";
-            }
-
-           
-
-            
+            }         
 
             //Canvas play area
             colorRect(0, 0, canvas.width, canvas.height, "#7447d1");
