@@ -163,6 +163,11 @@ canvas {
     animation: ricoBottom .5s;
 }
 
+.ping {
+    animation: ping 1s;
+}
+
+
 @keyframes shake {
     0% { 
       transform: rotate(2deg);
@@ -348,7 +353,25 @@ canvas {
     }
     100% {
         opacity: 0;
-        top: 96%;
+        top: 960px;
+    }
+}
+
+@keyframes ping {
+    0% {
+        opacity: 0;
+        font-size: 30px;
+        text-shadow: 2px 2px 2px black;
+    }
+    15% {
+        opacity: 1;
+        font-size: 45px;
+        text-shadow: 4px 4px 8px black;
+    }
+    100% {
+        opacity: 0;
+        font-size: 30px;
+        text-shadow: 2px 2px 2px black;
     }
 }
 
@@ -365,6 +388,26 @@ canvas {
     animation-fill-mode: forwards;
 } */
 
+
+#pingLeft {
+    position: absolute;
+    color: yellow;
+    font-family: "Bangers";
+    font-size: 30px;
+    /* opacity: 0; */
+    text-shadow: 2px 2px 2px black;
+    visibility: hidden;
+}
+
+#pongRight {
+    position: absolute;
+    color: yellow;
+    font-family: "Bangers";
+    font-size: 30px;
+    /* opacity: 0; */
+    text-shadow: 2px 2px 2px black;
+    visibility: hidden;
+}
 
 #pong {
     text-align: center;
@@ -899,7 +942,6 @@ canvas {
 
 @media (max-width: 600px) {
     canvas {
-        content: "No!";
         visibility: hidden;
     }
 
@@ -972,6 +1014,27 @@ canvas {
           filter: drop-shadow(2px 2px 2px black);
         }
       }
+}
 
+@media (pointer: coarse) {
+    canvas {
+        visibility: hidden;
+    }
+
+    #pong {
+        font-size: 20px;
+    }
+
+    #p1Score {
+        visibility: hidden;
+    }
+
+    #p2Score {
+        visibility: hidden;
+    }
+
+    #setWins {
+        visibility: hidden;
+    }
 
 }
