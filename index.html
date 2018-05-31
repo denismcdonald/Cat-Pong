@@ -378,6 +378,8 @@
                 //Ball hits left paddle
                 if (ballY > paddle1Y-10 && ballY < paddle1Y+paddleHeight+10) {
                     ballSpeedX = -ballSpeedX;
+
+                    colorRect(0, paddle1Y, paddleWidth, paddleHeight, "white");
                
                     //Calculates variable ball speed depending on collision point with paddle
                     var deltaY = ballY-(paddle1Y+paddleHeight/2);
@@ -555,9 +557,13 @@
                 document.getElementById("lWins").style.visibility = "visible";
 
                 //Paddle left
+                ctx.shadowColor = "black";
+                ctx.shadowBlur = 4;
                 colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
 
                 //Paddle right
+                ctx.shadowColor = "black";
+                ctx.shadowBlur = 4;
                 colorRect(canvas.width-11, paddle2Y, paddleWidth, paddleHeight, "yellow");              
 
                 //Net
@@ -583,12 +589,16 @@
             colorCircle(ballX, ballY, 8, "white");
 
             //Paddle left
+            ctx.shadowColor = "black";
+            ctx.shadowBlur = 4;
             colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
 
             //Paddle left border
             // colorRect(0, paddle1Y+4, paddleWidth-4, paddleHeight-8, "black");
            
             //Paddle right
+            ctx.shadowColor = "black";
+            ctx.shadowBlur = 4;
             colorRect(canvas.width-11, paddle2Y, paddleWidth, paddleHeight, "yellow");
 
             //Paddle right border
