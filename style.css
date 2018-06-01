@@ -16,6 +16,7 @@ a span {
 }
 
 a:hover span {
+    /* color: yellow; */
     font-size: 32px;
     text-shadow: 4px 4px 8px black;
     transition: all .25s ease-in;
