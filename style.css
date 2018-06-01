@@ -854,9 +854,9 @@ footer {
 }
 
 .triangle {
+    color: white;
     height: 50px;
     width: 50px;
-    color: yellow;
 }
 
 #mWins {
@@ -1113,7 +1113,8 @@ footer {
       }
 }
 
-@media (pointer: coarse) {
+/* For touch devices */
+/* @media (pointer: coarse) {
     canvas {
         visibility: hidden;
     }
@@ -1134,4 +1135,4 @@ footer {
         visibility: hidden;
     }
 
-}
+} */
