@@ -58,16 +58,16 @@
         
         <!--Arrows for adjusting win score-->
         <svg class="triangle" id="mWins">
-            <polygon points="0,0 50,0 0,50" fill="currentColor" />
+            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
           </svg>
           <svg class="triangle" id="lWins">
-            <polygon points="0,0 50,0 0,50" fill="currentColor" />
+            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
           </svg>
           <svg class="triangle" id="mWins1">
-            <polygon points="0,0 50,0 0,50" fill="currentColor" />
+            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
           </svg>
           <svg class="triangle" id="lWins1">
-            <polygon points="0,0 50,0 0,50" fill="currentColor" />
+            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
           </svg>
 
         <!--Top border ricochet shapes for hit detection -->
@@ -84,11 +84,19 @@
             <div id="part3Yb"></div>
         </div>
 
+        <img id="speakerOn" src="/assets/speakerOn.svg">
+        <img id="speakerOff" src="/assets/speakerOff.svg">
+        <a href="https://github.com/denismcdonald/Cat-Pong"><img id="GitHub" src="/assets/GitHub.png"></a>
+
         <div id="pingLeft">Ping!</div>
         <div id="pongRight">Pong!</div>
 
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
+    <footer><a href="https://github.com/denismcdonald">Created by <span>Denis McDonald</span>.</a></footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.core.min.js"></script>
     <script type="text/javascript">
 
         var canvas;
@@ -111,16 +119,40 @@
         var paddleHeight = 100;
         var paddleWidth = 12;
 
-        // var mY = 0;
-        // var mX = 0;
+        var isMute = true;
        
+
+        //AUDIO
+        Howler.volume(0.2);
+        var boing = new Howl({
+            src: ["/assets/ball.wav"],
+            mute: true,
+        });        
+
+        //AUDIO mute
+        document.getElementById("speakerOff").addEventListener("click", function() {
+            boing.mute(false);
+            isMute = false;
+            document.getElementById("speakerOff").style.visibility = "hidden";
+            document.getElementById("speakerOn").style.visibility = "visible";
+        });
+
+        // AUDIO unmute
+        document.getElementById("speakerOn").addEventListener("click", function() {
+            boing.mute(true);
+            isMute = true;
+            document.getElementById("speakerOn").style.visibility = "hidden";
+            document.getElementById("speakerOff").style.visibility = "visible";
+        });
+
+
+        //IMPORTANT!
         function calculateMousePosition(evt) {
             var rect = canvas.getBoundingClientRect();
             var root = document.documentElement;
             var mouseX = evt.clientX - rect.left - root.scrollLeft;
-            var mouseY = evt.clientY - rect.top - root.scrollTop;
-            // var mY = mouseY;
-            // var mX = mouseX;
+            // var mouseY = evt.clientY - rect.top - root.scrollTop;
+            var mouseY = evt.clientY - rect.top;
             return {
                 x:mouseX,
                 y:mouseY
@@ -361,23 +393,16 @@
             ballX += ballSpeedX;
             ballY += ballSpeedY;
             
-            if (ballX < 0) {
-
-                //Horizontal ricochet hit detection
-                // document.getElementById("ricoX").style.visibility = "visible";
-                // document.getElementById("ricoX").style.left = canvas.offsetLeft + "px";
-                // document.getElementById("ricoX").style.top = canvas.offsetTop + ballY + "px";
-                // document.querySelector("canvas").style.border = "8px solid white";
-                //Ricochet hit detection keyframes animation test
-                // document.getElementById("ricoX").classList.add("shakeWith");
-                // setTimeout(function() {
-                //     document.getElementById("ricoX").classList.remove("shakeWith");
-                // }, 500);                
+            if (ballX < 0) {          
                 
-
                 //Ball hits left paddle
                 if (ballY > paddle1Y-10 && ballY < paddle1Y+paddleHeight+10) {
+                    //Reverse ball direction
                     ballSpeedX = -ballSpeedX;
+
+                    //AUDIO
+                    boing.rate(1);
+                    boing.play();
 
                     colorRect(0, paddle1Y, paddleWidth, paddleHeight, "white");
                
@@ -386,15 +411,18 @@
                     ballSpeedY = deltaY * 0.35;
 
                     //PING! hit detection left
-                    document.getElementById("pingLeft").style.top = canvas.offsetTop + ballY + "px";
-                    document.getElementById("pingLeft").style.left = canvas.offsetLeft + ballX-80 + "px";
-                    document.getElementById("pingLeft").style.visibility = "visible";
-                    document.getElementById("pingLeft").classList.add("ping");
-                    setTimeout(function() {
-                        document.getElementById("pingLeft").classList.remove("ping");
+                    if (isMute == true) {
+                        document.getElementById("pingLeft").style.top = canvas.offsetTop + ballY + "px";
+                        document.getElementById("pingLeft").style.left = canvas.offsetLeft + ballX-80 + "px";
+                        document.getElementById("pingLeft").style.visibility = "visible";
+                        document.getElementById("pingLeft").classList.add("ping");
+                        setTimeout(function() {
+                            document.getElementById("pingLeft").classList.remove("ping");
+                            document.getElementById("pingLeft").style.visibility = "hidden";
+                        }, 800);
+                    } else {
                         document.getElementById("pingLeft").style.visibility = "hidden";
-                    }, 800);
-
+                    }
 
                 } else {     
                     document.querySelector("canvas").style.border = "8px solid black";
@@ -424,19 +452,28 @@
                 //Ball hits right paddle
                 if (ballY > paddle2Y && ballY < paddle2Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
+
+                    //AUDIO
+                    // boing.mute(false);
+                    boing.rate(0.9);
+                    boing.play();
                     
                     var deltaY = ballY-(paddle2Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
 
-                     //PONG! hit detection right
-                     document.getElementById("pongRight").style.top = canvas.offsetTop + ballY + "px";
-                    document.getElementById("pongRight").style.left = canvas.offsetLeft + ballX+20 + "px";
-                    document.getElementById("pongRight").style.visibility = "visible";
-                    document.getElementById("pongRight").classList.add("ping");
-                    setTimeout(function() {
-                        document.getElementById("pongRight").classList.remove("ping");
+                    //PONG! hit detection right
+                    if (isMute == true) {
+                        document.getElementById("pongRight").style.top = canvas.offsetTop + ballY + "px";
+                        document.getElementById("pongRight").style.left = canvas.offsetLeft + ballX+20 + "px";
+                        document.getElementById("pongRight").style.visibility = "visible";
+                        document.getElementById("pongRight").classList.add("ping");
+                        setTimeout(function() {
+                            document.getElementById("pongRight").classList.remove("ping");
+                            document.getElementById("pongRight").style.visibility = "hidden";
+                        }, 800);
+                    } else {
                         document.getElementById("pongRight").style.visibility = "hidden";
-                    }, 800);
+                    }                      
 
                 } else {        
                     document.querySelector("canvas").style.border = "8px solid yellow";        
@@ -521,21 +558,21 @@
                 ctx.fillStyle = "yellow";
                 ctx.font = "60px Modak";
                 ctx.shadowColor = "black";
-                ctx.shadowBlur = 7;
+                ctx.shadowBlur = 9;
                 ctx.lineWidth = 5;
 
                 if (player1Score >= winningScore) {
-                    ctx.fillText("Victory!", 290, 250);
+                    ctx.fillText("Simply frabjous!", 180, 250);
                     document.getElementById("p1Score").classList.add("spin");
             
                 } if (player2Score >= winningScore) {
-                    ctx.fillText("Aw, shucks!", 240, 250);
+                    ctx.fillText("Inconceivable!", 205, 250);
                     document.getElementById("p2Score").classList.add("spin");
                 }                  
 
                 ctx.fillStyle = "salmon";
                 ctx.font = "40px Modak";
-                ctx.fillText("Click to play again!", 230, 350);
+                ctx.fillText("Click to try again!", 240, 350);
 
                 document.getElementById("eyeleft").style.marginLeft = "-30px";
                 document.getElementById("nose").style.marginLeft = "-10px";
@@ -654,7 +691,6 @@
         setTimeout(function() {
             document.getElementById("ex").classList.add("popin");
         },500);
-      
     
     </script>
 

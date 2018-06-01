@@ -2,6 +2,25 @@ html {
     width: 100%;
 }
 
+a {
+    color: skyblue;
+    text-decoration: none;
+}
+
+a span {
+    color: white;
+    font-size: 30px;
+    padding-right: 1px;
+    text-shadow: 2px 2px 2px black;
+    transition: all .25s ease-in;
+}
+
+a:hover span {
+    font-size: 32px;
+    text-shadow: 4px 4px 8px black;
+    transition: all .25s ease-in;
+}
+
 body {
     -webkit-user-select: none; /* Chrome/Safari */        
     -moz-user-select: none; /* Firefox */
@@ -17,8 +36,67 @@ canvas {
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     cursor: crosshair;
     display: block;
-    margin: 200px auto 80px;
+    margin: 200px auto 40px;
 }
+
+footer {
+    font-family: "Modak";
+    font-size: 26px;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    transition: all .25s ease-out;
+}
+
+#speakerOn {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    filter: drop-shadow(1px 1px 1px black);
+    visibility: hidden;
+}
+
+#speakerOn:hover {
+    animation: shake .5s;
+}
+
+#speakerOff {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+#speakerOff:hover {
+    animation: shake .5s;
+}
+
+#GitHub {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    height: 50px;
+    width: 50px;
+    filter: drop-shadow(1px 1px 1px black);
+}
+
+#GitHub:hover {
+    animation: shake .5s;
+}
+
+/* footer:hover {
+    text-shadow: 4px 4px 8px black;
+    transition: all .25s ease-in;
+} */
+
+/* footer a span:hover {
+    text-shadow: 4px 4px 8px black;
+} */
 
 #particlesY {
     position: absolute;
@@ -375,6 +453,8 @@ canvas {
     }
 }
 
+
+
 /* #circle {
     position: absolute;
     background-color: yellow;
@@ -665,6 +745,10 @@ canvas {
     z-index: 2;
 }
 
+#umpire:hover {
+    animation: shake .5s;
+}
+
 #umpShirt {
     position: absolute;
     background-image: repeating-linear-gradient(90deg, white, white 14px, black 14px, black 28px);
@@ -677,6 +761,10 @@ canvas {
     width: 125px;
     filter: drop-shadow(2px 2px 5px #555);
     z-index: 1;
+}
+
+#umpShirt:hover {
+    animation: shake .5s;
 }
 
 #tail {
@@ -914,6 +1002,14 @@ canvas {
 
     #windowAlert {
         visibility: visible;
+    }
+
+    #speakerOff {
+        visibility: hidden;
+    }
+
+    #speakerOn {
+        visibility: hidden;
     }
 
     @keyframes popin {
