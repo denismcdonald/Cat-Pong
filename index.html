@@ -63,12 +63,6 @@
           <svg class="triangle" id="lWins">
             <polygon points="0,0 50,0 0,50" fill="white"></polygon>
           </svg>
-          <!-- <svg class="triangle" id="mWins1">
-            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
-          </svg>
-          <svg class="triangle" id="lWins1">
-            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
-          </svg> -->
 
         <!--Top border ricochet shapes for hit detection -->
          <div id="particlesY">
@@ -121,10 +115,10 @@
 
         var isMute = true;
        
+        //Mute all audio by default
+        Howler.mute(true);
 
-         Howler.mute(true);
-
-        //Ball audio
+        //Ball-hits-paddle sound
         Howler.volume(0.7);
         var boing = new Howl({
             src: ["/assets/ball.wav"],
@@ -133,35 +127,33 @@
         });  
 
         //Rebound/bounce audio
-        // Howler.volume(0.4);
         var bounce = new Howl({
             src: ["/assets/bounce.mp3"],
             volume: 0.5,
             mute: true
         });  
 
-        //Rebound/bounce audio
-        // Howler.volume(0.4);
+        //Game win sound
         var cheer = new Howl({
             src: ["/assets/cheer.mp3"],
             volume: 0.7,
             mute: false
         });  
 
-        //Lose game audio
+        //Game loss sound
         var lose = new Howl({
             src: ["/assets/lose.mp3"],
             volume: 0.7
         });  
 
-        //Gasp audio (lose point)
+        //Gasp sound (on losing point)
         Howler.volume(0.6);
         var gasp = new Howl({
             src: ["/assets/gasp.mp3"],
             volume: 0.8
         });  
 
-        //Score point audio
+        //Score point sound
         Howler.volume(0.6);
         var score = new Howl({
             src: ["/assets/score.mp3"],
@@ -169,7 +161,6 @@
         }); 
 
         //Music
-        // Howler.volume(0.6);
         var organ = new Howl({
             src: ["/assets/organ.mp3"],
             mute: false,
@@ -189,13 +180,10 @@
             document.getElementById("speakerOn").style.visibility = "visible";
         });
 
-        // AUDIO mute
+        //AUDIO mute
         document.getElementById("speakerOn").addEventListener("click", function() {
             Howler.mute(true);
-            // boing.mute(true);
-            // bounce.mute(true);
             organ.stop();
-            // cheer.stop();
             isMute = true;
             document.getElementById("speakerOn").style.visibility = "hidden";
             document.getElementById("speakerOff").style.visibility = "visible";
@@ -270,7 +258,7 @@
             }
             repeatOften();            
 
-            //Previous animation method, as per tutorial
+            // Previous animation method, as per tutorial
             // setInterval(function() {
             //     moveEverything();
             //     drawEverything();
@@ -289,7 +277,7 @@
                 if (winningScore >= 1 && winningScore < 20) {
                     winningScore++;
                     
-                    //Animate arrow up
+                    //Animate upper score selection arrow
                     document.getElementById("mWins").style.filter = "drop-shadow(1px -1px 1px black)";
                     document.getElementById("mWins").style.top = "473px";
                     setTimeout(function() {
@@ -320,7 +308,7 @@
                     if (winningScore > 1) {
                         winningScore--;
 
-                        //Animate arrow
+                        //Animate lower score selection arrow
                         document.getElementById("lWins").style.filter = "drop-shadow(1px -1px 1px black)";
                         document.getElementById("lWins").style.top = "573px";
                         setTimeout(function() {
@@ -346,7 +334,7 @@
                     paddle1Y = mousePos.y-(paddleHeight/2);
             });
 
-            //Blink cat's eyes
+            //Blink umpire's eyes
             setInterval(function blink() {
                document.getElementById("shiny1").style.visibility = "hidden";
                document.getElementById("shiny2").style.visibility = "hidden";
@@ -369,16 +357,6 @@
                }, 150);
             }, rand);
 
-        //Umpire mouseover
-        // document.getElementById("umpire").addEventListener("mouseenter", function() {
-//         document.getElementById("umpire").style.backgroundColor = "blue";
-//         document.getElementById("umpire").classList.add("shake");
-//         setTimeout(function() {
-//            document.getElementById("umpire").classList.remove("shake");
-//            }, 500);
-//         });
-
-
         }  //window.onload 
 
 
@@ -397,24 +375,13 @@
                 showingWinScreen = true;
                 lose.play();
             }
-            
-
-            //   if (player1Score >= winningScore ||
-            //     player2Score >= winningScore) {
-            //         document.getElementById("p1Score").innerHTML = player1Score;
-            //         document.getElementById("p2Score").innerHTML = player2Score;
-            //         showingWinScreen = true;
-            //         cheer.play();
-            // }
-
-
 
             ballSpeedX = -ballSpeedX;
             ballSpeedY = ballSpeedY/3;
             ballX = canvas.width/2;
             ballY = canvas.height/2;
 
-            //Umpire reaction
+            //Umpire's reaction to ball being scored 
             document.getElementById("shiny1").style.visibility = "hidden";
             document.getElementById("shiny2").style.visibility = "hidden";
             document.getElementById("nose").style.top = "256px";
@@ -474,7 +441,7 @@
                     //Reverse ball direction
                     ballSpeedX = -ballSpeedX;
 
-                    //AUDIO
+                    //Play ball-paddle sound
                     boing.rate(1);
                     boing.play();
 
@@ -484,7 +451,7 @@
                     var deltaY = ballY-(paddle1Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
 
-                    //PING! hit detection left
+                    //PING! animation on left-paddle collision
                     if (isMute == true) {
                         document.getElementById("pingLeft").style.top = canvas.offsetTop + ballY + "px";
                         document.getElementById("pingLeft").style.left = canvas.offsetLeft + ballX-80 + "px";
@@ -528,15 +495,14 @@
                 if (ballY > paddle2Y && ballY < paddle2Y+paddleHeight) {
                     ballSpeedX = -ballSpeedX;
 
-                    //AUDIO
-                    // boing.mute(false);
+                    //Play ball-paddle sound
                     boing.rate(0.9);
                     boing.play();
                     
                     var deltaY = ballY-(paddle2Y+paddleHeight/2);
                     ballSpeedY = deltaY * 0.35;
 
-                    //PONG! hit detection right
+                    //PONG! animation on right-paddle collision
                     if (isMute == true) {
                         document.getElementById("pongRight").style.top = canvas.offsetTop + ballY + "px";
                         document.getElementById("pongRight").style.left = canvas.offsetLeft + ballX+20 + "px";
@@ -577,7 +543,7 @@
             if (ballY <= 0) {
                 ballSpeedY = -ballSpeedY;
 
-                //AUDIO
+                //Play bounce sound on hitting top boundary
                 bounce.rate(1);
                 bounce.play();
 
@@ -595,7 +561,7 @@
             if (ballY > canvas.height) {
                 ballSpeedY = -ballSpeedY;
                 
-                //AUDIO
+                //Play bounce sound on hitting bottom boundary
                 bounce.rate(1);
                 bounce.play();
 
@@ -610,7 +576,7 @@
                 }, 500); 
             }
             
-            //Umpire eyes track ball
+            //Umpire's eyes follow ball
             if (ballX < 400) {
                 document.getElementById("eyeleft").style.marginLeft = "-35px"; 
                 document.getElementById("nose").style.marginLeft = "-17px";  
@@ -627,7 +593,7 @@
 
         function drawEverything() {
             
-       
+            //Hides canvas on browsers less than 850px wide
             if (window.matchMedia("(max-width: 850px)").matches) {
                 document.getElementById("setWins").style.visibility = "hidden";
                 document.getElementById("clickPlay").style.visibility = "hidden";
@@ -687,46 +653,26 @@
                 ctx.shadowBlur = 4;
                 colorRect(canvas.width-11, paddle2Y, paddleWidth, paddleHeight, "yellow");              
 
-                //Net
-                // ctx.shadowBlur = 0;
-                // ctx.strokeStyle = "#999";
-                // ctx.beginPath();
-                // ctx.lineWidth = 2;
-                // ctx.setLineDash([10,15]);
-                // ctx.moveTo(400,520);
-                // ctx.lineTo(400,20);
-                // ctx.stroke();
-                // ctx.fill();            
-
-                ctx.fillStyle = "salmon";
-                ctx.font = "50px Modak";
-
                 return;
                 }
             }
            
-            //Ball
+            //Draw ball
             colorCircle(ballX, ballY, 10, "black");
             colorCircle(ballX, ballY, 8, "white");
 
-            //Paddle left
+            //Draw left paddle
             ctx.shadowColor = "black";
             ctx.shadowBlur = 4;
             colorRect(0, paddle1Y, paddleWidth, paddleHeight, "yellow");
-
-            //Paddle left border
-            // colorRect(0, paddle1Y+4, paddleWidth-4, paddleHeight-8, "black");
            
-            //Paddle right
+            //Draw right paddle
             ctx.shadowColor = "black";
             ctx.shadowBlur = 4;
             colorRect(canvas.width-11, paddle2Y, paddleWidth, paddleHeight, "yellow");
-
-            //Paddle right border
-            // colorRect(canvas.width-8, paddle2Y+4, paddleWidth, paddleHeight-8, "black");
          
-            //Net
-             ctx.shadowColor = "black";
+            //Draw net
+            ctx.shadowColor = "black";
             ctx.shadowBlur = 0;
             ctx.lineWidth = 2; 
             ctx.strokeStyle = "white";
@@ -740,7 +686,7 @@
         } //function drawEverything
    
 
-        //Circle draw template
+        //Circle drawing template
         function colorCircle(centerX, centerY, radius, drawColor) {
             ctx.fillStyle = drawColor;
             ctx.beginPath();
@@ -748,7 +694,7 @@
             ctx.fill();
         }
 
-        //Rectangle draw template
+        //Rectangle drawing template
         function colorRect(leftX, topY, width, height, drawColor) {
             ctx.fillStyle = drawColor;
             ctx.fillRect(leftX, topY, width, height);
