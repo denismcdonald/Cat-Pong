@@ -11,7 +11,8 @@ Many thanks too, and due acknowledgment, to the following Freesound contributors
 * Michorvath: https://freesound.org/people/michorvath/sounds/269718/ <br>
 * Unchaz: https://freesound.org/people/unchaz/sounds/150956/ <br>
 * Nickrave: https://freesound.org/people/nickrave/sounds/245639/ <br>
-* Jayfrosting: https://freesound.org/people/jayfrosting/sounds/333404/
+* Jayfrosting: https://freesound.org/people/jayfrosting/sounds/333404/ <br>
+* Kyles: https://freesound.org/people/kyles/sounds/405315/
 
 ![Screenshot](https://github.com/denismcdonald/Cat-Pong/blob/master/Capture1.jpeg)
 
