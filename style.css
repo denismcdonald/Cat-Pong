@@ -18,7 +18,7 @@ a span {
 a:hover span {
     /* color: yellow; */
     font-size: 28px;
-    text-shadow: 4px 4px 8px black;
+    text-shadow: 6px 6px 12px black;
     transition: all .25s ease-in;
 }
 
@@ -42,7 +42,10 @@ canvas {
 
 footer {
     font-family: "Monoton";
-    font-size: 22px;
+    font-size: 18px;
+    /* letter-spacing: 10px; */
+    line-height: 1.6rem;
+    /* margin-right: 5px; */
     text-align: center;
     text-shadow: 2px 2px 2px black;
     transition: all .25s ease-in;
@@ -50,7 +53,8 @@ footer {
 }
 
 footer span {
-    font-size: 24px;
+    font-size: 22px;
+    letter-spacing: 0px;
     text-transform: none;
 }
 
@@ -334,7 +338,7 @@ footer span {
 @keyframes popin {
     0% {
       font-size: 160px;
-      opacity: .7;
+      opacity: .8;
       text-shadow: 1px 1px 1px black;
       filter: drop-shadow(2px 2px 2px black);
     }
@@ -342,13 +346,34 @@ footer span {
       font-size: 165px;
       opacity: 1;
       text-shadow: 3px 3px 3px black;
-      filter: drop-shadow(5px 1px 5px black);
+      filter: drop-shadow(10px 3px 5px black);
     }
     100% {
       font-size: 160px;
-      opacity: .7;
+      opacity: .8;
       text-shadow: 1px 1px 1px black;
       filter: drop-shadow(2px 2px 2px black);
+    }
+  }
+
+  @keyframes popin1 {
+    0% {
+        font-size: 165px;
+        opacity: 1;
+        text-shadow: 3px 3px 3px black;
+        filter: drop-shadow(10px 3px 5px black);
+    }
+    50% {
+        font-size: 160px;
+        opacity: .8;
+        text-shadow: 1px 1px 1px black;
+        filter: drop-shadow(2px 2px 2px black);
+    }
+    100% {
+        font-size: 165px;
+        opacity: 1;
+        text-shadow: 3px 3px 3px black;
+        filter: drop-shadow(10px 3px 5px black);
     }
   }
 
@@ -519,6 +544,7 @@ footer span {
     margin-bottom: -120px;
     margin-top: -40px;
     height: 300px;
+    /* animation: popin 1.5s infinite; */
 }
 
 #pp {
@@ -527,6 +553,7 @@ footer span {
     opacity: 1;
     transform: rotate(-20deg);
     text-shadow: 2px 2px 2px black;
+    animation: popin 1.5s infinite;
 }
   
 #oo {
@@ -536,6 +563,7 @@ footer span {
     vertical-align: 25px;
     transform: rotate(-5deg);
     text-shadow: 2px 2px 2px black;
+    animation: popin1 1.5s infinite;
 }
   
 #nn {
@@ -545,6 +573,7 @@ footer span {
     vertical-align: 30px;
     transform: rotate(1deg);
     text-shadow: 2px 2px 2px black;
+    animation: popin 1.5s infinite;
 }
   
   #gg {
@@ -554,6 +583,7 @@ footer span {
     transform: rotate(15deg);
     vertical-align: 15px;
     text-shadow: 2px 2px 2px black;
+    animation: popin1 1.5s infinite;
 }
   
   #ex {
@@ -563,6 +593,7 @@ footer span {
     transform: rotate(25deg);
     vertical-align: -20px;
     text-shadow: 2px 2px 2px black;
+    animation: popin 1.5s infinite;
 }
 
 #p1Score {
