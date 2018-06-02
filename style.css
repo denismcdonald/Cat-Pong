@@ -9,7 +9,7 @@ a {
 
 a span {
     color: white;
-    font-size: 30px;
+    /* font-size: 30px; */
     padding-right: 1px;
     text-shadow: 2px 2px 2px black;
     transition: all .25s ease-in;
@@ -17,7 +17,7 @@ a span {
 
 a:hover span {
     /* color: yellow; */
-    font-size: 33px;
+    font-size: 28px;
     text-shadow: 4px 4px 8px black;
     transition: all .25s ease-in;
 }
@@ -41,15 +41,16 @@ canvas {
 }
 
 footer {
-    font-family: "Modak";
-    font-size: 25px;
+    font-family: "Monoton";
+    font-size: 22px;
     text-align: center;
     text-shadow: 2px 2px 2px black;
-    transition: all .25s ease-out;
-    text-transform: uppercase;
+    transition: all .25s ease-in;
+    /* text-transform: uppercase; */
 }
 
 footer span {
+    font-size: 24px;
     text-transform: none;
 }
 

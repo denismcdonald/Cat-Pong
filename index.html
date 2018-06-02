@@ -93,7 +93,7 @@
 
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
-    <footer><a href="https://github.com/denismcdonald">Created by <span>Denis McDonald</span>.</a></footer>
+    <footer><a href="https://github.com/denismcdonald">Created by&nbsp;<span> Denis &nbsp;McDonald</span>.</a></footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.core.min.js"></script>
@@ -122,24 +122,80 @@
         var isMute = true;
        
 
-        //AUDIO
-        Howler.volume(0.2);
+         Howler.mute(true);
+
+        //Ball audio
+        Howler.volume(0.7);
         var boing = new Howl({
             src: ["/assets/ball.wav"],
-            mute: true,
-        });        
+            volume: 0.5,
+            mute: true
+        });  
 
-        //AUDIO mute
+        //Rebound/bounce audio
+        // Howler.volume(0.4);
+        var bounce = new Howl({
+            src: ["/assets/bounce.mp3"],
+            volume: 0.5,
+            mute: true
+        });  
+
+        //Rebound/bounce audio
+        // Howler.volume(0.4);
+        var cheer = new Howl({
+            src: ["/assets/cheer.mp3"],
+            volume: 0.7,
+            mute: false
+        });  
+
+        //Lose game audio
+        var lose = new Howl({
+            src: ["/assets/lose.mp3"],
+            volume: 0.7
+        });  
+
+        //Gasp audio (lose point)
+        Howler.volume(0.6);
+        var gasp = new Howl({
+            src: ["/assets/gasp.mp3"],
+            volume: 0.8
+        });  
+
+        //Score point audio
+        Howler.volume(0.6);
+        var score = new Howl({
+            src: ["/assets/score.mp3"],
+            volume: 0.6
+        }); 
+
+        //Music
+        // Howler.volume(0.6);
+        var organ = new Howl({
+            src: ["/assets/organ.mp3"],
+            mute: false,
+            preload: true,
+            volume: 0.6,
+            loop: true
+        });  
+
+        //AUDIO unmute
         document.getElementById("speakerOff").addEventListener("click", function() {
+            Howler.mute(false);
+            organ.play();
             boing.mute(false);
+            bounce.mute(false);
             isMute = false;
             document.getElementById("speakerOff").style.visibility = "hidden";
             document.getElementById("speakerOn").style.visibility = "visible";
         });
 
-        // AUDIO unmute
+        // AUDIO mute
         document.getElementById("speakerOn").addEventListener("click", function() {
-            boing.mute(true);
+            Howler.mute(true);
+            // boing.mute(true);
+            // bounce.mute(true);
+            organ.stop();
+            // cheer.stop();
             isMute = true;
             document.getElementById("speakerOn").style.visibility = "hidden";
             document.getElementById("speakerOff").style.visibility = "visible";
@@ -328,12 +384,30 @@
 
         function ballReset() {      
 
-            if (player1Score >= winningScore ||
-                player2Score >= winningScore) {
-                    document.getElementById("p1Score").innerHTML = player1Score;
-                    document.getElementById("p2Score").innerHTML = player2Score;
-                    showingWinScreen = true;
+            if (player1Score >= winningScore) {
+                document.getElementById("p1Score").innerHTML = player1Score;
+                document.getElementById("p2Score").innerHTML = player2Score;
+                showingWinScreen = true;
+                cheer.play();
             }
+
+            if (player2Score >= winningScore) {
+                document.getElementById("p1Score").innerHTML = player1Score;
+                document.getElementById("p2Score").innerHTML = player2Score;
+                showingWinScreen = true;
+                lose.play();
+            }
+            
+
+            //   if (player1Score >= winningScore ||
+            //     player2Score >= winningScore) {
+            //         document.getElementById("p1Score").innerHTML = player1Score;
+            //         document.getElementById("p2Score").innerHTML = player2Score;
+            //         showingWinScreen = true;
+            //         cheer.play();
+            // }
+
+
 
             ballSpeedX = -ballSpeedX;
             ballSpeedY = ballSpeedY/3;
@@ -427,6 +501,7 @@
                 } else {     
                     document.querySelector("canvas").style.border = "8px solid black";
                     player2Score++;  
+                    gasp.play();
                     ballReset();
                     document.getElementById("p2Score").innerHTML = player2Score;
 
@@ -478,6 +553,7 @@
                 } else {        
                     document.querySelector("canvas").style.border = "8px solid yellow";        
                     player1Score++;
+                    score.play();
                     ballReset();
                     document.getElementById("p1Score").innerHTML = player1Score;
 
@@ -501,6 +577,10 @@
             if (ballY <= 0) {
                 ballSpeedY = -ballSpeedY;
 
+                //AUDIO
+                bounce.rate(1);
+                bounce.play();
+
                 //Animate top border hit detection
                 document.getElementById("particlesY").style.top = canvas.offsetTop-20 + "px";
                 document.getElementById("particlesY").style.left = canvas.offsetLeft + ballX + "px";
@@ -515,6 +595,10 @@
             if (ballY > canvas.height) {
                 ballSpeedY = -ballSpeedY;
                 
+                //AUDIO
+                bounce.rate(1);
+                bounce.play();
+
                 //Animate bottom border hit detection
                 document.getElementById("particlesYb").style.top = canvas.offsetTop + canvas.height+20 + "px";
                 document.getElementById("particlesYb").style.left = canvas.offsetLeft + ballX + "px";
@@ -672,25 +756,25 @@
 
 
         // PONG lettering
-        setTimeout(function() {
-            document.getElementById("pp").classList.add("popin");
-        },500);
+        // setTimeout(function() {
+        //     document.getElementById("pp").classList.add("popin");
+        // },500);
 
-        setTimeout(function() {
-            document.getElementById("oo").classList.add("popin");
-        },1000);
+        // setTimeout(function() {
+        //     document.getElementById("oo").classList.add("popin");
+        // },1000);
 
-        setTimeout(function() {
-            document.getElementById("nn").classList.add("popin");
-        },500);
+        // setTimeout(function() {
+        //     document.getElementById("nn").classList.add("popin");
+        // },500);
 
-        setTimeout(function() {
-            document.getElementById("gg").classList.add("popin");
-        },1000);
+        // setTimeout(function() {
+        //     document.getElementById("gg").classList.add("popin");
+        // },1000);
 
-        setTimeout(function() {
-            document.getElementById("ex").classList.add("popin");
-        },500);
+        // setTimeout(function() {
+        //     document.getElementById("ex").classList.add("popin");
+        // },500);
     
     </script>
 
