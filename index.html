@@ -87,7 +87,7 @@
 
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
-    <footer><a href="https://github.com/denismcdonald">Created by&nbsp;<span>&nbsp;Denis &nbsp;McDonald</span>.</a></footer>
+    <footer><a href="https://github.com/denismcdonald">Created by&nbsp;<span>Denis&nbsp;McDonald</span>.</a></footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.core.min.js"></script>
@@ -136,14 +136,14 @@
         //Game win sound
         var cheer = new Howl({
             src: ["/assets/cheer.mp3"],
-            volume: 0.7,
+            volume: 0.5,
             mute: false
         });  
 
         //Game loss sound
         var lose = new Howl({
             src: ["/assets/lose.mp3"],
-            volume: 0.7
+            volume: 0.5
         });  
 
         //Gasp sound (on losing point)
@@ -157,7 +157,14 @@
         Howler.volume(0.6);
         var score = new Howl({
             src: ["/assets/score.mp3"],
-            volume: 0.6
+            volume: 0.3
+        }); 
+
+        //Firework
+        Howler.volume(0.6);
+        var firework = new Howl({
+            src: ["/assets/firework.mp3"],
+            volume: 1.4
         }); 
 
         //Music
@@ -219,7 +226,7 @@
                 document.getElementById("clickPlay").style.visibility = "hidden";
                 document.getElementById("mWins").style.visibility = "hidden";
                 document.getElementById("lWins").style.visibility = "hidden";
-
+                firework.play();
             }
             if (showingWinScreen) {
                 player1Score = 0;
