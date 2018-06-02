@@ -946,9 +946,9 @@ footer span {
     }
 
     #GitHub {
-        left: 50%;
-        top: 90%;
-        margin-left: -20px;
+        position: static;
+        display: block;
+        margin: 0 auto 20px;
     }
 
     @keyframes popin {
@@ -971,8 +971,6 @@ footer span {
           filter: drop-shadow(2px 2px 2px black);
         }
     }
-
-
 }
 
 @media (max-width: 600px) {
@@ -991,8 +989,6 @@ footer span {
     #p2Score {
         visibility: hidden;
     }
-
-   
 
 }
 
@@ -1027,24 +1023,45 @@ footer span {
 
     @keyframes popin {
         0% {
-          font-size: 90px;
+          font-size: 80px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
           filter: drop-shadow(2px 2px 2px black);
         }
         50% {
-          font-size: 95px;
+          font-size: 85px;
           opacity: 1;
           text-shadow: 3px 3px 3px black;
           filter: drop-shadow(5px 1px 5px black);
         }
         100% {
-          font-size: 90px;
+          font-size: 80px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
           filter: drop-shadow(2px 2px 2px black);
         }
-      }
+    }
+
+    @keyframes popin1 {
+        0% {
+          font-size: 80px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+        50% {
+          font-size: 85px;
+          opacity: 1;
+          text-shadow: 3px 3px 3px black;
+          filter: drop-shadow(5px 1px 5px black);
+        }
+        100% {
+          font-size: 80px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+    }
 }
 
 /* For touch devices */
