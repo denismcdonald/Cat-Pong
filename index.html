@@ -136,14 +136,14 @@
         //Game win sound
         var cheer = new Howl({
             src: ["/assets/cheer.mp3"],
-            volume: 0.5,
+            volume: 0.3,
             mute: false
         });  
 
         //Game loss sound
         var lose = new Howl({
             src: ["/assets/lose.mp3"],
-            volume: 0.5
+            volume: 0.3
         });  
 
         //Gasp sound (on losing point)
@@ -176,10 +176,20 @@
             loop: true
         });  
 
+        //Crowd
+        var crowd = new Howl({
+            src: ["/assets/crowd.mp3"],
+            mute: false,
+            preload: true,
+            volume: 0.6,
+            loop: true
+        }); 
+
         //AUDIO unmute
         document.getElementById("speakerOff").addEventListener("click", function() {
             Howler.mute(false);
             organ.play();
+            crowd.play();
             boing.mute(false);
             bounce.mute(false);
             isMute = false;
@@ -191,6 +201,7 @@
         document.getElementById("speakerOn").addEventListener("click", function() {
             Howler.mute(true);
             organ.stop();
+            crowd.stop();
             isMute = true;
             document.getElementById("speakerOn").style.visibility = "hidden";
             document.getElementById("speakerOff").style.visibility = "visible";
