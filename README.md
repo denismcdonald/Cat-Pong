@@ -1,5 +1,5 @@
 # Cat-adjudicated Pong!
-A pong clone experiment (in development!) using plain JavaScript and CSS.
+A pong clone experiment (in development!) using just HTML, CSS and JavaScript.
 
 Play via Glitch [here](https://cat-pong.glitch.me/) or view on Codepen [here](https://codepen.io/denismcdonald/full/JvaBNM/).
 
