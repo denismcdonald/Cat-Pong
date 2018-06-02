@@ -10,6 +10,8 @@
 </head>
 <body>
 
+    <div id="overlay"></div>
+ 
     <div id="pong">
         <div id="pp">P</div>
         <div id="oo">O</div>
@@ -52,7 +54,7 @@
 
         <div id="circle"></div>
 
-        <div id="setWins">Score <span id="showScore">3</span> to win!</div>
+        <div id="setWins">Score <span id="showScore">5</span> to win!</div>
         <div id="clickPlay">Click to play!</div>
         <div id="windowAlert"><span>Uh oh!</span><br>Enlarge your browser, or view on desktop to play!</div>
         
@@ -61,7 +63,7 @@
             <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
           </svg>
           <svg class="triangle" id="lWins">
-            <polygon points="0,0 50,0 0,50" fill="white"></polygon>
+            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
           </svg>
 
         <!--Top border ricochet shapes for hit detection -->
@@ -105,7 +107,7 @@
         
         var player1Score = 0;
         var player2Score = 0;
-        var winningScore = 3;
+        var winningScore = 5;
 
         var showingWinScreen = false;
         var showingStartScreen = true;
@@ -189,6 +191,7 @@
 
         //AUDIO unmute
         document.getElementById("speakerOff").addEventListener("click", function() {
+            document.getElementById("overlay").style.visibility = "hidden";
             Howler.mute(false);
             organ.play();
             crowd.play();
@@ -265,6 +268,20 @@
             ctx = canvas.getContext("2d");
             var framesPerSecond = 59;
 
+            //Handle transparent overlay that indicates audio mute/unmute button
+            document.getElementById("speakerOff").classList.add("shake1");
+            setTimeout(function() {
+                document.getElementById("speakerOff").classList.remove("shake1");
+            }, 1000);
+
+            setTimeout(function() {
+                document.getElementById("overlay").style.opacity = "0";
+            }, 800);
+
+            setTimeout(function() {
+                document.getElementById("overlay").style.visibility = "hidden";
+            }, 1700);
+
             //Force-refresh fix for iOS problems on device orientation change
             window.onorientationchange = function() {
                 window.location.reload();
@@ -290,8 +307,14 @@
             document.getElementById("setWins").addEventListener("mousedown", handleMouseClick);
             document.getElementById("mWins").addEventListener("mousedown", function() {
                 
+                //Play sound
+                boing.mute(false);
+                boing.rate(1);
+                boing.play();
+
                 if (winningScore == 20) {
                     winningScore = 20;
+                    boing.rate(.6);
                     document.getElementById("showScore").style.marginLeft = "0";
                 }
                 if (winningScore >= 1 && winningScore < 20) {
@@ -311,8 +334,7 @@
                         document.getElementById("setWins").style.marginLeft = "-215px";
                         document.getElementById("showScore").style.marginLeft = "0";
                         document.getElementById("showScore").style.marginRight = "0";
-                    } else if (winningScore < 10) {
-                    }
+                    } 
                     
                     if (winningScore == 20) {
                     document.getElementById("mWins").style.color = "lightgrey"; 
@@ -322,9 +344,17 @@
             });
 
                 document.getElementById("lWins").addEventListener("mousedown", function() {
+                    
+                    //Play sound
+                    boing.mute(false);
+                    boing.rate(0.85);
+                    boing.play();
+
                     if (winningScore == 1) {
                         winningScore = 1;
+                        boing.rate(.6);
                     }
+
                     if (winningScore > 1) {
                         winningScore--;
 
@@ -341,10 +371,13 @@
                         } else if (winningScore < 10) {
                             document.getElementById("setWins").style.marginLeft = "-195px";
                         }
+
                         if (winningScore == 1) {
                             document.getElementById("lWins").style.color = "lightgrey"; 
                         }
                     }
+          
+
                     document.getElementById("showScore").innerHTML = winningScore;
                 });
 
@@ -404,7 +437,7 @@
             //Umpire's reaction to ball being scored 
             document.getElementById("shiny1").style.visibility = "hidden";
             document.getElementById("shiny2").style.visibility = "hidden";
-            document.getElementById("nose").style.top = "256px";
+            document.getElementById("nose").style.top = "251px";
             document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
             document.getElementById("eyeleft").style.height = "2px";
             document.getElementById("eyebrowLeft").style.transform = "skew(0,15deg)";
@@ -415,7 +448,7 @@
             setTimeout (function() {
                 document.getElementById("shiny1").style.visibility = "visible";
                 document.getElementById("shiny2").style.visibility = "visible";
-                document.getElementById("nose").style.top = "265px";
+                document.getElementById("nose").style.top = "260px";
                 document.getElementById("eyeleft").style.transition = "all 50ms ease-out";
                 document.getElementById("eyeleft").style.height = "15px";
                 document.getElementById("eyebrowLeft").style.transform = "skew(0,-20deg)";
