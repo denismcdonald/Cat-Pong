@@ -80,11 +80,11 @@ canvas {
 #freesound {
     height: 62px;
     width: 180px;
-    vertical-align: -25px;
+    vertical-align: -23px;
 }
 
 #freesound:hover {
-    animation: cheer .45s;
+    animation: cheer .65s infinite;
     /* filter: drop-shadow(1px 1px 0px yellow); */
 }
 
