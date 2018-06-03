@@ -58,12 +58,15 @@
         <div id="windowAlert"><span>Uh oh!</span><br>Enlarge your browser, or view on desktop to play!</div>
         
         <!--Arrows for adjusting win score-->
-        <svg class="triangle" id="mWins">
+        <!-- <svg class="triangle" id="mWins">
             <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
           </svg>
           <svg class="triangle" id="lWins">
             <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
-          </svg>
+          </svg> -->
+
+          <img id="mWins" src="/assets/arrow.png">
+          <img id="lWins" src="/assets/arrow.png">
 
         <!--Top border ricochet shapes for hit detection -->
          <div id="particlesY">
@@ -327,15 +330,15 @@
                     winningScore++;
                     
                     //Animate upper score selection arrow
-                    document.getElementById("mWins").style.filter = "drop-shadow(1px -1px 1px black)";
-                    document.getElementById("mWins").style.top = "473px";
+                    document.getElementById("mWins").style.filter = "drop-shadow(0px 0px 0px black)";
+                    document.getElementById("mWins").style.top = "468px";
                     setTimeout(function() {
-                        document.getElementById("mWins").style.filter = "drop-shadow(3px -1px 2px black)";
-                        document.getElementById("mWins").style.top = "470px";
+                        document.getElementById("mWins").style.filter = "drop-shadow(-2px -2px 2px black)";
+                        document.getElementById("mWins").style.top = "465px";
                     }, 50)
 
-                    document.getElementById("lWins").style.color = "white";
-                    document.getElementById("mWins").style.color = "white"; 
+                    document.getElementById("lWins").style.opacity = "1";
+                    document.getElementById("mWins").style.opcaity = "1"; 
                     if (winningScore >= 10) {
                         document.getElementById("setWins").style.marginLeft = "-215px";
                         document.getElementById("showScore").style.marginLeft = "0";
@@ -343,7 +346,8 @@
                     } 
                     
                     if (winningScore == 20) {
-                    document.getElementById("mWins").style.color = "lightgrey"; 
+                    document.getElementById("mWins").style.opacity = "0.8"; 
+                    document.getElementById("mWins").style.filter = "drop-shadow(1px 1px 1px black)";
                     }
                 }
                 document.getElementById("showScore").innerHTML = winningScore;
@@ -365,21 +369,22 @@
                         winningScore--;
 
                         //Animate lower score selection arrow
-                        document.getElementById("lWins").style.filter = "drop-shadow(1px -1px 1px black)";
-                        document.getElementById("lWins").style.top = "573px";
+                        document.getElementById("lWins").style.filter = "drop-shadow(0px 0px 0px black)";
+                        document.getElementById("lWins").style.top = "568px";
                         setTimeout(function() {
-                            document.getElementById("lWins").style.filter = "drop-shadow(-2px -2px 2px black)";
-                            document.getElementById("lWins").style.top = "570px";
+                            document.getElementById("lWins").style.filter = "drop-shadow(2px 2px 2px black)";
+                            document.getElementById("lWins").style.top = "565px";
                         }, 50)
 
-                        document.getElementById("mWins").style.color = "white";
+                        document.getElementById("mWins").style.opacity = "1";
                         if (winningScore >= 10) {
                         } else if (winningScore < 10) {
                             document.getElementById("setWins").style.marginLeft = "-195px";
                         }
 
                         if (winningScore == 1) {
-                            document.getElementById("lWins").style.color = "lightgrey"; 
+                            document.getElementById("lWins").style.opacity = "0.8"; 
+                            document.getElementById("lWins").style.filter = "drop-shadow(1px 1px 1px black)";
                         }
                     }
           
