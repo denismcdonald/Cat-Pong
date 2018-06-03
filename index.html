@@ -11,6 +11,7 @@
 <body>
 
     <div id="overlay"></div>
+    <div id="overlayCircle"></div>
  
     <div id="pong">
         <div id="pp">P</div>
@@ -274,10 +275,12 @@
             var framesPerSecond = 59;
 
             //Handle transparent overlay that indicates audio mute/unmute button
-            document.getElementById("speakerOff").classList.add("shake1");
+            setTimeout(function() {
+                document.getElementById("speakerOff").classList.add("shake1");
+            }, 800);
             setTimeout(function() {
                 document.getElementById("speakerOff").classList.remove("shake1");
-            }, 1000);
+            }, 2000);
 
             setTimeout(function() {
                 document.getElementById("overlay").style.opacity = "0";

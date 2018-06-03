@@ -49,10 +49,10 @@ canvas {
     height: 110%;
     opacity: .6;
     transition: opacity 1s ease-out;
-    z-index: 20;
+    z-index: 6;
 }
 
-#overlay:after {
+/* #overlay:after {
     content: "";
     position: absolute;
     display: inline-block;
@@ -63,18 +63,19 @@ canvas {
     border-width: 200px 200px 0 0;
     border-color: #ff7b00 transparent transparent transparent;
     z-index: 21;
-}
+} */
 
-#arrow {
+#overlayCircle {
     position: absolute;
-    height: 100px;
-    width: 100px;
-    left: 10px;
-    top: 80px;
-    opacity: 1;
-    z-index: 21;
-    overflow: hidden;
-    transform: rotate(90deg);
+    background-color: #ff7b00;
+    border-radius: 50%;
+    /* opacity: .9; */
+    top: 50px;
+    left: 50px;
+    height: 150px;
+    width: 150px;
+    animation: circle 1.6s forwards;
+    z-index: 6;
 }
 
 #freesound {
@@ -114,6 +115,7 @@ footer span {
     width: 50px;
     filter: drop-shadow(1px 1px 1px black);
     visibility: hidden;
+    z-index: 7;
 }
 
 #speakerOn:hover {
@@ -128,7 +130,7 @@ footer span {
     height: 50px;
     width: 50px;
     filter: drop-shadow(1px 1px 1px black);
-    z-index: 22;
+    z-index: 7;
 }
 
 #speakerOff:hover {
@@ -280,6 +282,9 @@ footer span {
     animation: sway 2.2s infinite;
 }
 
+.circle {
+    animation: circle 2s;
+}
 
 
 @keyframes shake {
@@ -456,7 +461,7 @@ footer span {
     }
     100% {
         opacity: 0;
-        top: 960px;
+        top: 940px;
     }
 }
 
@@ -515,6 +520,21 @@ footer span {
         margin-top: 55px;
         transform: rotate(1deg);
     }  
+}
+
+@keyframes circle {
+    0% {
+        left: 50px;
+        top: 50px;
+        height: 150px;
+        width: 150px;
+    }
+    100% {
+        left: 5px;
+        top: 5px;
+        height: 80px;
+        width: 80px;
+    }
 }
 
 
@@ -627,7 +647,7 @@ footer span {
     position: absolute;
     width: 15px;
     transition: all 100ms ease-out;
-    z-index: 12;
+    z-index: 4;
     /* animation: swayFace 2.2s infinite; */
 }
 
@@ -642,7 +662,7 @@ footer span {
     position: absolute;
     width: 15px;
     transition: all 100ms ease-out;
-    z-index: 9;
+    z-index: 4;
 }
 
 #shiny1 {
@@ -716,7 +736,7 @@ footer span {
     border-color: black transparent transparent transparent;
     top: 260px;
     transition: all 100ms ease-out;
-    z-index: 9;
+    z-index: 4;
 }
 
 #nose::after {
@@ -727,7 +747,7 @@ footer span {
     margin-right: 2px;
     margin-top: 5px;
     width: 1px;
-    z-index: 10;
+    z-index: 4;
 }
 
 
@@ -794,7 +814,7 @@ footer span {
     margin-left: -60px;
     width: 100px;
     filter: drop-shadow(2px 2px 5px black);
-    z-index: 2;
+    z-index: 3;
 }
 
 #umpire:hover {
@@ -812,7 +832,7 @@ footer span {
     top: 230px;
     width: 125px;
     filter: drop-shadow(2px 2px 5px #555);
-    z-index: 1;
+    z-index: 2;
 }
 
 #umpShirt:hover {
@@ -832,33 +852,7 @@ footer span {
     top: 165px;
     transition: transform .20s ease-out;
     filter: drop-shadow(1px 1px 2px #555);
-    z-index: 0;
-}
-
-#leftFoot {
-    position: absolute;
-    background-color: #92c9e0; 
-    border: 8px solid black;
-    border-radius: 45% 45% 25% 25%;
-    left: 50%;
-    margin-left: -50px;
-    top: 306px;
-    height: 15px;
-    width: 20px;
-    z-index: 1;
-}
-
-#rightFoot {
-    position: absolute;
-    background-color: #92c9e0; 
-    border: 8px solid black;
-    border-radius: 45% 45% 25% 25%;
-    left: 50%;
-    margin-left: 10px;
-    top: 306px;
-    height: 15px;
-    width: 20px;
-    z-index: 1;
+    z-index: 2;
 }
 
 #rightear {
@@ -894,7 +888,7 @@ footer span {
     left: 50%;
     margin-left: -195px;
     visibility: hidden;
-    z-index: 15;
+    z-index: 5;
     text-shadow: 2px 2px 5px black;
 }
 
@@ -919,7 +913,7 @@ footer span {
     top: 470px;
     margin-left: -25px;
     transform: rotate(45deg);
-    z-index: 10;
+    z-index: 5;
     filter: drop-shadow(3px -1px 2px black);
 }
 
@@ -932,11 +926,11 @@ footer span {
     margin-left: -25px;
     top: 570px;
     transform: rotate(-135deg);
-    z-index: 15;
+    z-index: 5;
     filter: drop-shadow(-2px -2px 2px black);
 }
 
-#mWins1 {
+/* #mWins1 {
     color: white;
     border-radius: 5px;
     position: absolute;
@@ -962,7 +956,7 @@ footer span {
     z-index: 15;
     filter: drop-shadow(-2px -2px 2px black);
     visibility: hidden;
-}
+} */
 
 #clickPlay {
     color: salmon;
