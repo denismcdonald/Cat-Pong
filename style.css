@@ -38,7 +38,7 @@ canvas {
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     cursor: crosshair;
     display: block;
-    margin: 200px auto 50px;
+    margin: 200px auto 40px;
 }
 
 #overlay {
