@@ -77,7 +77,7 @@ footer {
     font-family: "Modak";
     font-size: 22px;
     line-height: 1.7rem;
-    /* margin-bottom: 20px; */
+    margin-bottom: 20px;
     text-align: center;
     text-shadow: 2px 2px 2px black;
     transition: all .25s ease-out;
@@ -1076,6 +1076,48 @@ footer span {
 
     #p2Score {
         visibility: hidden;
+    }
+
+    @keyframes popin {
+        0% {
+          font-size: 100px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+        50% {
+          font-size: 105px;
+          opacity: 1;
+          text-shadow: 3px 3px 3px black;
+          filter: drop-shadow(5px 1px 5px black);
+        }
+        100% {
+          font-size: 100px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+    }
+
+    @keyframes popin1 {
+        0% {
+          font-size: 100px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
+        50% {
+          font-size: 105px;
+          opacity: 1;
+          text-shadow: 3px 3px 3px black;
+          filter: drop-shadow(5px 1px 5px black);
+        }
+        100% {
+          font-size: 100px;
+          opacity: .7;
+          text-shadow: 1px 1px 1px black;
+          filter: drop-shadow(2px 2px 2px black);
+        }
     }
 
 }
