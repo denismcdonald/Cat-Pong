@@ -91,7 +91,9 @@
 
     <a href="https://github.com/denismcdonald/Cat-Pong"><img id="GitHub" src="/assets/GitHub.png"></a>
 
-    <footer><a href="https://github.com/denismcdonald">Created by&nbsp;<span>Denis&nbsp;McDonald</span>.</a></footer>
+    <footer><a href="https://github.com/denismcdonald">Created by&nbsp;<span>Denis&nbsp;McDonald</span>.</a><br>
+    <a href="https://github.com/denismcdonald/Cat-Pong/blob/master/README.md">And <span>folks</span> of</a> <a href="https://freesound.org"><img id="freesound" src="/assets/freesound.png"></a>
+    </footer>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.12/howler.core.min.js"></script>
@@ -126,14 +128,14 @@
         Howler.volume(0.7);
         var boing = new Howl({
             src: ["/assets/ball.wav", "/assets/ball.mp3"],
-            volume: 0.5,
+            volume: 0.7,
             mute: true
         });  
 
         //Rebound/bounce audio
         var bounce = new Howl({
             src: ["/assets/bounce.mp3"],
-            volume: 0.5,
+            volume: 0.7,
             mute: true
         });  
 
@@ -168,7 +170,7 @@
         Howler.volume(0.6);
         var firework = new Howl({
             src: ["/assets/firework.mp3"],
-            volume: 1.4
+            volume: 1.5
         }); 
 
         //Music
@@ -176,7 +178,7 @@
             src: ["/assets/organ.mp3"],
             mute: false,
             preload: true,
-            volume: 0.6,
+            volume: 0.5,
             loop: true
         });  
 
@@ -200,6 +202,7 @@
             isMute = false;
             document.getElementById("speakerOff").style.visibility = "hidden";
             document.getElementById("speakerOn").style.visibility = "visible";
+            document.getElementById("umpire").classList.add("sway");
         });
 
         //AUDIO mute
@@ -210,6 +213,7 @@
             isMute = true;
             document.getElementById("speakerOn").style.visibility = "hidden";
             document.getElementById("speakerOff").style.visibility = "visible";
+            document.getElementById("umpire").classList.remove("sway");
         });
 
 
@@ -243,6 +247,7 @@
                 document.getElementById("mWins").style.visibility = "hidden";
                 document.getElementById("lWins").style.visibility = "hidden";
                 firework.play();
+                document.getElementById("umpire").classList.remove("sway");
             }
             if (showingWinScreen) {
                 player1Score = 0;
@@ -646,8 +651,8 @@
 
         function drawEverything() {
             
-            //Hides canvas on browsers less than 850px wide
-            if (window.matchMedia("(max-width: 850px)").matches) {
+            //Hides canvas on browsers less than 810px wide
+            if (window.matchMedia("(max-width: 810px)").matches) {
                 document.getElementById("setWins").style.visibility = "hidden";
                 document.getElementById("clickPlay").style.visibility = "hidden";
                 document.getElementById("mWins").style.visibility = "hidden";
@@ -690,7 +695,7 @@
 
                 document.getElementById("tail").classList.add("wag");
 
-                if (window.matchMedia("(min-width: 850px)").matches) {
+                if (window.matchMedia("(min-width: 810px)").matches) {
                 document.getElementById("setWins").style.visibility = "visible";
                 document.getElementById("clickPlay").style.visibility = "visible";
                 document.getElementById("mWins").style.visibility = "visible";

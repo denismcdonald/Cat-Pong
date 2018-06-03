@@ -38,7 +38,7 @@ canvas {
     box-shadow: 1px 1px 35px rgb(0,0,0.01);
     cursor: crosshair;
     display: block;
-    margin: 200px auto 30px;
+    margin: 200px auto 50px;
 }
 
 #overlay {
@@ -77,7 +77,19 @@ canvas {
     transform: rotate(90deg);
 }
 
+#freesound {
+    height: 62px;
+    width: 180px;
+    vertical-align: -25px;
+}
+
+#freesound:hover {
+    animation: cheer .45s;
+    /* filter: drop-shadow(1px 1px 0px yellow); */
+}
+
 footer {
+    color: skyblue;
     font-family: "Modak";
     font-size: 20px;
     line-height: 1.6rem;
@@ -264,6 +276,9 @@ footer span {
     animation: ping 1s;
 }
 
+.sway {
+    animation: sway 2.2s infinite;
+}
 
 
 
@@ -463,6 +478,46 @@ footer span {
     }
 }
 
+@keyframes sway {
+    0% {
+        transform: rotate(1deg);
+        margin-top: 55px;
+    }
+    13% {
+        transform: rotate(1deg);
+        margin-top: 53px;
+    }
+    26% {
+        transform: rotate(1deg);
+        margin-top: 55px;
+    }
+    39% {
+        transform: rotate(-1deg);
+        margin-top: 53px;
+    }
+    52% {
+        margin-top: 55px;
+        transform: rotate(-1deg);
+    }
+    65% {
+        margin-top: 53px;
+        transform: rotate(-1deg);
+    }
+    78% {
+        transform: rotate(-1deg);
+        margin-top: 55px;
+    }
+    88% {
+        transform: rotate(-1deg);
+        margin-top: 53px;
+    }
+    100% {
+        margin-top: 55px;
+        transform: rotate(1deg);
+    }  
+}
+
+
 #pingLeft {
     position: absolute;
     color: yellow;
@@ -573,6 +628,7 @@ footer span {
     width: 15px;
     transition: all 100ms ease-out;
     z-index: 12;
+    /* animation: swayFace 2.2s infinite; */
 }
 
 #eyeright {
@@ -977,7 +1033,7 @@ footer span {
 }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 810px) {
     canvas {
         visibility: hidden;
     }
@@ -998,14 +1054,26 @@ footer span {
 
     #windowAlert {
         visibility: visible;
+        /* max-width: 500px; */
+        margin: 70px;
     }
 
     #speakerOff {
         visibility: hidden;
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: 620px;
+        margin-left: -30px;
     }
 
     #speakerOn {
         visibility: hidden;
+        position: absolute;
+        display: block;
+        left: 50%;
+        top: 620px;
+        margin-left: -30px;
     }
 
     #GitHub {
