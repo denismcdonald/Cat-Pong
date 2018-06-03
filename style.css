@@ -9,23 +9,21 @@ a {
 
 a span {
     color: white;
-    /* font-size: 30px; */
     padding-right: 1px;
     text-shadow: 2px 2px 2px black;
     transition: all .20s ease-out;
 }
 
 a:hover span {
-    /* color: yellow; */
     font-size: 28px;
     text-shadow: 6px 6px 12px black;
     transition: all .15s ease-out;
 }
 
 body {
-    -webkit-user-select: none; /* Chrome/Safari */        
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* IE10+ */
+    -webkit-user-select: none;   
+    -moz-user-select: none;
+    -ms-user-select: none;
     background: #ff7b00;
     margin: 0; /*Necessary for #overlay div to fill full screen */
     font-family: Arial, Helvetica, sans-serif;
@@ -47,34 +45,20 @@ canvas {
     background-color: black;
     min-width: 100%;
     height: 110%;
-    opacity: .6;
+    opacity: .7;
     transition: opacity 1s ease-out;
     z-index: 6;
 }
 
-/* #overlay:after {
-    content: "";
-    position: absolute;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    opacity: .9;
-    border-style: solid;
-    border-width: 200px 200px 0 0;
-    border-color: #ff7b00 transparent transparent transparent;
-    z-index: 21;
-} */
-
-#overlayCircle {
+#spotlight {
     position: absolute;
     background-color: #ff7b00;
     border-radius: 50%;
-    /* opacity: .9; */
     top: 50px;
     left: 50px;
     height: 150px;
     width: 150px;
-    animation: circle 1.6s forwards;
+    animation: spotlight 1.6s forwards;
     z-index: 6;
 }
 
@@ -86,7 +70,6 @@ canvas {
 
 #freesound:hover {
     animation: cheer .65s infinite;
-    /* filter: drop-shadow(1px 1px 0px yellow); */
 }
 
 footer {
@@ -193,7 +176,6 @@ footer span {
     left: 100px;
 }
 
-
 #part1Yb {
     display: inline-block;
     background-color: white;
@@ -282,8 +264,8 @@ footer span {
     animation: sway 2.2s infinite;
 }
 
-.circle {
-    animation: circle 2s;
+.spotlight {
+    animation: spotlight 2s;
 }
 
 
@@ -417,28 +399,6 @@ footer span {
     }
   }
 
-@keyframes wellUp {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@keyframes leftWins {
-    0% {
-        height: 5px;
-        width: 5px;
-    }
-    100% {
-        height: 800px;
-        width: 800px;
-        margin-left: -250px;
-        margin-top: -250px;
-    }
-}
-
 @keyframes ricoTop {
     0% {
         opacity: 0;
@@ -522,7 +482,7 @@ footer span {
     }  
 }
 
-@keyframes circle {
+@keyframes spotlight {
     0% {
         left: 50px;
         top: 50px;
@@ -536,7 +496,6 @@ footer span {
         width: 80px;
     }
 }
-
 
 #pingLeft {
     position: absolute;
@@ -594,7 +553,7 @@ footer span {
     animation: popin 1.5s infinite;
 }
   
-  #gg {
+#gg {
     color: limegreen;
     display: inline-block;
     opacity: 1;
@@ -604,7 +563,7 @@ footer span {
     animation: popin1 1.5s infinite;
 }
   
-  #ex {
+#ex {
     color: white;
     display: inline-block;
     opacity: 1;
@@ -648,7 +607,6 @@ footer span {
     width: 15px;
     transition: all 100ms ease-out;
     z-index: 4;
-    /* animation: swayFace 2.2s infinite; */
 }
 
 #eyeright {
@@ -694,7 +652,6 @@ footer span {
     top: 13px;
     visibility: hidden;
 }
-
 
 #shiny2 {
     background-color: #fff;
@@ -749,7 +706,6 @@ footer span {
     width: 1px;
     z-index: 4;
 }
-
 
 #whiskers1 {
     background-color: #555;
@@ -930,34 +886,6 @@ footer span {
     filter: drop-shadow(-2px -2px 2px black);
 }
 
-/* #mWins1 {
-    color: white;
-    border-radius: 5px;
-    position: absolute;
-    cursor: pointer;
-    left: 50%;
-    top: 670px;
-    margin-left: -25px;
-    transform: rotate(45deg);
-    z-index: 10;
-    filter: drop-shadow(3px -1px 2px black);
-    visibility: hidden;
-}
-
-#lWins1 {
-    color: white;
-    border-radius: 5px;
-    position: absolute;
-    cursor: pointer;
-    left: 50%;
-    margin-left: -25px;
-    top: 770px;
-    transform: rotate(-135deg);
-    z-index: 15;
-    filter: drop-shadow(-2px -2px 2px black);
-    visibility: hidden;
-} */
-
 #clickPlay {
     color: salmon;
     font-family: "Modak";
@@ -1037,18 +965,15 @@ footer span {
     }
 
     #p1Score {
-        /* left: 23%; */
         visibility: hidden;
     }
 
     #p2Score {
-        /* right: 23%; */
         visibility: hidden;
     }
 
     #windowAlert {
         visibility: visible;
-        /* max-width: 500px; */
         margin: 70px;
     }
 
@@ -1210,5 +1135,4 @@ footer span {
     #setWins {
         visibility: hidden;
     }
-
 } */
