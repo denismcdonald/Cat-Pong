@@ -44,39 +44,6 @@ canvas {
     margin: 200px auto 50px;
 }
 
-#overlay {
-    position: fixed;
-    display: block;
-    background-color: black;
-    min-width: 100%;
-    height: 110%;
-    opacity: .7;
-    transition: opacity 1s ease-out;
-    z-index: 6;
-}
-
-#spotlight {
-    position: absolute;
-    background-color: #ff7b00;
-    border-radius: 50%;
-    top: 50px;
-    left: 50px;
-    height: 150px;
-    width: 150px;
-    animation: spotlight 1.6s forwards;
-    z-index: 6;
-}
-
-#freesound {
-    height: 50px;
-    width: 144px;
-    vertical-align: -18px;
-}
-
-#freesound:hover {
-    animation: cheer .65s infinite;
-}
-
 footer {
     color: skyblue;
     font-family: "Modak";
@@ -94,35 +61,14 @@ footer span {
     text-transform: none;
 }
 
-#speakerOn {
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
+#freesound {
     height: 50px;
-    width: 50px;
-    filter: drop-shadow(1px 1px 1px black);
-    visibility: hidden;
-    z-index: 7;
+    width: 144px;
+    vertical-align: -18px;
 }
 
-#speakerOn:hover {
-    animation: shake1 .5s;
-}
-
-#speakerOff {
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    height: 50px;
-    width: 50px;
-    filter: drop-shadow(1px 1px 1px black);
-    z-index: 7;
-}
-
-#speakerOff:hover {
-    animation: shake1 .5s;
+#freesound:hover {
+    animation: cheer .65s infinite;
 }
 
 #GitHub {
@@ -136,6 +82,17 @@ footer span {
 
 #GitHub:hover {
     animation: shake1 .5s;
+}
+
+#overlay {
+    position: fixed;
+    display: block;
+    background-color: black;
+    min-width: 100%;
+    height: 110%;
+    opacity: .7;
+    transition: opacity 1s ease-out;
+    z-index: 6;
 }
 
 #particlesY {
@@ -225,6 +182,51 @@ footer span {
     visibility: hidden;
 }
 
+#speakerOn {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    filter: drop-shadow(1px 1px 1px black);
+    visibility: hidden;
+    z-index: 7;
+}
+
+#speakerOn:hover {
+    animation: shake1 .5s;
+}
+
+#speakerOff {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 50px;
+    width: 50px;
+    filter: drop-shadow(1px 1px 1px black);
+    z-index: 7;
+}
+
+#speakerOff:hover {
+    animation: shake1 .5s;
+}
+
+#spotlight {
+    position: absolute;
+    background-color: #ff7b00;
+    border-radius: 50%;
+    top: 50px;
+    left: 50px;
+    height: 150px;
+    width: 150px;
+    animation: spotlight 1.6s forwards;
+    z-index: 6;
+}
+
+
+/* Keyframe animation classes to be added/removed with JS */
 .shake {
     animation: shake .30s;
 }
@@ -245,8 +247,8 @@ footer span {
     animation: spin .800s;
 }
 
-.popin {
-    animation: popin 1.25s infinite;
+.popIn {
+    animation: popIn 1.25s infinite;
 }
 
 .wag {
@@ -343,7 +345,7 @@ footer span {
     }
 }
 
-@keyframes popin {
+@keyframes popIn {
     0% {
       font-size: 160px;
       opacity: .8;
@@ -364,7 +366,7 @@ footer span {
     }
   }
 
-  @keyframes popin1 {
+  @keyframes popIn1 {
     0% {
         font-size: 165px;
         opacity: 1;
@@ -535,7 +537,7 @@ footer span {
     opacity: 1;
     transform: rotate(-20deg);
     text-shadow: 2px 2px 2px black;
-    animation: popin 1.5s infinite;
+    animation: popIn 1.5s infinite;
 }
   
 #oo {
@@ -545,7 +547,7 @@ footer span {
     vertical-align: 25px;
     transform: rotate(-5deg);
     text-shadow: 2px 2px 2px black;
-    animation: popin1 1.5s infinite;
+    animation: popIn1 1.5s infinite;
 }
   
 #nn {
@@ -555,7 +557,7 @@ footer span {
     vertical-align: 30px;
     transform: rotate(1deg);
     text-shadow: 2px 2px 2px black;
-    animation: popin 1.5s infinite;
+    animation: popIn 1.5s infinite;
 }
   
 #gg {
@@ -565,7 +567,7 @@ footer span {
     transform: rotate(15deg);
     vertical-align: 15px;
     text-shadow: 2px 2px 2px black;
-    animation: popin1 1.5s infinite;
+    animation: popIn1 1.5s infinite;
 }
   
 #ex {
@@ -575,7 +577,7 @@ footer span {
     transform: rotate(25deg);
     vertical-align: -20px;
     text-shadow: 2px 2px 2px black;
-    animation: popin 1.5s infinite;
+    animation: popIn 1.5s infinite;
 }
 
 #p1Score {
@@ -1047,7 +1049,7 @@ footer span {
         visibility: hidden;
     }
 
-    @keyframes popin {
+    @keyframes popIn {
         0% {
           font-size: 140px;
           opacity: .7;
@@ -1100,7 +1102,7 @@ footer span {
         font-size: 30px;
     }
 
-    @keyframes popin {
+    @keyframes popIn {
         0% {
           font-size: 100px;
           opacity: .7;
@@ -1121,7 +1123,7 @@ footer span {
         }
     }
 
-    @keyframes popin1 {
+    @keyframes popIn1 {
         0% {
           font-size: 105px;
           opacity: .7;
@@ -1173,7 +1175,7 @@ footer span {
     }
 
 
-    @keyframes popin {
+    @keyframes popIn {
         0% {
           font-size: 80px;
           opacity: .7;
@@ -1194,7 +1196,7 @@ footer span {
         }
     }
 
-    @keyframes popin1 {
+    @keyframes popIn1 {
         0% {
           font-size: 85px;
           opacity: .7;
