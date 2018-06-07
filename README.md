@@ -1,5 +1,5 @@
 # Cat-adjudicated Pong!
-An heuristic but playful pong clone experiment, made with HTML canvas, vanilla JavaScript and [Howler](https://github.com/goldfire/howler.js) (for game audio).
+An heuristic Pong-clone project, made with HTML canvas, vanilla JavaScript and [Howler](https://github.com/goldfire/howler.js) (for game audio).
 
 Play via Glitch [here](https://cat-pong.glitch.me/) or view on Codepen [here](https://codepen.io/denismcdonald/full/JvaBNM/).
 
