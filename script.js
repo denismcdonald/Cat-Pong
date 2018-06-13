@@ -1,3 +1,4 @@
+//Declare global variables
 var canvas;
 var ctx;
 var ballX = 400;
@@ -208,7 +209,6 @@ window.onload = function() {
     // }, 1000/framesPerSecond);
 
     canvas.addEventListener("mousedown", handleMouseClick);
-
     document.getElementById("clickPlay").addEventListener("mousedown", handleMouseClick);
     document.getElementById("setWins").addEventListener("mousedown", handleMouseClick);
     document.getElementById("mWins").addEventListener("mousedown", function() {
@@ -320,7 +320,7 @@ window.onload = function() {
 
 }  //window.onload 
 
-
+//Reposition ball after score
 function ballReset() {      
 
     if (player1Score >= winningScore) {
