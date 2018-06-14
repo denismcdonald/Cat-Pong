@@ -549,7 +549,7 @@ function moveEverything() {
         document.getElementById("eyeright").style.marginLeft = "18px";   
     }
 
-} //function moveEverything
+} //End of function moveEverything
 
 
 function drawEverything() {
@@ -644,7 +644,7 @@ function drawEverything() {
     ctx.stroke();
     ctx.fill();              
 
-} //function drawEverything
+} //End of function drawEverything
 
 
 //Circle drawing template
