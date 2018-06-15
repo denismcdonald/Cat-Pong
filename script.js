@@ -91,7 +91,7 @@ var crowd = new Howl({
     loop: true
 }); 
 
-//AUDIO unmute
+//Audio unmute
 document.getElementById("speakerOff").addEventListener("click", function() {
     document.getElementById("overlay").style.visibility = "hidden";
     Howler.mute(false);
@@ -105,7 +105,7 @@ document.getElementById("speakerOff").addEventListener("click", function() {
     document.getElementById("umpire").classList.add("sway");
 });
 
-//AUDIO mute
+//Audio mute
 document.getElementById("speakerOn").addEventListener("click", function() {
     Howler.mute(true);
     organ.stop();
@@ -592,8 +592,7 @@ function drawEverything() {
         return;
         }
 
-
-    // Startscreen TEST
+    // If initial start screen is displayed
     if (showingStartScreen) {
 
         document.getElementById("tail").classList.add("wag");
