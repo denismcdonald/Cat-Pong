@@ -214,6 +214,7 @@ footer span {
     animation: shake1 .5s;
 }
 
+/* Highlighting of audio button on page load */
 #spotlight {
     position: absolute;
     background-color: #ff7b00;
@@ -225,7 +226,6 @@ footer span {
     animation: spotlight 1.6s forwards;
     z-index: 6;
 }
-
 
 /* Keyframe animation classes to be added/removed with JS */
 .cheer {
