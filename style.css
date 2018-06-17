@@ -1194,30 +1194,3 @@ footer span {
         }
     }
 }
-
-/* For touch devices */
-/* @media (hover: none) {
-    canvas {
-        visibility: hidden;
-    }
-
-    #clickPlay {
-        visibility: hidden;
-    }
-
-    #pong {
-        font-size: 20px;
-    }
-
-    #p1Score {
-        visibility: hidden;
-    }
-
-    #p2Score {
-        visibility: hidden;
-    }
-
-    #setWins {
-        visibility: hidden;
-    }
-} */
