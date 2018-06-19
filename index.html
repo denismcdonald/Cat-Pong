@@ -15,9 +15,11 @@
 </head>
 <body>
 
+    <!--Animated shapes for highlighting audio mute/unmute button-->
     <div id="overlay"></div>
     <div id="spotlight"></div>
  
+    <!--Animated game heading-->
     <div id="pong">
         <div id="pp">P</div>
         <div id="oo">O</div>
@@ -26,6 +28,7 @@
         <div id="ex">!</div>
     </div>
 
+    <!--Begin cat components!-->
     <div id="umpire">
         <div id="leftEar"></div>
         <div id="rightEar"></div>
@@ -54,45 +57,40 @@
         <div id="whiskers5"></div>
         <div id="whiskers6"></div>
     </div>
-   
-        <div id="p1Score">0</div>
-        <div id="p2Score">0</div>
+    <!--End cat components!-->
 
-        <div id="setWins">Score <span id="showScore">5</span> to win!</div>
-        <div id="clickPlay">Click to play!</div>
-        <div id="windowAlert"><span>Uh oh!</span><br>Enlarge your browser, or view on desktop to play!</div>
-        
-        <!--Arrows for adjusting win score-->
-        <img id="mWins" src="/assets/arrow.png">
-        <img id="lWins" src="/assets/arrow.png">
+    <!--Scoreboard-->
+    <div id="p1Score">0</div>
+    <div id="p2Score">0</div>
 
-        <!--Former, less-supported arrows for adjusting win score-->
-        <!-- <svg class="triangle" id="mWins">
-            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
-          </svg>
-          <svg class="triangle" id="lWins">
-            <polygon points="0,0 50,0 0,50" fill="currentColor"></polygon>
-          </svg> -->
+    <div id="setWins">Score <span id="showScore">5</span> to win!</div>
+    <div id="clickPlay">Click to play!</div>
+    <div id="windowAlert"><span>Uh oh!</span><br>Enlarge your browser, or view on desktop to play!</div>
+    
+    <!--Arrows for adjusting win score-->
+    <img id="mWins" src="/assets/arrow.png">
+    <img id="lWins" src="/assets/arrow.png">
 
-        <!--Top border ricochet shapes for hit detection -->
-         <div id="particlesY">
-             <div id="part1Y"></div>
-             <div id="part2Y"></div>
-             <div id="part3Y"></div>
-         </div>
-        
-         <!--Bottom border ricochet shapes for hit detection -->
-         <div id="particlesYb">
-            <div id="part1Yb"></div>
-            <div id="part2Yb"></div>
-            <div id="part3Yb"></div>
+    <!--Top border ricochet shapes for hit detection -->
+        <div id="particlesY">
+            <div id="part1Y"></div>
+            <div id="part2Y"></div>
+            <div id="part3Y"></div>
         </div>
+    
+        <!--Bottom border ricochet shapes for hit detection -->
+        <div id="particlesYb">
+        <div id="part1Yb"></div>
+        <div id="part2Yb"></div>
+        <div id="part3Yb"></div>
+    </div>
 
-        <img id="speakerOn" src="/assets/speakerOn.svg">
-        <img id="speakerOff" src="/assets/speakerOff.svg">
+    <img id="speakerOn" src="/assets/speakerOn.svg">
+    <img id="speakerOff" src="/assets/speakerOff.svg">
 
-        <div id="pingLeft">Ping!</div>
-        <div id="pongRight">Pong!</div>
+    <!--Ball ricochet lettering-->
+    <div id="pingLeft">Ping!</div>
+    <div id="pongRight">Pong!</div>
 
     <canvas id="gameCanvas" width="800" height="550"></canvas>
 
