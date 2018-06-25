@@ -66,14 +66,14 @@ var score = new Howl({
     volume: 0.3
 }); 
 
-//Firework
+//Firework sound
 Howler.volume(0.6);
 var firework = new Howl({
     src: ["/assets/firework.mp3"],
     volume: 1.5
 }); 
 
-//Music
+//Music sound
 var organ = new Howl({
     src: ["/assets/organ.mp3"],
     mute: false,
@@ -82,7 +82,7 @@ var organ = new Howl({
     loop: true
 });  
 
-//Crowd
+//Crowd sound
 var crowd = new Howl({
     src: ["/assets/crowd.mp3"],
     mute: false,
