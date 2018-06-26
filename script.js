@@ -117,12 +117,11 @@ document.getElementById("speakerOn").addEventListener("click", function() {
 });
 
 
-//IMPORTANT!
+//Important
 function calculateMousePosition(evt) {
     var rect = canvas.getBoundingClientRect();
     var root = document.documentElement;
     var mouseX = evt.clientX - rect.left - root.scrollLeft;
-    // var mouseY = evt.clientY - rect.top - root.scrollTop;
     var mouseY = evt.clientY - rect.top;
     return {
         x:mouseX,
