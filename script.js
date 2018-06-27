@@ -201,12 +201,6 @@ window.onload = function() {
     }
     repeatOften();            
 
-    // Previous animation method, as per tutorial
-    // setInterval(function() {
-    //     moveEverything();
-    //     drawEverything();
-    // }, 1000/framesPerSecond);
-
     canvas.addEventListener("mousedown", handleMouseClick);
     document.getElementById("clickPlay").addEventListener("mousedown", handleMouseClick);
     document.getElementById("setWins").addEventListener("mousedown", handleMouseClick);
