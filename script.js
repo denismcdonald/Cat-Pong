@@ -1,4 +1,4 @@
-//Declare global variables
+//Global variables
 var canvas;
 var ctx;
 var ballX = 400;
@@ -637,7 +637,6 @@ function drawEverything() {
     ctx.fill();              
 
 } //End of function drawEverything
-
 
 //Circle drawing template
 function colorCircle(centerX, centerY, radius, drawColor) {

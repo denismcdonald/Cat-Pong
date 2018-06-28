@@ -30,8 +30,8 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     background: #ff7b00;
-    margin: 0; /*Necessary for #overlay div to fill full screen */
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0; /*Necessary for #overlay div to fill full screen */
     width: 100%;
 }
 
@@ -72,12 +72,12 @@ footer span {
 }
 
 #GitHub {
+    filter: drop-shadow(1px 1px 1px black);
+    height: 50px;
     position: absolute;
     right: 20px;
     top: 20px;
-    height: 50px;
     width: 50px;
-    filter: drop-shadow(1px 1px 1px black);
 }
 
 #GitHub:hover {
@@ -85,41 +85,41 @@ footer span {
 }
 
 #overlay {
-    position: fixed;
-    display: block;
     background-color: black;
-    min-width: 100%;
+    display: block;
     height: 110%;
+    min-width: 100%;
     opacity: .7;
+    position: fixed;
     transition: opacity 1s ease-out;
     z-index: 6;
 }
 
 /* Ball ricochet effect particles */
 #particlesY {
-    position: absolute;
     border-radius: 5px;
     opacity: 0;
+    position: absolute;
     top: 100px;
     visibility: hidden;
 }
 
 #part1Y {
-    display: inline-block;
     background-color: white;
     border-radius: 5px;
+    display: inline-block;
     height: 5px;
     width: 2px;
     transform: rotate(-30deg);
 }
 
 #part2Y {
-    display: inline-block;
     background-color: white;
     border-radius: 5px;
+    display: inline-block;
     height: 5px;
-    width: 2px;
     margin-bottom: 2px;
+    width: 2px;
 }
 
 #part3Y {
@@ -132,38 +132,38 @@ footer span {
 }
 
 #particlesYb {
-    position: absolute;
     border-radius: 5px;
     opacity: 0;
-    top: 300px;
+    position: absolute;
     left: 100px;
+    top: 300px;
 }
 
 #part1Yb {
-    display: inline-block;
     background-color: white;
     border-radius: 5px;
+    display: inline-block;
     height: 5px;
-    width: 2px;
     transform: rotate(25deg);
+    width: 2px;
 }
 
 #part2Yb {
-    display: inline-block;
     background-color: white;
     border-radius: 5px;
+    display: inline-block;
     height: 5px;
-    width: 2px;
     margin-bottom: -2px;
+    width: 2px;
 }
 
 #part3Yb {
-    display: inline-block;
     background-color: white;
     border-radius: 5px;
+    display: inline-block;
     height: 5px;
-    width: 2px;
     transform: rotate(-25deg);
+    width: 2px;
 }
 
 #ricoY {
@@ -171,27 +171,27 @@ footer span {
     height: 10px;
     position: absolute;
     top: 914px; /*364-914*/
-    width: 30px;
     visibility: hidden;
+    width: 30px;
 }
 
 #ricoX {
-    position: absolute;
     background-color: red;
+    position: absolute;
     height: 30px;
-    width: 10px;
     visibility: hidden;
+    width: 10px;
 }
 
 #speakerOn {
     cursor: pointer;
+    filter: drop-shadow(1px 1px 1px black);
+    height: 50px;
+    left: 20px;
     position: absolute;
     top: 20px;
-    left: 20px;
-    height: 50px;
-    width: 50px;
-    filter: drop-shadow(1px 1px 1px black);
     visibility: hidden;
+    width: 50px;
     z-index: 7;
 }
 
@@ -201,12 +201,12 @@ footer span {
 
 #speakerOff {
     cursor: pointer;
+    filter: drop-shadow(1px 1px 1px black);
+    height: 50px;
+    left: 20px;
     position: absolute;
     top: 20px;
-    left: 20px;
-    height: 50px;
     width: 50px;
-    filter: drop-shadow(1px 1px 1px black);
     z-index: 7;
 }
 
@@ -216,14 +216,14 @@ footer span {
 
 /* Highlighting of audio button on page load */
 #spotlight {
-    position: absolute;
+    animation: spotlight 1.6s forwards;
     background-color: #ff7b00;
     border-radius: 50%;
-    top: 50px;
-    left: 50px;
     height: 150px;
+    left: 50px;
+    position: absolute;
+    top: 50px;
     width: 150px;
-    animation: spotlight 1.6s forwards;
     z-index: 6;
 }
 
@@ -320,43 +320,44 @@ footer span {
 
 @keyframes popIn {
     0% {
+      filter: drop-shadow(2px 2px 2px black);
       font-size: 160px;
       opacity: .8;
       text-shadow: 1px 1px 1px black;
-      filter: drop-shadow(2px 2px 2px black);
+
     }
     50% {
+      filter: drop-shadow(10px 3px 5px black);
       font-size: 165px;
       opacity: 1;
       text-shadow: 3px 3px 3px black;
-      filter: drop-shadow(10px 3px 5px black);
     }
     100% {
+      filter: drop-shadow(2px 2px 2px black);
       font-size: 160px;
       opacity: .8;
       text-shadow: 1px 1px 1px black;
-      filter: drop-shadow(2px 2px 2px black);
     }
   }
 
 @keyframes popIn1 {
     0% {
+      filter: drop-shadow(10px 3px 5px black);
       font-size: 165px;
       opacity: 1;
       text-shadow: 3px 3px 3px black;
-      filter: drop-shadow(10px 3px 5px black);
     }
     50% {
+      filter: drop-shadow(2px 2px 2px black);
       font-size: 160px;
       opacity: .8;
       text-shadow: 1px 1px 1px black;
-      filter: drop-shadow(2px 2px 2px black);
     }
     100% {
+      filter: drop-shadow(10px 3px 5px black);
       font-size: 165px;
       opacity: 1;
       text-shadow: 3px 3px 3px black;
-      filter: drop-shadow(10px 3px 5px black);
     }
 }
 
@@ -433,35 +434,35 @@ footer span {
 
 @keyframes spotlight {
     0% {
+      height: 150px;
       left: 50px;
       top: 50px;
-      height: 150px;
       width: 150px;
     }
     100% {
+      height: 80px;
       left: 5px;
       top: 5px;
-      height: 80px;
       width: 80px;
     }
 }
 
 @keyframes sway {
     0% {
-      transform: rotate(1deg);
       margin-top: 55px;
+      transform: rotate(1deg);
     }
     13% {
-      transform: rotate(1deg);
       margin-top: 53px;
+      transform: rotate(1deg);
     }
     26% {
-      transform: rotate(1deg);
       margin-top: 55px;
+      transform: rotate(1deg);
     }
     39% {
-      transform: rotate(-1deg);
       margin-top: 53px;
+      transform: rotate(-1deg);
     }
     52% {
       margin-top: 55px;
@@ -472,12 +473,12 @@ footer span {
       transform: rotate(-1deg);
     }
     78% {
-      transform: rotate(-1deg);
       margin-top: 55px;
+      transform: rotate(-1deg);
     }
     88% {
-      transform: rotate(-1deg);
       margin-top: 53px;
+      transform: rotate(-1deg);
     }
     100% {
       margin-top: 55px;
@@ -487,104 +488,104 @@ footer span {
 
 @keyframes wag {
     0% {
-      transform: rotate(-15deg);
-      top: 163px;
       opacity: 1;
+      transform: rotate(-15deg);
+      top: 163px;      
     }
     70% {
+      opacity: .8;
       transform: rotate(15deg);
       top: 166px;
-      opacity: .8;
     }
     100% {
+      opacity: 1;
       transform: rotate(-15deg);
       top: 163px;
-      opacity: 1;
     }
 }
 
 
 /* "PONG!" heading lettering */
 #pong {
-    text-align: center;
     font-family: "Modak";
     font-size: 160px;
+    height: 300px;
     margin-bottom: -120px;
     margin-top: -40px;
-    height: 300px;
+    text-align: center;
 }
 
 #pp {
+    animation: popIn 1.5s infinite;
     color: yellow;
     display: inline-block;
     opacity: 1;
     transform: rotate(-20deg);
     text-shadow: 2px 2px 2px black;
-    animation: popIn 1.5s infinite;
 }
   
 #oo {
+    animation: popIn1 1.5s infinite;
     color: salmon;
     display: inline-block;
     opacity: 1;
-    vertical-align: 25px;
     transform: rotate(-5deg);
     text-shadow: 2px 2px 2px black;
-    animation: popIn1 1.5s infinite;
+    vertical-align: 25px;
 }
   
 #nn {
+    animation: popIn 1.5s infinite;
     color: lightskyblue;
     display: inline-block;
     opacity: 1;
-    vertical-align: 30px;
     transform: rotate(1deg);
     text-shadow: 2px 2px 2px black;
-    animation: popIn 1.5s infinite;
+    vertical-align: 30px;
 }
   
 #gg {
+    animation: popIn1 1.5s infinite;
     color: limegreen;
     display: inline-block;
     opacity: 1;
+    text-shadow: 2px 2px 2px black;
     transform: rotate(15deg);
     vertical-align: 15px;
-    text-shadow: 2px 2px 2px black;
-    animation: popIn1 1.5s infinite;
 }
   
 #ex {
+    animation: popIn 1.5s infinite;
     color: white;
     display: inline-block;
     opacity: 1;
+    text-shadow: 2px 2px 2px black;
     transform: rotate(25deg);
     vertical-align: -20px;
-    text-shadow: 2px 2px 2px black;
-    animation: popIn 1.5s infinite;
 }
 
 #pingLeft {
-    position: absolute;
     color: yellow;
     font-family: "Bangers";
     font-size: 30px;
+    position: absolute;
     text-shadow: 2px 2px 2px black;
     visibility: hidden;
 }
 
 #pongRight {
-    position: absolute;
     color: yellow;
     font-family: "Bangers";
     font-size: 30px;
+    position: absolute;
     text-shadow: 2px 2px 2px black;
     visibility: hidden;
 }
 
 #p1Score {
-    font-family: Monoton;
-    font-size: 50px;
     filter: drop-shadow(6px 6px 20px yellow);
+    font-family: Monoton;
+    /* font-size: 50px; */
     font-weight: bold;
     left: 33%;
     margin-top: 30px;
@@ -594,7 +595,7 @@ footer span {
 
 #p2Score {
     font-family: Monoton;
-    font-size: 50px;
+    /* font-size: 50px; */
     font-weight: bold;
     filter: drop-shadow(6px 6px 20px yellow);
     right: 33.5%;
@@ -612,10 +613,10 @@ footer span {
     height: 15px;
     left: 50%;
     margin-left: -30px;
-    top: 235px;
     position: absolute;
-    width: 15px;
+    top: 235px;    
     transition: all 100ms ease-out;
+    width: 15px;
     z-index: 4;
 }
 
@@ -626,10 +627,10 @@ footer span {
     height: 15px;
     left: 50%;
     margin-left: 10px;
-    top: 235px;
     position: absolute;
-    width: 15px;
+    top: 235px;
     transition: all 100ms ease-out;
+    width: 15px;
     z-index: 4;
 }
 
