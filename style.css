@@ -654,27 +654,27 @@ footer span {
 }
 
 #nose {
-    position: absolute;
-    width: 0;
     height: 0;
-    left: 50%;
-    margin-left: -10px;
     border-radius: 10px;
     border-style: solid;
     border-width: 8px 10px 0 8px;
     border-color: black transparent transparent transparent;
+    left: 50%;
+    margin-left: -10px;
+    position: absolute;
     top: 260px;
     transition: all 100ms ease-out;
+    width: 0;
     z-index: 4;
 }
 
 #nose::after {
-    content: "";
     background-color: #999;
+    content: "";
     height: 5px;
-    position: absolute;
     margin-right: 2px;
     margin-top: 5px;
+    position: absolute;
     width: 1px;
     z-index: 4;
 }
@@ -682,69 +682,69 @@ footer span {
 #shiny1 {
     background-color: #fff;
     height: 2px;
-    width: 2px;
     position: absolute;
     right: 5px;
     top: 2px;
+    width: 2px;
 }
 
 #shiny2 {
     background-color: #fff;
     height: 2px;
-    width: 2px;
     position: absolute;
     right: 5px;
     top: 2px;
+    width: 2px;
 }
 
 #tearLeft {
-    position: absolute;
     background-color: white;
     height: 2px;
-    width: 11px;
+    position: absolute;
     right: 2px;
     top: 13px;
+    width: 11px;
     visibility: hidden;
 }
 
 #tearRight {
-    position: absolute;
     background-color: white;
     border-radius: 4px;
     height: 2px;
-    width: 11px;
+    position: absolute;
     right: 2px;
     top: 13px;
+    width: 11px;
     visibility: hidden;
 }
 
 #tail {
-    position: absolute;
     background-color: #92c9e0; 
     border: 8px solid black;
     border-radius: 40%;
+    filter: drop-shadow(1px 1px 2px #555);
     height: 80px;
-    width: 12px;
     left: 50%;
     margin-left: -12px;
     opacity: .9;
+    position: absolute;
     top: 165px;
     transition: transform .20s ease-out;
-    filter: drop-shadow(1px 1px 2px #555);
+    width: 12px;
     z-index: 2;
 }
 
 #umpire {
-    position: absolute;
     background-color: #92c9e0;
     border: 8px solid black;
     border-radius: 25px;
+    filter: drop-shadow(2px 2px 5px black);
     height: 80px;
-    margin-top: 55px;
     left: 50%;
     margin-left: -60px;
+    margin-top: 55px;
+    position: absolute;
     width: 100px;
-    filter: drop-shadow(2px 2px 5px black);
     z-index: 3;
 }
 
@@ -753,16 +753,16 @@ footer span {
 }
 
 #umpShirt {
-    position: absolute;
     background-image: repeating-linear-gradient(90deg, white, white 14px, black 14px, black 28px);
     border: 8px solid black;
     border-radius: 25px;
+    filter: drop-shadow(2px 2px 5px #555);
     height: 80px;
     left: 50%;
     margin-left: -72px;
+    position: absolute;
     top: 230px;
     width: 125px;
-    filter: drop-shadow(2px 2px 5px #555);
     z-index: 2;
 }
 
@@ -823,41 +823,41 @@ footer span {
 }
 
 #rightEar {
-    height: 0;
-    width: 0;
-    position: relative;
-    top: -58px;
-    left: 51px;
+    border-color: transparent transparent #92c9e0 transparent;
     border-style: solid;
     border-width: 0 25px 38px 25px;
-    border-color: transparent transparent #92c9e0 transparent;
+    height: 0;
+    left: 51px;
+    position: relative;
+    top: -58px;
     transform: skew(0, 25deg);
+    width: 0;
 }
 
 #leftEar {
-    height: 0;
-    width: 0;
-    position: relative;
-    top: -25px;
-    left: -1px;
+    border-color: transparent transparent #92c9e0 transparent;
     border-style: solid;
     border-width: 0 25px 38px 25px;
-    border-color: transparent transparent #92c9e0 transparent;
+    height: 0;
+    left: -1px;
+    position: relative;
+    top: -25px;
     transform: skew(0, -25deg);
+    width: 0;
 }
-/* END of cat components */
+/* End of cat components */
 
 #setWins {
     color: yellow;
     font-family: "Modak";
     font-size: 60px;
     position: absolute;
-    top: 500px;
     left: 50%;
     margin-left: -195px;
+    top: 500px;
+    text-shadow: 2px 2px 5px black;
     visibility: hidden;
     z-index: 5;
-    text-shadow: 2px 2px 5px black;
 }
 
 #setWins span {
@@ -873,56 +873,54 @@ footer span {
 }
 
 #mWins {
-    /* color: white; */
     border-radius: 5px;
-    position: absolute;
     cursor: pointer;
-    left: 50%;
-    height: 60px;
-    width: 60px;
-    top: 465px;
-    margin-left: -30px;
-    transform: rotate(180deg);
-    z-index: 5;
     filter: drop-shadow(-2px -2px 2px black);
+    height: 60px;
+    left: 50%;
+    margin-left: -30px;
+    position: absolute;
+    top: 465px;
+    transform: rotate(180deg);
+    width: 60px;
+    z-index: 5;
 }
 
 #lWins {
-    /* color: white; */
     border-radius: 5px;
-    position: absolute;
     cursor: pointer;
-    left: 50%;
+    filter: drop-shadow(2px 2px 2px black);
     height: 60px;
-    width: 60px;
+    left: 50%;
+    position: absolute;
     margin-left: -30px;
     top: 565px;
+    width: 60px;
     z-index: 5;
-    filter: drop-shadow(2px 2px 2px black);
 }
 
 #clickPlay {
     color: salmon;
     font-family: "Modak";
     font-size: 60px;
-    position: absolute;
-    top: 700px;
     left: 50%;
     margin-left: -170px;
-    visibility: hidden;
+    position: absolute;
     text-shadow: 2px 2px 5px black;
+    top: 700px;
+    visibility: hidden;
 }
 
 /* Alert that browser needs to be enlarged */
 #windowAlert {
-    visibility: hidden;
     color: lightskyblue;
     font-family: "Modak";
     font-size: 40px;
     position: absolute;
-    top: 300px;
     text-align: center;
     text-shadow: 1px 1px 1px black;
+    top: 300px;
+    visibility: hidden;
 }
 
 #windowAlert span {
@@ -997,21 +995,21 @@ footer span {
     }
 
     #speakerOff {
-        visibility: hidden;
-        position: absolute;
         display: block;
+        position: absolute;
         left: 50%;
-        top: 630px;
         margin-left: -30px;
+        top: 630px;
+        visibility: hidden;
     }
 
     #speakerOn {
-        visibility: hidden;
-        position: absolute;
         display: block;
         left: 50%;
-        top: 630px;
         margin-left: -30px;
+        position: absolute;
+        top: 630px;
+        visibility: hidden;
     }
 
     #GitHub {
@@ -1029,22 +1027,22 @@ footer span {
 
     @keyframes popIn {
         0% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 140px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
         50% {
+          filter: drop-shadow(5px 1px 5px black);
           font-size: 145px;
           opacity: 1;
           text-shadow: 3px 3px 3px black;
-          filter: drop-shadow(5px 1px 5px black);
         }
         100% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 140px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
     }
 }
@@ -1081,43 +1079,43 @@ footer span {
 
     @keyframes popIn {
         0% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 100px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
         50% {
+          filter: drop-shadow(5px 1px 5px black);
           font-size: 105px;
           opacity: 1;
           text-shadow: 3px 3px 3px black;
-          filter: drop-shadow(5px 1px 5px black);
         }
         100% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 100px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
     }
 
     @keyframes popIn1 {
         0% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 105px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
         50% {
+          filter: drop-shadow(5px 1px 5px black);
           font-size: 100px;
           opacity: 1;
           text-shadow: 3px 3px 3px black;
-          filter: drop-shadow(5px 1px 5px black);
         }
         100% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 105px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
     }
 }
@@ -1128,8 +1126,8 @@ footer span {
     }
 
     #pong {
-        margin-top: 20px;
         margin-right: 20px;
+        margin-top: 20px;
     }
 
     #p1Score {
@@ -1153,43 +1151,43 @@ footer span {
 
     @keyframes popIn {
         0% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 80px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
         50% {
+          filter: drop-shadow(5px 1px 5px black);
           font-size: 85px;
           opacity: 1;
           text-shadow: 3px 3px 3px black;
-          filter: drop-shadow(5px 1px 5px black);
         }
         100% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 80px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
     }
 
     @keyframes popIn1 {
         0% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 85px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
         50% {
+          filter: drop-shadow(5px 1px 5px black);
           font-size: 80px;
           opacity: 1;
           text-shadow: 3px 3px 3px black;
-          filter: drop-shadow(5px 1px 5px black);
         }
         100% {
+          filter: drop-shadow(2px 2px 2px black);
           font-size: 85px;
           opacity: .7;
           text-shadow: 1px 1px 1px black;
-          filter: drop-shadow(2px 2px 2px black);
         }
     }
 }
