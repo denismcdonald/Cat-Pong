@@ -32,7 +32,7 @@ var boing = new Howl({
     mute: true
 });  
 
-//Rebound/bounce audio
+//Rebound sound
 var bounce = new Howl({
     src: ["/assets/bounce.mp3"],
     volume: 0.7,
