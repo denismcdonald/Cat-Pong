@@ -426,7 +426,7 @@ function moveEverything() {
             ballReset();
             document.getElementById("p2Score").innerHTML = player2Score;
 
-            //Point tail to player 2 score
+            //Point cat's tail to player 2's score
             document.getElementById("tail").style.transform = "rotate(15deg)";
             
             //Animate score of player 2
@@ -477,7 +477,7 @@ function moveEverything() {
             ballReset();
             document.getElementById("p1Score").innerHTML = player1Score;
 
-            //Point tail to player 1 score
+            //Point cat's tail to player 1's score
             document.getElementById("tail").style.transform = "rotate(-15deg)";
 
             //Animate score of player 2
