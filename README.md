@@ -1,9 +1,9 @@
 # Cat-adjudicated Pong!
-An heuristic Pong-clone project, made with HTML canvas, vanilla JavaScript and [Howler](https://github.com/goldfire/howler.js) (for game audio).
+An heuristic Pong-clone project made with HTML canvas, CSS keyframes, vanilla JavaScript and [Howler](https://github.com/goldfire/howler.js) (for the game's audio).
 
 Play via Glitch [here](https://cat-pong.glitch.me/) or view on Codepen [here](https://codepen.io/denismcdonald/full/JvaBNM/).
 
-Many thanks too, and due acknowledgment, to the following [Freesound](https://freesound.org) contributors for their respective field recordings:
+Many thanks, too, to the following [Freesound](https://freesound.org) contributors for their respective field recordings:
 
 * [Gottlieb](https://freesound.org/people/gottlieb/sounds/60604/) ([Creative Commons licence](http://creativecommons.org/licenses/by/3.0/)) <br>
 * [Ermine](https://freesound.org/people/ermine/sounds/25779/) ([Creative Commons licence](http://creativecommons.org/licenses/by-nc/3.0/)) <br>
