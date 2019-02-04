@@ -1,7 +1,7 @@
 # Cat-adjudicated Pong.
 A Pong-clone project, being my first game and first experiment with the HTML `canvas` element.  The project also makes use of [Howler](https://github.com/goldfire/howler.js) for the game's audio.
 
-Play via Glitch [here](https://cat-pong.glitch.me/) or view on Codepen [here](https://codepen.io/denismcdonald/full/JvaBNM/).
+You can play the game via [Glitch](https://cat-pong.glitch.me/) or view it on [Codepen](https://codepen.io/denismcdonald/full/JvaBNM/).
 
 Many thanks to the following [Freesound](https://freesound.org) contributors for the field recordings that feature in the game:
 
