@@ -1,7 +1,7 @@
 # Cat Pong
-An heuristic Pong-clone project, playable via [Glitch](https://cat-pong.glitch.me/). This was my first game and first experiment with the HTML `canvas` element. The project also makes use of [Howler](https://github.com/goldfire/howler.js) for the game's audio.
+An heuristic Pong-clone project, playable via [Glitch](https://cat-pong.glitch.me/).
 
-Many thanks to the following [Freesound](https://freesound.org) contributors for the field recordings that feature in the game:
+Thanks to the following [Freesound](https://freesound.org) contributors for the field recordings that feature in the game:
 
 * [Gottlieb](https://freesound.org/people/gottlieb/sounds/60604/) ([Creative Commons licence](http://creativecommons.org/licenses/by/3.0/)) <br>
 * [Ermine](https://freesound.org/people/ermine/sounds/25779/) ([Creative Commons licence](http://creativecommons.org/licenses/by-nc/3.0/)) <br>
